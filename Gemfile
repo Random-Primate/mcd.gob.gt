@@ -27,7 +27,13 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 # RSpec testing Framework for Rails
-gem 'rspec-rails', '~> 3.0.0', group: :develpment
+gem 'rspec-rails', '~> 3.1.0', group: :development
+
+# Acceptance testing framework for Rails
+gem 'capybara', '2.3.0', group: :development
+
+# Test data object creation for Ruby
+gem 'factory_girl', '4.4.0', group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
