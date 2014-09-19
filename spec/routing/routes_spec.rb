@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'landing site' do
+RSpec.describe 'Home' do
 
   describe 'routing' do
 
