@@ -1,4 +1,4 @@
-blog-on
+Blast
 =======
 
 Just another blogging app.
