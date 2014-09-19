@@ -30,7 +30,7 @@ gem 'spring',        group: :development
 # RSpec testing Framework for Rails
 gem 'rspec-rails', '~> 3.1.0', group: :development
 # Acceptance testing framework for Rails
-gem 'capybara', '2.3.0', group: :development
+gem 'capybara', '>= 2.4.1', group: :development
 # Test data object creation for Ruby
 gem 'factory_girl', '4.4.0', group: :development
 # Authentication Component
