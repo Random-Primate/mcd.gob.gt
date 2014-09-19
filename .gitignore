@@ -16,7 +16,6 @@
 /tmp
 
 # Ignore IDE
-/.idea/*
 /.idea
 
 # Ignore OSX
