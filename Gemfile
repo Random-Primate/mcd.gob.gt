@@ -11,6 +11,8 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '~> 4.0.3'
 # Adds vendor prefixes to css rules
 gem 'autoprefixer-rails'
+# Abstraction Markup
+gem 'haml-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -33,6 +35,10 @@ gem 'rspec-rails', '~> 3.1.0', group: :development
 gem 'capybara', '>= 2.4.1', group: :development
 # Test data object creation for Ruby
 gem 'factory_girl', '4.4.0', group: :development
+# Test data object creation for Ruby
+gem 'annotate', group: :development
+# Adding Code Climate test requirements
+gem 'codeclimate-test-reporter', group: :test, require: nil
 # Authentication Component
 gem 'devise'
 # Authentication Component for Additional Services
