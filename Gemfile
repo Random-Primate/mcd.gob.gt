@@ -43,6 +43,8 @@ gem 'codeclimate-test-reporter', group: :test, require: nil
 gem 'devise'
 # Authentication Component for Additional Services
 gem 'omniauth', '>= 1.0.0'
+# Makes running your Rails app easier. Based on the ideas behind 12factor.net
+gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
