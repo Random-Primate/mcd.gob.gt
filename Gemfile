@@ -45,6 +45,8 @@ gem 'devise'
 gem 'omniauth', '>= 1.0.0'
 # Makes running your Rails app easier. Based on the ideas behind 12factor.net
 gem 'rails_12factor', group: :production
+# Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.
+gem 'database_cleaner', group: :test
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
