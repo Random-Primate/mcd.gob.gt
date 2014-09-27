@@ -1,6 +1,6 @@
 /*
  *
- *   Custom styles for global use
+ *  Custom styles for global use
  *
  */
 
@@ -15,13 +15,36 @@ hr.faded {
 
 /*
  *
- *  Forms
+ *  Context
  *
  */
 
-body {
-  background-color: #eee;
+* {
+  margin: 0;
 }
+html, body {
+  height: 100%;
+}
+
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px;
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+footer, .page-wrap:after {
+  /* .push must be the same height as footer */
+  height: 142px;
+}
+
+/*
+ *
+ *  Forms
+ *
+ */
 
 .form-devise {
   max-width: 330px;
@@ -79,13 +102,26 @@ body {
 .artic {
   list-style-type: none;
 }
-footer {
-  margin: 0;
-  height: 120px;
-  text-align: center;
-  padding: 2em;
-  background-color: #F2F2F2;
-}
+
+/*
+ *
+ *  Sidebar
+ *
+ */
+
 #sidebar {
   height: 100%;
+}
+
+/*
+ *
+ *  Footer
+ *
+ */
+
+footer {
+  text-align: center;
+  padding: 2em;
+  background-color: #f8f8f8;
+  border-top: 1px solid #eeeeee;
 }
