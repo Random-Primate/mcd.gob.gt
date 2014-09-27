@@ -1,0 +1,6 @@
+.container
+  - flash.each do |key, value|
+    %div{ class: "alert #{flash_class key}"}
+      %button.close{ 'data-dismiss' => 'alert'}
+        ='x'
+      = value
