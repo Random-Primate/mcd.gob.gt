@@ -47,6 +47,8 @@ gem 'omniauth', '>= 1.0.0'
 gem 'rails_12factor', group: :production
 # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.
 gem 'database_cleaner', group: :test
+# Rails forms made easy.
+gem 'simple_form'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
