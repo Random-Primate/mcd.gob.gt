@@ -49,6 +49,8 @@ gem 'rails_12factor', group: :production
 gem 'database_cleaner', group: :test
 # Rails forms made easy.
 gem 'simple_form'
+# Authorization library for Ruby on Rails which restricts what resources a given user is allowed to access.
+gem 'cancancan', '~> 1.9'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
