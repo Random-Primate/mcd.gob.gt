@@ -1,7 +1,7 @@
 Blast
 =====
 
-[ ![Dependency Status](https://gemnasium.com/Random-Primate/blast.svg)](https://gemnasium.com/Random-Primate/blast) [![Code Climate](https://codeclimate.com/github/Random-Primate/blast/badges/gpa.svg)](https://codeclimate.com/github/Random-Primate/blast) [![Test Coverage](https://codeclimate.com/github/Random-Primate/blast/badges/coverage.svg)](https://codeclimate.com/github/Random-Primate/blast) [![security](https://hakiri.io/github/Random-Primate/blast/master.svg)](https://hakiri.io/github/Random-Primate/blast/master)[![build](https://travis-ci.org/Random-Primate/blast.svg)](https://travis-ci.org/Random-Primate/blast.svg)  
+[ ![Dependency Status](https://gemnasium.com/Random-Primate/blast.svg)](https://gemnasium.com/Random-Primate/blast) [![Code Climate](https://codeclimate.com/github/Random-Primate/blast/badges/gpa.svg)](https://codeclimate.com/github/Random-Primate/blast) [![Test Coverage](https://codeclimate.com/github/Random-Primate/blast/badges/coverage.svg)](https://codeclimate.com/github/Random-Primate/blast) [![security](https://hakiri.io/github/Random-Primate/blast/master.svg)](https://hakiri.io/github/Random-Primate/blast/master)[![build](https://travis-ci.org/Random-Primate/blast.svg)] (https://travis-ci.org/Random-Primate/blast.svg)  
 
 Blast is a content management system (CMS) build with Ruby on Rails. 
 
