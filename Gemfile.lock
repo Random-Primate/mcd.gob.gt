@@ -34,6 +34,12 @@ GEM
     autoprefixer-rails (3.1.0.20140911)
       execjs
     bcrypt (3.1.7)
+    better_errors (2.0.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     builder (3.2.2)
@@ -44,8 +50,12 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    celluloid (0.16.0)
+      timers (~> 4.0.0)
+    cocoon (1.2.6)
     codeclimate-test-reporter (0.4.0)
       simplecov (>= 0.7.1, < 1.0.0)
+    coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -53,7 +63,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
-    database_cleaner (1.3.0)
+    debug_inspector (0.0.2)
     devise (3.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -62,10 +72,42 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    em-websocket (0.5.1)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
+    eventmachine (1.0.3)
     execjs (2.2.1)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
+    ffi (1.9.5)
+    font-awesome-rails (4.2.0.0)
+      railties (>= 3.2, < 5.0)
+    formatador (0.2.5)
+    gaffe (1.0.2)
+      rails (>= 3.2.0)
+    guard (2.6.1)
+      formatador (>= 0.2.4)
+      listen (~> 2.7)
+      lumberjack (~> 1.0)
+      pry (>= 0.9.12)
+      thor (>= 0.18.1)
+    guard-annotate (1.1.0)
+      annotate (>= 2.4.0)
+      guard (>= 0.2.2)
+    guard-bundler (2.0.0)
+      bundler (~> 1.0)
+      guard (~> 2.2)
+    guard-livereload (2.3.1)
+      em-websocket (~> 0.5)
+      guard (~> 2.0)
+      multi_json (~> 1.8)
+    guard-migrate (1.1.0)
+      activerecord (>= 4.1.0)
+      guard (>= 2.3.0)
+    guard-rspec (4.3.1)
+      guard (~> 2.1)
+      rspec (>= 2.14, < 4.0)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -73,32 +115,64 @@ GEM
       activesupport (>= 4.0.1)
       haml (>= 3.1, < 5.0)
       railties (>= 4.0.1)
+    has_scope (0.6.0.rc)
+      actionpack (>= 3.2, < 5)
+      activesupport (>= 3.2, < 5)
     hashie (3.3.1)
     hike (1.2.3)
+    hitimes (1.2.2)
+    http_parser.rb (0.6.0)
     i18n (0.6.11)
+    i18n_yaml_sorter (0.2.0)
     jbuilder (2.1.3)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (4.2.1)
+      railties (>= 3.2.16)
     json (1.8.1)
+    kaminari (0.16.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+    listen (2.7.11)
+      celluloid (>= 0.15.2)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+    lumberjack (1.0.9)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.2)
     mime-types (1.25.1)
+    mina (0.3.0)
+      open4
+      rake
     mini_portile (0.6.0)
     minitest (5.4.1)
     multi_json (1.10.1)
+    nested_form (0.3.2)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
       rack (~> 1.0)
+    open4 (1.3.4)
     orm_adapter (0.5.0)
+    paper_trail (3.0.5)
+      activerecord (>= 3.0, < 5.0)
+      activesupport (>= 3.0, < 5.0)
     pg (0.17.1)
     polyglot (0.3.5)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     rack (1.5.2)
+    rack-pjax (0.8.0)
+      nokogiri (~> 1.5)
+      rack (~> 1.1)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.1.6)
@@ -111,9 +185,25 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.6)
       sprockets-rails (~> 2.0)
+    rails-footnotes (4.1.1)
+      rails (>= 3.2)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
+    rails_admin (0.6.3)
+      builder (~> 3.1)
+      coffee-rails (~> 4.0)
+      font-awesome-rails (>= 3.0)
+      haml (~> 4.0)
+      jquery-rails (~> 3.0)
+      jquery-ui-rails (~> 4.0)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (~> 0.7)
+      rails (~> 4.0)
+      remotipart (~> 1.0)
+      safe_yaml (~> 1.0)
+      sass-rails (~> 4.0)
     rails_serve_static_assets (0.0.2)
     rails_stdout_logging (0.0.3)
     railties (4.1.6)
@@ -122,8 +212,21 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.3.2)
+    rb-fsevent (0.9.4)
+    rb-inotify (0.9.5)
+      ffi (>= 0.5.0)
     rdoc (4.1.2)
       json (~> 1.4)
+    remotipart (1.2.1)
+    rerun (0.10.0)
+      listen (~> 2.7, >= 2.7.3)
+    responders (1.1.1)
+      railties (>= 3.2, < 4.2)
+    rolify (3.4.1)
+    rspec (3.1.0)
+      rspec-core (~> 3.1.0)
+      rspec-expectations (~> 3.1.0)
+      rspec-mocks (~> 3.1.0)
     rspec-core (3.1.4)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.1)
@@ -140,6 +243,7 @@ GEM
       rspec-mocks (~> 3.1.0)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.0)
+    safe_yaml (1.0.4)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -157,6 +261,7 @@ GEM
       multi_json
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
+    slop (3.6.0)
     spring (1.1.3)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -167,9 +272,12 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    terminal-notifier-guard (1.5.3)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    timers (4.0.1)
+      hitimes
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -191,25 +299,44 @@ PLATFORMS
 DEPENDENCIES
   annotate
   autoprefixer-rails
+  better_errors
+  binding_of_caller
   bootstrap-sass (~> 3.2.0)
   cancancan (~> 1.9)
   capybara (>= 2.4.1)
+  cocoon
   codeclimate-test-reporter
   coffee-rails (~> 4.0.0)
-  database_cleaner
   devise
   factory_girl (= 4.4.0)
+  gaffe
+  guard
+  guard-annotate
+  guard-bundler
+  guard-livereload
+  guard-migrate
+  guard-rspec
   haml-rails
+  has_scope
+  i18n_yaml_sorter
   jbuilder (~> 2.0)
   jquery-rails
+  mina
   omniauth (>= 1.0.0)
+  paper_trail (~> 3.0.5)
   pg
   rails (= 4.1.6)
+  rails-footnotes
   rails_12factor
+  rails_admin
+  rerun
+  responders
+  rolify
   rspec-rails (~> 3.1.0)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   simple_form
   spring
+  terminal-notifier-guard
   turbolinks
   uglifier (>= 1.3.0)

@@ -8,6 +8,7 @@
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       = 'Currently waiting confirmation for:'
       = resource.unconfirmed_email
+    = f.collection_select :role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize}
     = f.password_field :password, autocomplete: 'off', placeholder: 'New Password', :class => 'form-control', id: 'newpwd'
     = f.password_field :password_confirmation, autocomplete: 'off', placeholder: 'Confirm New Password', :class => 'form-control', id: 'confpwd'
     = f.password_field :current_password, autocomplete: 'off', placeholder: 'Current Password', :class => 'form-control', id: 'currentpwd'

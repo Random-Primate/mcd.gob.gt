@@ -22,6 +22,8 @@
 #  locked_at              :datetime
 #  created_at             :datetime
 #  updated_at             :datetime
+#  role_id                :integer
+#  roles_mask             :integer
 #
 
 require 'rails_helper'
