@@ -1,5 +1,17 @@
 class ArticlesController < ApplicationController
 
+  #before_action :authenticate_user!
+
+  before_action :login_required, except: [:index, :show]
+  before_action :role_required,  except: [:index, :show]
+
+  before_action :set_page,       only: [:edit, :update, :destroy]
+  before_action :owner_required, only: [:edit, :update, :destroy]
+
+  #def edit
+    # ONLY OWNER CAN EDIT THIS PAGE
+  #end
+
   def index
     @articles = Article.all
   end
@@ -45,6 +57,16 @@ class ArticlesController < ApplicationController
   end
 
   private
+
+    def set_page
+      @article = Article.find params[:id]
+
+      # TheRole: You should define OWNER CHECK OBJECT
+      # When editable object was found
+      # You should define @owner_check_object before invoking **owner_required** method
+      @owner_check_object = @article
+    end
+
     def article_params
       params.require(:article).permit(:title, :text)
     end

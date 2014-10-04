@@ -10,6 +10,18 @@
 #
 
 class Article < ActiveRecord::Base
-  has_many :comments, dependent: :destroy
-  validates :title, presence: true, length: { minimum: 5 }
+  # RELATIONS
+  #belongs_to  :user
+  has_many    :comments, dependent: :destroy
+
+  # VALIDATIONS
+  #validates :user,    presence: true
+  validates :title,   presence: true, length: { minimum: 5 }
+  validates :text,    presence: true
+
+  rails_admin do
+    configure :article do
+      label 'Author: '
+    end
+  end
 end
