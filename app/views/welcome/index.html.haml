@@ -4,7 +4,8 @@
       = 'Blast CMS'
       %p
         = "Blast is a very simple content management system that's growing to include very cool features. Check back to see whats new or contribute at github"
-      = button_to 'Blog Style', new_user_registration_path, { method: :get, class: 'btn btn-lg btn-primary' }
+      = button_to 'Blog', new_user_registration_path, { method: :get, class: 'btn btn-lg btn-primary' }
+      = button_to 'Admin', rails_admin_path, { method: :get, class: 'btn btn-lg btn-default' }
 
   %ul.col-md-6
     - @articles.each do |article|

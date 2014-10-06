@@ -1,5 +1,5 @@
 .container
-  = form_for @article do |f|
+  = form_for @article, :html => { class: 'form-devise'} do |f|
     - if @article.errors.any?
       #error_explanation
         %h2
@@ -7,15 +7,10 @@
           = 'prohibited this article from being saved:'
         %ul
           - @article.errors.full_messages.each do |msg|
-          %li
-            = msg
-    %p
-      = f.label :title
-      %br
-      = f.text_field :title
-    %p
-      = f.label :text
-      %br
-      = f.text_area :text
-    %p
-      = f.submit
+            %li
+              = msg
+    = f.text_field :title, placeholder: 'Title', :class => 'form-control'
+    %br
+    = f.text_area :text, id: 'articlearea', :class => 'form-control', placeholder: 'Start typing...'
+    %br
+    = f.submit 'Submit', :class => 'btn btn-lg btn-primary btn-block'

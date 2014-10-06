@@ -1,9 +1,9 @@
 class ArticlesController < ApplicationController
 
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
 
-  before_action :login_required, except: [:index, :show]
-  before_action :role_required,  except: [:index, :show]
+  before_action :login_required, except: [:index, :show, :new, :create]
+  before_action :role_required,  except: [:index, :show, :new, :create]
 
   before_action :set_page,       only: [:edit, :update, :destroy]
   before_action :owner_required, only: [:edit, :update, :destroy]

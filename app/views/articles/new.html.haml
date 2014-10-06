@@ -1,7 +1,6 @@
 .container
-  %h1
-    = 'New Article'
-
-  = render 'form'
-
-  = link_to 'Back', articles_path
+  .well
+    %h1
+      = 'New Article'
+    = render 'form'
+    = link_to 'Back', articles_path, class: 'btn btn-default'

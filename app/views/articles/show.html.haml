@@ -1,18 +1,20 @@
 .container
-  %p
-    %strong
-      = 'Title:'
-    = @article.title
+  .well
+    %p
+      %strong
+        = 'Title:'
+      = @article.title
 
-  %p
-    = 'strongText:'
-  = @article.text
+    %p
+      %strong
+        = 'Text:'
+    = @article.text
 
-  %h2
+  %h4
     = 'Comments'
   = render @article.comments
 
-  %h2
+  %h4
     = 'Add a comment:'
   = render 'comments/form'
 
