@@ -7,8 +7,6 @@ Blast
 
 Blast is a content management system (CMS) build with Ruby on Rails. 
 
-####Docs also available [here](http://documentup.com/Random-Primate/blast).
-
 ##Features  
 
 ###Authentication
@@ -23,4 +21,9 @@ Blast is a content management system (CMS) build with Ruby on Rails.
 * Abilities
 
 ###Administration
-* Model tracking
+* Model tracking  
+
+
+***
+
+####Docs also available [here](http://documentup.com/Random-Primate/blast).
