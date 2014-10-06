@@ -29,7 +29,7 @@ gem 'rolify'
 # Maps controller filters to resource scopes
 gem 'has_scope'
 # A set of Rails responders
-gem 'responders'
+#gem 'responders'
 # Authentication Component
 gem 'devise'
 # Authentication Component for Additional Services

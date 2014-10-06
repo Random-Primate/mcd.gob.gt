@@ -324,7 +324,6 @@ DEPENDENCIES
   rails_12factor
   rails_admin
   rerun
-  responders
   rolify
   rspec-rails (~> 3.1.0)
   sass-rails (~> 4.0.3)
