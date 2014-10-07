@@ -123,7 +123,7 @@ GEM
     http_parser.rb (0.6.0)
     i18n (0.6.11)
     i18n_yaml_sorter (0.2.0)
-    jbuilder (2.2.0)
+    jbuilder (2.2.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (3.1.2)
@@ -313,7 +313,7 @@ DEPENDENCIES
   haml-rails
   has_scope
   i18n_yaml_sorter
-  jbuilder (~> 2.0)
+  jbuilder (>= 2.2.1)
   jquery-rails
   mina
   omniauth (>= 1.0.0)

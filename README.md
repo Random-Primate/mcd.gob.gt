@@ -24,8 +24,8 @@ Blast is a content management system (CMS) build with Ruby on Rails.
 * Model tracking  
 
 ###Contributors
-* José Torres
-* Ennio de León  
+
+[Don't forget the credits.](https://github.com/Random-Primate/blast/graphs/contributors)  
 
 
 ***
