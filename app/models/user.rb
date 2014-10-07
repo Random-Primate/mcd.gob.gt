@@ -22,16 +22,16 @@
 #  locked_at              :datetime
 #  created_at             :datetime
 #  updated_at             :datetime
-#  role_id                :integer
+#  role                   :string(255)
 #
 
 class User < ActiveRecord::Base
-  rolify
+  #rolify
 
   #rolify :before_add => :before_add_method
 
   #def before_add_method(role)
-    # do something before it gets added
+    #do something before it gets added
   #end
 
   # Include default devise modules. Others available are:

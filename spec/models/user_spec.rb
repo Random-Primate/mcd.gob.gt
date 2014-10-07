@@ -22,7 +22,7 @@
 #  locked_at              :datetime
 #  created_at             :datetime
 #  updated_at             :datetime
-#  role_id                :integer
+#  role                   :string(255)
 #
 
 require 'rails_helper'
