@@ -11,8 +11,8 @@
 #  sign_in_count          :integer          default(0), not null
 #  current_sign_in_at     :datetime
 #  last_sign_in_at        :datetime
-#  current_sign_in_ip     :inet
-#  last_sign_in_ip        :inet
+#  current_sign_in_ip     :string(255)
+#  last_sign_in_ip        :string(255)
 #  confirmation_token     :string(255)
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
@@ -23,6 +23,7 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  role                   :string(255)
+#  admin                  :boolean          default(FALSE)
 #
 
 require 'rails_helper'

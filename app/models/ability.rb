@@ -28,43 +28,20 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+    alias_action :create, :read, :update, :destroy, to: :crud
 
-    def initialize(current_user) #user)
-
-      #user ||= User.new # guest user (not logged in)
-      #if user.admin?
-      #  can :read, :all
-      #else
-      #  can :read, :all
-      #end
-
-      alias_action :create, :read, :update, :destroy, to: :crud
-
-      #can :read, User, guest: false
-
-=begin
-      if current_user.guest?
-        can :create, User
-      else
-        can :update, User do |user|
-          user == current_user # Update himself
-        end
-
-        if current_user.has_role?(:admin)
-          can :access, :rails_admin
-          can :dashboard
-
-          can :crud, :all
-        end
-
-        cannot :destroy, User do |user|
-          user == current_user
-        end
-      end
-=end
+    can :read, :all                   # allow everyone to read everything
+    if user && user.admin?
+      can :access, :rails_admin       # only allow admin users to access Rails Admin
+      can :dashboard                  # allow access to dashboard
+      can :crud, :all
+    elsif user.role == 'manager'
+      can :access, :rails_admin
+      can :dashboard
     end
-
-    #can :assign_roles, User if user.admin?
+    cannot :destroy, User do |usr|    # user can't destroy himself
+      usr == user
+    end
 
   end
 end
