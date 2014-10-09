@@ -27,7 +27,7 @@
 #
 
 class User < ActiveRecord::Base
-  #rolify
+  rolify
 
   #rolify :before_add => :before_add_method
 

@@ -23,7 +23,7 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '>= 2.2.1'
+gem 'jbuilder', '~> 2.2.2'
 # Manage roles of users
 gem 'rolify'
 # Maps controller filters to resource scopes
@@ -43,7 +43,7 @@ gem 'gaffe'
 # Dynamic nested forms made easy
 gem 'cocoon'
 # Rails Admin: engine that provides an easy-to-use interface for managing data
-gem 'rails_admin'
+gem 'rails_admin', '~> 0.6.5'
 # Track changes to your models' data. Good for auditing or versioning.
 gem 'paper_trail', '~> 3.0.5'
 

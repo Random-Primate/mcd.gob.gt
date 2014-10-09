@@ -38,6 +38,9 @@ class Ability
     elsif user.role == 'manager'
       can :access, :rails_admin
       can :dashboard
+      can :crud, :articles
+    elsif user.role == 'author'
+      can :crud, :articles
     end
     cannot :destroy, User do |usr|    # user can't destroy himself
       usr == user
