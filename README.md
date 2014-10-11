@@ -21,15 +21,19 @@ Blast is a content management system (CMS) build with Ruby on Rails.
 * Abilities
 
 ###Administration
-* Model tracking  
+* Model tracking 
+ 
+###Seed with dummy data
+Reset your database:
+```rake db:reset```  
+Populate with dummy data:
+```rake db:populate```  
 
 ###Contributors
 
 [Don't forget the credits.](https://github.com/Random-Primate/blast/graphs/contributors)  
 
 ###License
-
-Copyright (c) 2010-2014 Google, Inc. http://angularjs.org
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

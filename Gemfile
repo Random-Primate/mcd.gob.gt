@@ -45,7 +45,7 @@ gem 'cocoon'
 # Rails Admin: engine that provides an easy-to-use interface for managing data
 gem 'rails_admin', '~> 0.6.5'
 # Track changes to your models' data. Good for auditing or versioning.
-gem 'paper_trail', '~> 3.0.5'
+gem 'paper_trail', '~> 3.0.6'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -79,6 +79,8 @@ group :development do
   gem 'mina', require: false
   # A I18n YAML deep sorter that will keep your locales organized
   gem 'i18n_yaml_sorter'
+  # Generate test data
+  gem 'faker'
   # Guard: automatically run commands when files are changed
   gem 'guard'
   gem 'guard-rspec', require: false      # Automatically run tests
