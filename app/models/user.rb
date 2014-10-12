@@ -24,22 +24,37 @@
 #  updated_at             :datetime
 #  role                   :string(255)
 #  admin                  :boolean          default(FALSE)
+#  first_name             :string(255)
+#  last_name              :string(255)
+#  avatar_file_name       :string(255)
+#  avatar_content_type    :string(255)
+#  avatar_file_size       :integer
+#  avatar_updated_at      :datetime
 #
 
 class User < ActiveRecord::Base
+  # Gem Integrations
+  #   Rolify: Very simple Roles library without any authorization enforcement supporting scope
+  #   on resource object.
+  #   We can use before and after role associations methods as:
+  #     rolify :before_add => :before_add_method
+  #     def before_add_method(role)
+  #       do something before it gets added
+  #     end
   rolify
-
-  #rolify :before_add => :before_add_method
-
-  #def before_add_method(role)
-    #do something before it gets added
-  #end
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :lockable, :omniauthable
          # :timeoutable, :confirmable,
+  # Paperclip
+  has_attached_file :avatar, :styles => { :medium => '300x300>', :thumb => '100x100>' },
+                    :default_url => 'http://robohash.org/blast.png'
+  # Validations
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  validates :first_name, presence: true
+  validates :last_name,  presence: true
+  validates :email,      presence: true
 
 end

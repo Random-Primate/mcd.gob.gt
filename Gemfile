@@ -46,6 +46,8 @@ gem 'cocoon'
 gem 'rails_admin', '~> 0.6.5'
 # Track changes to your models' data. Good for auditing or versioning.
 gem 'paper_trail', '~> 3.0.6'
+# Paperclip is a file attachment gem
+gem 'paperclip', '~> 4.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

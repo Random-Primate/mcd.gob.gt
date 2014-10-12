@@ -1,4 +1,6 @@
 module ApplicationHelper
+
+  # Global flash messages for bootstrap purposes
   def flash_class(type)
     case type
       when 'success'
@@ -12,5 +14,10 @@ module ApplicationHelper
       else
         ''
     end
+  end
+
+  # Defines global method of user's complete name
+  def full_name(user)
+    user.first_name + ' ' + user.last_name
   end
 end

@@ -24,6 +24,12 @@
 #  updated_at             :datetime
 #  role                   :string(255)
 #  admin                  :boolean          default(FALSE)
+#  first_name             :string(255)
+#  last_name              :string(255)
+#  avatar_file_name       :string(255)
+#  avatar_content_type    :string(255)
+#  avatar_file_size       :integer
+#  avatar_updated_at      :datetime
 #
 
 require 'rails_helper'

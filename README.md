@@ -22,6 +22,13 @@ Blast is a content management system (CMS) build with Ruby on Rails.
 
 ###Administration
 * Model tracking 
+
+###Requirements
+* Paperclip needs ImageMagick, if on mac use:  
+```brew install imagemagick```
+* We also need GhostScript for pdf support  
+```brew install gs```
+* If convert path differes change it in config/environments/development.rb
  
 ###Seed with dummy data
 Reset your database:

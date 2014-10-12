@@ -37,7 +37,7 @@ html, body {
 }
 footer, .page-wrap:after {
   /* .push must be the same height as footer */
-  /*height: 142px;*/
+  height: 142px;
 }
 
 /*
@@ -70,19 +70,19 @@ footer, .page-wrap:after {
 .form-devise .form-control:focus {
   z-index: 2;
 }
-.form-devise input[type="email"] {
+.form-devise .top {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-#pwd, #newpwd, #confpwd {
+.form-devise .mid {
   margin-bottom: -1px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-#confirmpwd, #currentpwd, #pwdend {
+.form-devise .last {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;

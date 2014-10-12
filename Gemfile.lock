@@ -52,6 +52,10 @@ GEM
       xpath (~> 2.0)
     celluloid (0.16.0)
       timers (~> 4.0.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.4)
+      climate_control (>= 0.0.3, < 1.0)
     cocoon (1.2.6)
     codeclimate-test-reporter (0.4.1)
       simplecov (>= 0.7.1, < 1.0.0)
@@ -163,6 +167,11 @@ GEM
     paper_trail (3.0.6)
       activerecord (>= 3.0, < 5.0)
       activesupport (>= 3.0, < 5.0)
+    paperclip (4.2.0)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     pg (0.17.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -321,6 +330,7 @@ DEPENDENCIES
   mina
   omniauth (>= 1.0.0)
   paper_trail (~> 3.0.6)
+  paperclip (~> 4.2)
   pg
   rails (= 4.1.6)
   rails-footnotes
