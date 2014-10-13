@@ -3,14 +3,14 @@ class UserController < ApplicationController
   #  authorize! :assign_roles, @user if params[:user][:assign_roles]
   #end
 
-  def index
-    @users = User.all
-  end
+  #def index
+  #  @users = User.all
+  #end
 
-  private
+  #private
 
-  def user_params
-    params.require(:user).permit(:first_name, :last_name)
-  end
+  #def user_params
+  #  params.require(:user).permit(:first_name, :last_name)
+  #end
 
 end

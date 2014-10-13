@@ -1,9 +1,11 @@
 namespace :db do
   desc 'Fill database with sample data'
     task populate: :environment do
+      random_string = (0...8).map { (65 + rand(26)).chr }.join
       admin = User.create!(
                    first_name: Faker::Name.first_name,
                    last_name: Faker::Name.last_name,
+                   avatar: "http://robohash.org/#{random_string}.png",
                    email: 'john@doe.com',
                    password: 'password',
                    password_confirmation: 'password')

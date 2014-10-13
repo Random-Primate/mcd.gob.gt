@@ -1,17 +1,23 @@
 Rails.application.routes.draw do
+
+  # User Dashboards
   get 'user_dashboard/show'
 
+  # Pages
   resources :pages
 
+  # Rails Admin
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  devise_for :users
+  # Devise
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
+  # Articles and Comments
   resources :articles do
     resources :comments
   end
 
-  #User index
+  # User Index
   get 'user/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,12 +1,16 @@
 class RegistrationsController < Devise::RegistrationsController
-  #after_filter :consolidate_registered_user_with_guest, only: :create,
-  #             if: -> { @user.valid? }
+  def new
+    super
+    @random_string = (0...8).map { (65 + rand(26)).chr }.join
+  end
 
-  #private
+  private
 
-  #def consolidate_registered_user_with_guest
-    # It would be nice if we didn't have to do so much magic. It would be better to convert the guest user directly into a registered one instead of creating a registered one beneath the guest and then consolidating the two. See http://stackoverflow.com/questions/22428680
-  #  @current_user.annex_and_destroy!(@user)
-  #  sign_in @current_user
-  #end
+  def sign_up_params
+    params.require(:user).permit(:first_name, :last_name, :avatar, :email, :password, :password_confirmation)
+  end
+
+  def account_update_params
+    params.require(:user).permit(:first_name, :last_name, :avatar, :email, :password, :password_confirmation, :current_password)
+  end
 end
