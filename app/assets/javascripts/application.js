@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+// require jquery.jcrop
 //= require jquery_ujs
 // require jquery-ui
 //= require turbolinks

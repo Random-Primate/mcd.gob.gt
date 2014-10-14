@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   # Devise
   devise_for :users, :controllers => { registrations: 'registrations' }
 
+  get 'user/crop'
+
   # Articles and Comments
   resources :articles do
     resources :comments

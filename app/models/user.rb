@@ -49,8 +49,9 @@ class User < ActiveRecord::Base
          :lockable, :omniauthable
          # :timeoutable, :confirmable,
   # Paperclip
-  has_attached_file :avatar, :styles => { :medium => '300x300>', :thumb => '100x100>' },
+  has_attached_file :avatar, :styles => { :medium => '200x200#', :thumb => '100x100#' },
                     :default_url => 'http://robohash.org/blast.png'
+
   # Validations
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   validates :first_name, presence: true
