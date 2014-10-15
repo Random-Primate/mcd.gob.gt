@@ -1,5 +1,5 @@
 .dash_sidebar
-  = image_tag @user.avatar.url, width: '250', class: 'avatar'
+  = image_tag @user.avatar_url(:thumb), width: '200', class: 'avatar'
   %h1.name
     = full_name(current_user)
   %h4.email

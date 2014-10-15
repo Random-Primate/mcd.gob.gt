@@ -39,7 +39,4 @@ Rails.application.configure do
   # In production, :host should be set to the actual host of your application.
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  # Required by Paperclip
-  Paperclip.options[:command_path] = '/usr/local/bin/'
-
 end

@@ -3,9 +3,14 @@ class UserController < ApplicationController
   #  authorize! :assign_roles, @user if params[:user][:assign_roles]
   #end
 
-  #def index
-  #  @users = User.all
-  #end
+  def index
+    @users = User.all
+  end
+
+  def show
+    @user = User.find(params[:id])
+    render 'user_dashboard/show'
+  end
 
   #private
 

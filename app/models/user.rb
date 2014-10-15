@@ -26,10 +26,7 @@
 #  admin                  :boolean          default(FALSE)
 #  first_name             :string(255)
 #  last_name              :string(255)
-#  avatar_file_name       :string(255)
-#  avatar_content_type    :string(255)
-#  avatar_file_size       :integer
-#  avatar_updated_at      :datetime
+#  avatar                 :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -48,14 +45,21 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :lockable, :omniauthable
          # :timeoutable, :confirmable,
-  # Paperclip
-  has_attached_file :avatar, :styles => { :medium => '200x200#', :thumb => '100x100#' },
-                    :default_url => 'http://robohash.org/blast.png'
+
+  # :default_url => 'http://robohash.org/blast.png'
+
+  # Carrierwave
+  mount_uploader :avatar, AvatarUploader
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  after_update :crop_avatar
 
   # Validations
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   validates :first_name, presence: true
   validates :last_name,  presence: true
   validates :email,      presence: true
+
+  def crop_avatar
+    avatar.recreate_versions! if crop_x.present?
+  end
 
 end
