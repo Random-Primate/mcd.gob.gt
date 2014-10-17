@@ -30,7 +30,14 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   version :thumb do
     process :crop
-    process :resize_to_fill => [200, 200]
+    process :resize_to_fill => [100, 100]
+  end
+
+  def default_url
+    #random_string = (0...8).map { (65 + rand(26)).chr }.join
+    #"/images/fallback/" + [version_name, "default.png"].compact.join('_')
+    #"http://robohash.org/#{random_string}.png"
+    "http://robohash.org/blast.png"
   end
 
   def crop

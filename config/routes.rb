@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :municipios
+
+  resources :departamentos
+
   # User Dashboards
   get 'user_dashboard/show'
 

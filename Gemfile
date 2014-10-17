@@ -57,8 +57,7 @@ group :doc do
 end
 
 group :test do
-  # Adding Code Climate test requirements
-  gem 'codeclimate-test-reporter', require: nil
+
 end
 
 group :development do

@@ -1,14 +1,13 @@
 .container
   = form_for(resource, :html => { class: 'form-devise'}, as: resource_name, url: registration_path(resource_name)) do |f|
-    %h2 Sign Up
+    %h2 Ingreso
     = devise_error_messages!
-    = f.hidden_field :avatar, value: "http://robohash.org/#{@random_string}.png"
-    = f.text_field :first_name, :class => 'form-control top', :placeholder => 'Jimminy',  :autofocus => '', :required => ''
-    = f.text_field :last_name, :class => 'form-control mid', :placeholder => 'Cricket', :required => ''
-    = f.email_field :email, :class => 'form-control mid', :placeholder => 'Email', :required => ''
-    = f.password_field :password, autocomplete: 'off', :class => 'form-control mid', :required => '', :placeholder => 'Password'
-    = f.password_field :password_confirmation, autocomplete: 'off', :class => 'form-control last', :placeholder => 'Confirm Password', :required => ''
-    = f.submit 'Submit', :class => 'btn btn-lg btn-primary btn-block'
+    = f.text_field :first_name, :class => 'form-control top', :placeholder => 'Nombre',  :autofocus => '', :required => ''
+    = f.text_field :last_name, :class => 'form-control mid', :placeholder => 'Apellido', :required => ''
+    = f.email_field :email, :class => 'form-control mid', :placeholder => 'Correo', :required => ''
+    = f.password_field :password, autocomplete: 'off', :class => 'form-control mid', :required => '', :placeholder => 'Contraseña'
+    = f.password_field :password_confirmation, autocomplete: 'off', :class => 'form-control last', :placeholder => 'Confirmar', :required => ''
+    = f.submit 'Enviar', :class => 'btn btn-lg btn-primary btn-block'
     - if @validatable
       %br
       %p.requirements
