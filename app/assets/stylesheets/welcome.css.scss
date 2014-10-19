@@ -1,4 +1,95 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$bgHighlight: #0092cd;
 
+.first-section {
+  height: 500px;
+  width: 100%;
+  margin-top: -20px;
+  color: $bgHighlight;
+  text-align: center;
+  h1 {
+    font-size: 7em;
+    margin-top: 5%;
+    text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+  }
+  p {
+    font-size: 2em;
+    text-shadow: 1px 2px 1px rgba(0,0,0,0.3);
+  }
+  .btn {
+    margin-top: 1.5em;
+  }
+}
+
+.second-section {
+  background-color: $bgHighlight;
+  height: 400px;
+  width: 100%;
+  margin-top: -20px;
+  border-top: 1px solid #357ebd;
+  border-bottom: 1px solid #357ebd;
+  color: #ffffff;
+  font-weight: 300;
+  h1 {
+    margin-top: 5%;
+    font-weight: 300;
+    text-shadow: 1px 2px 1px rgba(0,0,0,0.3);
+  }
+  p {
+    font-size: 1.5em;
+    text-shadow: 1px 2px 1px rgba(0,0,0,0.3);
+  }
+}
+
+.third-section {
+  height: 400px;
+  width: 100%;
+  margin-top: -20px;
+  color: $bgHighlight;
+  h1 {
+    margin-top: 5%;
+    font-weight: 300;
+    text-shadow: 1px 2px 1px rgba(0,0,0,0.3);
+  }
+  p {
+    font-size: 2em;
+    text-shadow: 1px 2px 1px rgba(0,0,0,0.3);
+  }
+}
+
+.fourth-section {
+  background-color: $bgHighlight;
+  height: 400px;
+  width: 100%;
+  margin-top: -20px;
+  border-top: 1px solid #357ebd;
+  border-bottom: 1px solid #357ebd;
+  color: #ffffff;
+  h1 {
+    margin-top: 5%;
+    font-weight: 300;
+    text-shadow: 1px 2px 1px rgba(0,0,0,0.3);
+  }
+  p {
+    font-size: 2em;
+    text-shadow: 1px 2px 1px rgba(0,0,0,0.3);
+  }
+}
+
+.fith-section {
+  height: 400px;
+  width: 100%;
+  margin-top: -20px;
+  color: $bgHighlight;
+  h1 {
+    margin-top: 5%;
+    font-weight: 300;
+    text-shadow: 1px 2px 1px rgba(0,0,0,0.3);
+  }
+  p {
+    font-size: 2em;
+    text-shadow: 1px 2px 1px rgba(0,0,0,0.3);
+  }
+}

@@ -1,14 +1,17 @@
 !!!
 %html
   %head
-    %title= 'Blast'
+    %title= 'VDR'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag href: 'http://fonts.googleapis.com/css?family=Quicksand:300,400', rel: 'stylesheet', type: 'text/css'
     = yield(:head)
     = csrf_meta_tags
   %body
     .page-wrap
       = render 'layouts/navbar'
       = render 'layouts/messages'
+      .container
+        = breadcrumbs pretext: 'Usted Está Aquí: ', style: :bootstrap
       = yield
     = render 'layouts/footer'

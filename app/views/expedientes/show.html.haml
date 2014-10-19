@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Num gestion:
+  = @expediente.num_gestion
+%p
+  %b Num exp:
+  = @expediente.num_exp
+
+= link_to 'Edit', edit_expediente_path(@expediente)
+\|
+= link_to 'Back', expedientes_path

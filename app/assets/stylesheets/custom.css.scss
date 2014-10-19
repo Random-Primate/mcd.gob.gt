@@ -18,7 +18,7 @@ hr.faded {
  *  Context
  *
  */
-
+$quick: 'Quicksand', sans-serif;
 * {
   margin: 0;
 }
@@ -38,6 +38,9 @@ html, body {
 footer, .page-wrap:after {
   /* .push must be the same height as footer */
   height: 100px;
+}
+h1, h2, h3, h4, h5, h6, p, a, th, label, span {
+  font-family: $quick !important;
 }
 
 /*
@@ -86,6 +89,9 @@ footer, .page-wrap:after {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.sole {
+  margin-bottom: 2em;
 }
 #recemail {
   margin-bottom: 10px;
@@ -266,4 +272,28 @@ $colHighlight   : #efefef;
       > a, > a:hover, > a:focus, {
         color: $colHighlight;
         background-color: $bgHighlight; }}}
+}
+
+/*
+ *
+ * Indexes
+ *
+ */
+
+.title-btn {
+  margin-top: 1.8em;
+}
+.paginate-bot {
+  margin-top: -20px;
+}
+.paginate-top {}
+/*
+.current {
+  color: #666666;
+}*/
+.pretext {
+  margin-right: 1em;
+}
+.breadcrumb {
+  opacity: 0.8;
 }

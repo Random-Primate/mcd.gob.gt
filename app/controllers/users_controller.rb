@@ -1,10 +1,10 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   #def update
   #  authorize! :assign_roles, @user if params[:user][:assign_roles]
   #end
 
   def index
-    @users = User.all
+    @users = User.all.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show

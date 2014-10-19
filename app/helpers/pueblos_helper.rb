@@ -1,0 +1,2 @@
+module PueblosHelper
+end

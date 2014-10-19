@@ -1,9 +1,22 @@
-%p#notice= notice
+.container
+  %p#notice= notice
+  - breadcrumb :departamento, @departamento
 
-%p
-  %b Name:
-  = @departamento.name
+  .well
+    .row
+      %h1.col-md-6
+        = 'Municipios de '
+        = @departamento.name
+      .col-md-6
+        = link_to 'Editar', edit_departamento_path(@departamento), class: 'btn btn-default pull-right title-btn', style: 'margin-left: 1em;'
+        = link_to 'Regresar', departamentos_path, class: 'btn btn-default pull-right title-btn'
 
-= link_to 'Edit', edit_departamento_path(@departamento)
-\|
-= link_to 'Back', departamentos_path
+  %table.table.table-striped.table-hover
+
+    - @municipios.each do |muni|
+      %tr
+        %td= muni.name
+        %td= link_to 'Editar', edit_municipio_path(muni)
+        %td= link_to 'Eliminar', muni, :method => :delete, :data => { :confirm => 'Confirmar.' }
+
+  = will_paginate @municipios, class: 'paginate-bot'

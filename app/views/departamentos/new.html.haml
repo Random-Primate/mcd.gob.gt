@@ -1,5 +1,9 @@
-%h1 New departamento
+.container
+  .well
+    .row
+      %h1.col-md-6
+        = 'Nuevo Departamento'
+      .col-md-6
+        = link_to 'Regresar', departamentos_path, class: 'btn btn-default pull-right title-btn'
 
-= render 'form'
-
-= link_to 'Back', departamentos_path
+  = render 'form'

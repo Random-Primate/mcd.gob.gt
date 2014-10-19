@@ -50,6 +50,15 @@ gem 'paper_trail', '~> 3.0.6'
 gem 'rmagick', :require => false
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
 gem 'carrierwave'
+# Font Awesome Icons
+gem 'font-awesome-sass'
+# Pagination for indexes and its styling through Bootstrap
+gem 'will_paginate', '~> 3.0'
+gem 'bootstrap-will_paginate'
+# Breadcrumbs
+gem 'gretel'
+# Handle States
+gem 'state_machine'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -57,7 +66,7 @@ group :doc do
 end
 
 group :test do
-
+  gem 'shoulda-matchers'
 end
 
 group :development do

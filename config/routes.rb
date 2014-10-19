@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :expedientes
+
+  resources :idiomas
+
+  resources :pueblos
+
   resources :municipios
 
   resources :departamentos
@@ -16,6 +22,7 @@ Rails.application.routes.draw do
   # Devise
   devise_for :users, :controllers => { registrations: 'registrations' }
   get 'user/crop'
+  resources :users, only: [:index]
 
   # Articles and Comments
   resources :articles do

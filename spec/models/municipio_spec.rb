@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: municipios
+#
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  departamento_id :integer
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 require 'rails_helper'
 
 RSpec.describe Municipio, :type => :model do

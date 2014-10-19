@@ -1,0 +1,16 @@
+.container
+  - breadcrumb :pueblos
+  .well
+    .row
+      %h1.col-md-6
+        = 'Pueblos'
+      .col-md-6
+        = link_to 'Nuevo Pueblo', new_pueblo_path, class: 'btn btn-default pull-right title-btn'
+  %table.table.table-striped.table-hover
+    - @pueblos.each do |pueblo|
+      %tr
+        %td= pueblo.name
+        %td= link_to 'Editar', edit_pueblo_path(pueblo)
+        %td= link_to 'Eliminar', pueblo, :method => :delete, :data => { :confirm => 'Confirmar' }
+
+  = will_paginate @pueblos, class: 'paginate-bot'

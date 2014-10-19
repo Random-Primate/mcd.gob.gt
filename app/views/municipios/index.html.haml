@@ -1,21 +1,27 @@
-%h1 Listing municipios
+.container
+  - breadcrumb :municipios
+  .well
+    .row
+      %h1.col-md-6
+        = 'Municipios'
+      .col-md-6
+        = link_to 'Agregar Municipio', new_municipio_path, class: 'btn btn-default pull-right title-btn'
+  %br
 
-%table
-  %tr
-    %th Name
-    %th Departamento
-    %th
-    %th
-    %th
+  = will_paginate @municipios, class: 'paginate-top'
 
-  - @municipios.each do |municipio|
+  %table.table.table-striped.table-hover
+
     %tr
-      %td= municipio.name
-      %td= municipio.departamento_id
-      %td= link_to 'Show', municipio
-      %td= link_to 'Edit', edit_municipio_path(municipio)
-      %td= link_to 'Destroy', municipio, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th= 'MUNICIPIO'
+      %th= 'DEPARTAMENTO'
+      %th
+      %th
+    - @municipios.each do |municipio|
+      %tr
+        %td= municipio.name
+        %td= municipio.departamento.name
+        %td= link_to 'Editar', edit_municipio_path(municipio)
+        %td= link_to 'Eliminar', municipio, :method => :delete, :data => { :confirm => 'Confirmar: ' }
 
-%br
-
-= link_to 'New Municipio', new_municipio_path
+  = will_paginate @municipios, class: 'paginate-bot'

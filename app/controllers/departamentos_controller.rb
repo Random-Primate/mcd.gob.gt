@@ -1,12 +1,15 @@
 class DepartamentosController < ApplicationController
   before_action :set_departamento, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :json
 
   def index
-    @departamentos = Departamento.all
+    @departamentos = Departamento.paginate(:page => params[:page], :per_page => 10)
     respond_with(@departamentos)
   end
 
   def show
+    @departamento = Departamento.find(params[:id])
+    @municipios = @departamento.municipios.paginate(:page => params[:page], :per_page => 10)
     respond_with(@departamento)
   end
 

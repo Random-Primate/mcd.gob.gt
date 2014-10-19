@@ -1,19 +1,20 @@
-%h1 Listing departamentos
+.container
+  - breadcrumb :departamentos
+  .well
+    .row
+      %h1.col-md-6
+        = 'Lista de Departamentos'
+      .col-md-6
+        = link_to 'Agregar Departamento', new_departamento_path, class: 'btn btn-default pull-right title-btn'
+  %br
 
-%table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
+  %table.table.table-striped.table-hover
 
-  - @departamentos.each do |departamento|
-    %tr
-      %td= departamento.name
-      %td= link_to 'Show', departamento
-      %td= link_to 'Edit', edit_departamento_path(departamento)
-      %td= link_to 'Destroy', departamento, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    - @departamentos.each do |departamento|
+      %tr
+        %td= departamento.name
+        %td= link_to 'Municipios', departamento
+        %td= link_to 'Editar', edit_departamento_path(departamento)
+        %td= link_to 'Eliminar', departamento, :method => :delete, :data => { :confirm => 'Confirmar.' }
 
-%br
-
-= link_to 'New Departamento', new_departamento_path
+  = will_paginate @departamentos, class: 'paginate-bot'

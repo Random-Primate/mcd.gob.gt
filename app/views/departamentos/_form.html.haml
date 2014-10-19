@@ -1,13 +1,9 @@
-= form_for @departamento do |f|
-  - if @departamento.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@departamento.errors.count, "error")} prohibited this departamento from being saved:"
-      %ul
-        - @departamento.errors.full_messages.each do |msg|
-          %li= msg
+= simple_form_for @departamento, html: { class: 'form-devise' } do |f|
+  = f.error_notification
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .actions
-    = f.submit 'Save'
+  .form-inputs
+    = f.label 'Nombre'
+    = f.text_field :name, class: 'form-control sole'
+  .form-actions
+    = f.error :base
+    = f.submit 'Guardar', :class => 'btn btn-lg btn-primary btn-block'

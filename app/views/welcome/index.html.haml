@@ -1,21 +1,25 @@
-.container
-  .jumbotron
+.first-section
+  .container
+    %h1
+      = 'Implementación Deportiva'
+    %p
+      = 'Ministerio de Cultura y Deporte'
+    = button_to 'Solicitud', articles_path, { method: :get, class: 'btn btn-lg btn-warning' }
+.second-section
+  .container
     %h1
       = 'Blast CMS'
-      %p
-        = "Blast is a very simple content management system that's growing to include very cool features. Check back to see whats new or contribute at github"
-      = button_to 'Blog', articles_path, { method: :get, class: 'btn btn-lg btn-primary' }
-
-  %ul.col-md-6
-    - @articles.each do |article|
-      %li.well.artic
-        %h2
-          = article.title
-        = article.text
-        %div
-        = link_to 'Show', article_path(article)
-        = link_to 'Edit', edit_article_path(article)
-        = link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
-  #sidebar.col-md-4.col-md-offset-2.well
     %p
-      ='Sidebar'
+      = 'lkllkklkklklnknlnnlk lnlnnnlklnklnlnn lknklnlkn'
+.third-section
+  .container
+    %h1
+      = 'Blast CMS'
+.fourth-section
+  .container
+    %h1
+      = 'Blast CMS'
+.fith-section
+  .container
+    %h1
+      = 'Blast CMS'

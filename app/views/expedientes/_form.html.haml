@@ -1,0 +1,9 @@
+= simple_form_for(@expediente) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :num_gestion
+    = f.input :num_exp
+
+  .form-actions
+    = f.button :submit

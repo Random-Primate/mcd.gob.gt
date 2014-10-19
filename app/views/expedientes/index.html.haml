@@ -1,0 +1,21 @@
+%h1 Listing expedientes
+
+%table
+  %tr
+    %th Num gestion
+    %th Num exp
+    %th
+    %th
+    %th
+
+  - @expedientes.each do |expediente|
+    %tr
+      %td= expediente.num_gestion
+      %td= expediente.num_exp
+      %td= link_to 'Show', expediente
+      %td= link_to 'Edit', edit_expediente_path(expediente)
+      %td= link_to 'Destroy', expediente, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Expediente', new_expediente_path

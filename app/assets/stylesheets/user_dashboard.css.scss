@@ -1,15 +1,16 @@
 // Place all the styles related to the user_dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$bgHighlight: #0092cd;
 
 .dash_sidebar{
   background-color: #D6D6D6;
   border-right: 1px solid #C4C4C4;
   height: 100%;
-  min-height: 700px;
+  min-height: 700px !important;
   width: 20%;
-  margin-top: -40px;
-  padding: 1.5em;
+  margin-top: -20px;
+  padding: 1.5em !important;
   .name {
     text-align: center;
     color: #595959;
@@ -18,4 +19,15 @@
     text-align: center;
     color: #666666;
   }
+}
+
+.dash-icon {
+  color: $bgHighlight;
+  text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+}
+.dash-cont {
+  text-align: center;
+}
+#dash_row{
+  margin: 0;
 }

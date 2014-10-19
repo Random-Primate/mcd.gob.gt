@@ -1,0 +1,16 @@
+.container
+  - breadcrumb :idiomas
+  .well
+    .row
+      %h1.col-md-6
+        = 'Idiomas'
+      .col-md-6
+        = link_to 'Nuevo Idioma', new_idioma_path, class: 'btn btn-default pull-right title-btn'
+  %table.table.table-striped.table-hover
+    - @idiomas.each do |idioma|
+      %tr
+        %td= idioma.name
+        %td= link_to 'Editar', edit_idioma_path(idioma)
+        %td= link_to 'Eliminar', idioma, :method => :delete, :data => { :confirm => 'Confirmar' }
+
+  = will_paginate @idiomas, class: 'paginate-bot'
