@@ -41,7 +41,8 @@ class SolicitudsController < ApplicationController
     end
 
     def solicitud_params
-      params.require(:solicitud).permit(:solicitante_id, :departamento,
-                                        :municipio, :implementos_attributes, :comunidades => [])
+      params.require(:solicitud).permit(:solicitante_id, :departamento, :municipio,
+                                        implementos_attributes: [:id, :name, :piezas, :_destroy],
+                                        :comunidades => [])
     end
 end

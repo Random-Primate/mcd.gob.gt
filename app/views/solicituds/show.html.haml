@@ -12,7 +12,10 @@
   = @solicitud.departamento
 %p
   %b Implementos:
-  = @solicitud.implementos.name
+  -@solicitud.implementos.each do |implemento|
+    %tr
+      %td= implemento.name
+      %td= implemento.piezas
 %p
   %b Solicitante:
   = @solicitud.solicitante.complete_name
