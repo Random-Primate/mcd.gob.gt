@@ -8,6 +8,14 @@
         = link_to 'Agregar Municipio', new_municipio_path, class: 'btn btn-default pull-right title-btn'
   %br
 
+  .panel.panel-default
+    .panel-body
+      = form_tag municipios_path, html: { class: 'navbar-form' }, method: 'get' do
+        .input-group
+          = text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Buscar'
+          .input-group-btn
+            = submit_tag 'Buscar', :name => nil, class: 'btn btn-default'
+
   = will_paginate @municipios, class: 'paginate-top'
 
   %table.table.table-striped.table-hover

@@ -403,3 +403,32 @@ Idioma.create([
   { name: 'IDIOMA EXTRANJERO' },
   { name: 'NO INDICA' }
 ])
+Implemento.create([
+  { name: 'Uniforme de papi fútbol niño', piezas: 8 },
+  { name: 'Uniforme de papi fútbol femenino', piezas: 8 },
+  { name: 'Uniforme de papi fútbol masculino', piezas: 8 },
+  { name: 'Uniforme de fútbol masculino', piezas: 15 },
+  { name: 'Uniforme de fútbol femenino', piezas: 15 },
+  { name: 'Uniforme de fútbol niño', piezas: 15 },
+  { name: 'Uniforme de basquetbol masculino', piezas: 8 },
+  { name: 'Uniforme de basquetbol femenino', piezas: 8 },
+  { name: 'Uniforme de voleibol masculino', piezas: 8 },
+  { name: 'Uniforme de voleibol femenino', piezas: 8 },
+  { name: 'Uniforme de multidisciplinario masculino', piezas: 20 },
+  { name: 'Uniforme de multidisciplinario femenino', piezas: 20 },
+  { name: 'Uniforme de multidisciplinario niño', piezas: 20 },
+  { name: 'Zapatos de fútbol', piezas: 1 },
+  { name: 'Zapatos de papi fútbol', piezas: 1 },
+  { name: 'Zapatos tenis deportivo', piezas: 1 },
+  { name: 'Zapatos tenis para correr', piezas: 1 },
+  { name: 'Medalla de plata', piezas: 1 },
+  { name: 'Medalla de oro', piezas: 1 },
+  { name: 'Medalla de bronce', piezas: 1 },
+  { name: 'Trofeo de plata', piezas: 1 },
+  { name: 'Trofeo de oro', piezas: 1 },
+  { name: 'Trofeo de bronce', piezas: 1 },
+  { name: 'Pelota de fútbol No. 4', piezas: 1 },
+  { name: 'Pelota de fútbol No. 5', piezas: 1 },
+  { name: 'Pelota de basquetbol', piezas: 1 },
+  { name: 'Pelota de voleibol', piezas: 1 }
+])

@@ -1,0 +1,10 @@
+.container
+  .well
+    .row
+      %h1.col-md-6
+        = 'Editando Implemento'
+      .col-md-6
+        = link_to 'Regresar', implementos_path, class: 'btn btn-default pull-right title-btn'
+    %br
+
+  = render 'form'

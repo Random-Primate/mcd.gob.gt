@@ -1,0 +1,34 @@
+.container
+  - breadcrumb :implementos
+  .well
+    .row
+      %h1.col-md-6
+        = 'Implementos'
+      .col-md-6
+        = link_to 'Nuevo Implemento', new_implemento_path, class: 'btn btn-default pull-right title-btn'
+  %br
+
+  .panel.panel-default
+    .panel-body
+      = form_tag implementos_path, html: { class: 'navbar-form' }, method: 'get' do
+        .input-group
+          = text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Buscar'
+          .input-group-btn
+            = submit_tag 'Buscar', :name => nil, class: 'btn btn-default'
+
+  %table.table.table-striped.table-hover
+
+    %tr
+      %th= 'IMPLEMENTO'
+      %th= 'PIEZAS'
+      %th{colspan: 2}
+    - @implementos.each do |implemento|
+      %tr
+        %td= implemento.name
+        %td= implemento.piezas
+        %td= link_to 'Editar', edit_implemento_path(implemento)
+        %td= link_to 'Eliminar', implemento, :method => :delete, :data => { :confirm => 'Confirmar' }
+
+  = will_paginate @implementos, class: 'paginate-bot'
+
+

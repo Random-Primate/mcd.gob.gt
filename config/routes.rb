@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :solicituds
+  get 'solicituds/agregar_comunidad', as: 'agregar_comunidad'
+
+  resources :implementos
+
   resources :expedientes
 
   resources :idiomas

@@ -3,7 +3,7 @@ class MunicipiosController < ApplicationController
   respond_to :html, :json
 
   def index
-    @municipios = Municipio.paginate(:page => params[:page], :per_page => 20)
+    @municipios = Municipio.search(params[:search]).paginate(:page => params[:page], :per_page => 20)
     respond_with(@municipios)
   end
 
@@ -41,6 +41,6 @@ class MunicipiosController < ApplicationController
     end
 
     def municipio_params
-      params.require(:municipio).permit(:name, :departamento_id)
+      params.require(:municipio).permit(:name, :departamento_id, :solicitud_id)
     end
 end

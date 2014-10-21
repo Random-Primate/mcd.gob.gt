@@ -2,7 +2,7 @@ class ExpedientesController < ApplicationController
   before_action :set_expediente, only: [:show, :edit, :update, :destroy]
 
   def index
-    @expedientes = Expediente.all
+    @expedientes = Expediente..search(params[:search]).paginate(:page => params[:page], :per_page => 10)
     respond_with(@expedientes)
   end
 

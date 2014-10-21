@@ -3,7 +3,7 @@ class DepartamentosController < ApplicationController
   respond_to :html, :json
 
   def index
-    @departamentos = Departamento.paginate(:page => params[:page], :per_page => 10)
+    @departamentos = Departamento.search(params[:search]).paginate(:page => params[:page], :per_page => 10)
     respond_with(@departamentos)
   end
 
@@ -43,6 +43,6 @@ class DepartamentosController < ApplicationController
     end
 
     def departamento_params
-      params.require(:departamento).permit(:name)
+      params.require(:departamento).permit(:name, :solicitud_id)
     end
 end

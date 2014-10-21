@@ -37,6 +37,11 @@ crumb :users do
   parent :dashboard
 end
 
+crumb :implementos do
+  link 'Implementos', implementos_path
+  parent :dashboard
+end
+
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)
 #   parent :project, project

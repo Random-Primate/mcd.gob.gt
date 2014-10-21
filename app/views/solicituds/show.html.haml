@@ -1,0 +1,22 @@
+%p#notice= notice
+
+%p
+  %b Comunidades:
+  - @solicitud.comunidades.each do |c|
+    = c + ', '
+%p
+  %b Municipio:
+  = @solicitud.municipio
+%p
+  %b Departamento:
+  = @solicitud.departamento
+%p
+  %b Implementos:
+  = @solicitud.implementos.name
+%p
+  %b Solicitante:
+  = @solicitud.solicitante.complete_name
+
+= link_to 'Edit', edit_solicitud_path(@solicitud)
+\|
+= link_to 'Back', solicituds_path

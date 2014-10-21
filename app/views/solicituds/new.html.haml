@@ -1,0 +1,9 @@
+.container
+  .well
+    .row
+      %h1.col-md-6
+        = 'Nueva Solicitud'
+      .col-md-6
+        = link_to 'Regresar', root_path, class: 'btn btn-default pull-right title-btn'
+
+  = render 'form'

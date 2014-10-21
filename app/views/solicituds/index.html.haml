@@ -1,0 +1,27 @@
+%h1 Listing solicituds
+
+%table
+  %tr
+    %th Comunidades
+    %th Municipio
+    %th Departamento
+    %th Implementos
+    %th Solicitante
+    %th
+    %th
+    %th
+
+  - @solicituds.each do |solicitud|
+    %tr
+      %td= solicitud.comunidades
+      %td= solicitud.municipio
+      %td= solicitud.departamento
+      /%td= solicitud.implementos
+      %td= solicitud.solicitante.complete_name
+      %td= link_to 'Show', solicitud
+      %td= link_to 'Edit', edit_solicitud_path(solicitud)
+      %td= link_to 'Destroy', solicitud, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Solicitud', new_solicitud_path

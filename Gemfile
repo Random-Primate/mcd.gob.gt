@@ -59,6 +59,8 @@ gem 'bootstrap-will_paginate'
 gem 'gretel'
 # Handle States
 gem 'state_machine'
+# Adds dynamic fields
+gem 'nested_form_fields'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

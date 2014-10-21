@@ -18,4 +18,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require cocoon
+//= require nested_form_fields
 //= require_tree .
