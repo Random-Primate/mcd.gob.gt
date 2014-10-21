@@ -2,6 +2,13 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
+
+  max_fields_coms  = 1000                                # Maximum input boxes allowed
+  wrapper          = $(".input_fields_wrap")             # Fields wrapper
+  add_button       = $(".add_field_button")              # Add button ID
+  x                = 1                                   # Initlal text box count
+  siguiente_first  = $('#siguiente')
+
   $('#solicitud_municipio').parent().hide()
   municipios = $('#solicitud_municipio').html()
   $('#solicitud_departamento').change ->
@@ -15,11 +22,6 @@ jQuery ->
       $('#solicitud_municipio').empty()
       $('#solicitud_municipio').parent().hide()
 
-  max_fields_coms  = 1000                                # Maximum input boxes allowed
-  wrapper          = $(".input_fields_wrap")             # Fields wrapper
-  add_button       = $(".add_field_button")              # Add button ID
-  x                = 1                                   # Initlal text box count
-
   $(add_button).click (event) ->
     event.preventDefault()
     if x < max_fields_coms
@@ -29,3 +31,15 @@ jQuery ->
 
   $(wrapper).on 'click', ".remove_field", (e) ->
       e.preventDefault(); $(this).parent('div').remove(); x--
+
+  $('#place').hide()
+  $('#implementos').hide()
+  $('#comunidades').hide()
+
+  $(siguiente_first).click (event) ->
+    event.preventDefault()
+    $('#place').show()
+    $('#implementos').show()
+    $('#solicitante').hide()
+    $('#progress').css('width', '40%')
+    $('#progress').text('Solicitud')

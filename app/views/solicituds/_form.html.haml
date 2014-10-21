@@ -1,24 +1,37 @@
-= simple_form_for @solicitud, html: { class: 'form-devise' } do |f|
+= simple_form_for @solicitud, html: { class: 'form-horizontal' } do |f|
   = f.error_notification
 
-  .form-inputs
-    = f.input :departamento, collection: Departamento.order(:name), value_method: :name, prompt: 'Departamento', label: false
-    = f.input :municipio, collection: Departamento.order(:name), value_method: :name, as: :grouped_select, label: false, group_method: :municipios, prompt: 'Municipio'
+  .container
+    .progress
+      .progress-bar#progress{ role:'progressbar', 'aria-valuenow'=>'20', 'aria-valuemin'=>'0', 'aria-valuemax'=>'100', style: 'width: 20%;'}
+        = 'Solicitante'
 
-  .well
-    .input_fields_wrap
-      = f.input_field :comunidades, as: :string, multiple: true
-      = link_to 'Add', '#', class: 'add_field_button'
+    .col-md-4
+      .well#solicitante
+        .form-inputs
+          = simple_fields_for :solicitante do |solicitante|
+            = render 'solicitante_fields', :f => solicitante
 
-  .well
-    .input_fields_wrap_second
-      #tasks
-        = f.simple_fields_for :implementos do |implemento|
-          = render 'implemento_fields', :f => implemento
-        .links
-          = link_to_add_association 'Add', f, :implementos
+    .col-md-4
+      .well#place
+        .form-inputs
+          = f.input :departamento, collection: Departamento.order(:name), value_method: :name, prompt: 'Departamento', label: false
+          = f.input :municipio, collection: Departamento.order(:name), value_method: :name, as: :grouped_select, label: false, group_method: :municipios, prompt: 'Municipio'
 
-  = f.association :solicitante, label_method: :complete_name, prompt: 'Solicitante', label: false
+      .well#comunidades
+        = f.input_field :comunidades, as: :string, multiple: true
+        = link_to 'Add', '#', class: 'add_field_button'
+
+    .col-md-4
+      .well#implementos
+        .input_fields_wrap_second
+          = f.simple_fields_for :implementos do |implemento|
+            = render 'implemento_fields', :f => implemento
+          .links
+            = link_to_add_association 'Agregar Implementos', f, :implementos, class: 'btn btn-lg btn-primary'
+
+  = link_to 'Siguiente', '#', id: 'siguiente', class: 'btn btn-lg btn-primary'
 
   .form-actions
+    %hr.faded
     = f.button :submit
