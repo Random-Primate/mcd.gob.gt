@@ -442,14 +442,14 @@ $colHighlight   : #efefef;
   margin-bottom: 0.5em;
 }
 
-.remove_fields {
+.remove_fields.dynamic.pull-right {
   margin-top: -1.6em;
 }
 .numeric.integer.optional {
   margin-top: 1.5em;
 }
 
-.control-group.string.optional {
+.control-group.string.optional, .control-group.string.required {
   input {
     @extend .bs_field_in;
     &:focus {
@@ -458,7 +458,9 @@ $colHighlight   : #efefef;
   }
 }
 
-.remove_fields.dynamic {
-  margin-top: 0.5em;
-  margin-right: 0.5em;
+#beneficiarios {
+  .remove_fields.dynamic {
+    margin-top: 0.6em;
+    margin-right: 1em;
+  }
 }

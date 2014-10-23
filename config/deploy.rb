@@ -10,7 +10,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :domain, 'implementos.vdr.gt'
+set :domain, 'implementacion.vdr.gt'
 set :deploy_to, '/home/implementacionvd/rails_apps/appgob/'
 set :repository, 'git@github.com:Random-Primate/mcd.gob.gt.git'
 set :branch, 'master'

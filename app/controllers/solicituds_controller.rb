@@ -22,9 +22,20 @@ class SolicitudsController < ApplicationController
 
   def create
     @solicitud = Solicitud.new(solicitud_params)
-    @solicitud.save
+    if @solicitud.save
+      redirect_to '/welcome/thankyou'
+    else
+      render action: 'new'
+    end
+    #respond_to do |format|
+    #  if @book.save
+    #    format.html { redirect_to @book, notice: 'Libro creado exitosamente.' }
+    #    format.json { render action: 'show', status: :created, location: @book }
+    #  else
+    #    format.html { render action: 'new' }
+    #    format.json { render json: @book.errors, status: :unprocessable_entity }
+    #  end
     #respond_with(@solicitud)
-    redirect_to '/welcome/thankyou'
   end
 
   def update

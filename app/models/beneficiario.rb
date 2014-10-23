@@ -17,7 +17,7 @@
 #
 
 class Beneficiario < ActiveRecord::Base
-  validates :cui, :first_name, :first_last_name,
+  validates :cui, :first_name, :first_last_name, :departamento, :municipio, presence: true
   belongs_to :solicitud
   has_one :pueblo
   has_one :idioma
