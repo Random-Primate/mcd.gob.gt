@@ -61,6 +61,10 @@ gem 'gretel'
 gem 'state_machine'
 # Adds dynamic fields
 gem 'nested_form_fields'
+# Turbolink Fix
+gem 'jquery-turbolinks'
+# Excell Exporting
+gem 'axlsx_rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022225752) do
+ActiveRecord::Schema.define(version: 20141023082855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20141022225752) do
     t.integer  "solicitud_id"
     t.string   "departamento"
     t.string   "municipio"
+    t.string   "pueblo"
+    t.string   "idioma"
   end
 
   create_table "comments", force: true do |t|
@@ -65,7 +67,6 @@ ActiveRecord::Schema.define(version: 20141022225752) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "beneficiario_id"
   end
 
   create_table "implementos", force: true do |t|
@@ -93,7 +94,6 @@ ActiveRecord::Schema.define(version: 20141022225752) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "beneficiario_id"
   end
 
   create_table "roles", force: true do |t|
@@ -107,29 +107,21 @@ ActiveRecord::Schema.define(version: 20141022225752) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
-  create_table "solicitantes", force: true do |t|
-    t.string   "first_name"
-    t.string   "second_name"
-    t.string   "first_last_name"
-    t.string   "second_last_name"
-    t.string   "cui"
-    t.string   "tel"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "solicituds", force: true do |t|
     t.text     "comunidades"
-    t.integer  "solicitante_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "departamento"
     t.string   "municipio"
     t.string   "disciplina"
+    t.string   "sol_f_name"
+    t.string   "sol_s_name"
+    t.string   "sol_fl_name"
+    t.string   "sol_sl_name"
+    t.string   "sol_cui"
+    t.string   "sol_tel"
+    t.string   "sol_email"
   end
-
-  add_index "solicituds", ["solicitante_id"], name: "index_solicituds_on_solicitante_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

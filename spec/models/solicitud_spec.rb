@@ -10,6 +10,13 @@
 #  departamento   :string(255)
 #  municipio      :string(255)
 #  disciplina     :string(255)
+#  sol_f_name     :string(255)
+#  sol_s_name     :string(255)
+#  sol_fl_name    :string(255)
+#  sol_sl_name    :string(255)
+#  sol_cui        :string(255)
+#  sol_tel        :string(255)
+#  sol_email      :string(255)
 #
 
 require 'rails_helper'

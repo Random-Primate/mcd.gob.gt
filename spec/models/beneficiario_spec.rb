@@ -14,6 +14,8 @@
 #  solicitud_id      :integer
 #  departamento      :string(255)
 #  municipio         :string(255)
+#  pueblo            :string(255)
+#  idioma            :string(255)
 #
 
 require 'rails_helper'

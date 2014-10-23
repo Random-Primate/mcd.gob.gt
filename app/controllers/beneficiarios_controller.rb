@@ -1,5 +1,6 @@
 class BeneficiariosController < ApplicationController
   before_action :set_beneficiario, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :json
 
   def index
     @beneficiarios = Beneficiario.all

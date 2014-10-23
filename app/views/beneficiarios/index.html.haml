@@ -1,29 +1,41 @@
-%h1 Listing beneficiarios
+.container
+  - breadcrumb :beneficiarios
+  .well
+    .row
+      %h1.col-md-6
+        = 'Lista de Beneficiarios'
+  .panel.panel-default
+    .panel-body
+      = form_tag departamentos_path, html: { class: 'navbar-form' }, method: 'get' do
+        .input-group
+          = text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Buscar'
+          .input-group-btn
+            = submit_tag 'Buscar', :name => nil, class: 'btn btn-default'
 
-%table
-  %tr
-    %th Cui
-    %th First name
-    %th Second first name
-    %th First last name
-    %th Second last name
-    %th Menor
-    %th
-    %th
-    %th
-
-  - @beneficiarios.each do |beneficiario|
+  %table.table.table-striped.table-hover
     %tr
-      %td= beneficiario.cui
-      %td= beneficiario.first_name
-      %td= beneficiario.second_first_name
-      %td= beneficiario.first_last_name
-      %td= beneficiario.second_last_name
-      %td= beneficiario.menor
-      %td= link_to 'Show', beneficiario
-      %td= link_to 'Edit', edit_beneficiario_path(beneficiario)
-      %td= link_to 'Destroy', beneficiario, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Cui
+      %th First name
+      %th Second first name
+      %th First last name
+      %th Second last name
+      %th Menor
+      %th
+      %th
+      %th
 
-%br
+    - @beneficiarios.each do |beneficiario|
+      %tr
+        %td= beneficiario.cui
+        %td= beneficiario.first_name
+        %td= beneficiario.second_first_name
+        %td= beneficiario.first_last_name
+        %td= beneficiario.second_last_name
+        %td= beneficiario.menor
+        %td= link_to 'Show', beneficiario
+        %td= link_to 'Edit', edit_beneficiario_path(beneficiario)
+        %td= link_to 'Destroy', beneficiario, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'New Beneficiario', new_beneficiario_path
+  %br
+
+  /= link_to 'New Beneficiario', new_beneficiario_path

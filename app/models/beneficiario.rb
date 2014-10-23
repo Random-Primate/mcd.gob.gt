@@ -14,11 +14,21 @@
 #  solicitud_id      :integer
 #  departamento      :string(255)
 #  municipio         :string(255)
+#  pueblo            :string(255)
+#  idioma            :string(255)
 #
 
 class Beneficiario < ActiveRecord::Base
   validates :cui, :first_name, :first_last_name, :departamento, :municipio, presence: true
   belongs_to :solicitud
-  has_one :pueblo
-  has_one :idioma
+
+  #before_save bool_turn(:menor)
+
+  #def bool_turn(menor)
+  #  if menor == 'Menor de Edad'
+  #    menor = 0
+  #  else
+  #    menor = 1
+  #  end
+  #end
 end

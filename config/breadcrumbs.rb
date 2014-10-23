@@ -42,6 +42,16 @@ crumb :implementos do
   parent :dashboard
 end
 
+crumb :solicitudes do
+  link 'Solicitudes', solicituds_path
+  parent :dashboard
+end
+
+crumb :beneficiarios do
+  link 'Beneficiarios', beneficiarios_path
+  parent :dashboard
+end
+
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)
 #   parent :project, project

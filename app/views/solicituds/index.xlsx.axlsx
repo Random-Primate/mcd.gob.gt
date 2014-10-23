@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Solicitudes") do |sheet|
+  @solicituds.each do |sol|
+    sheet.add_row [sol.sol_f_name, sol.sol_s_name, sol.sol_fl_name, sol.sol_sl_name, sol.sol_cui, sol.sol_email, sol.sol_tel,
+                   sol.departamento, sol.municipio, sol.disciplina,]
+  end
+end

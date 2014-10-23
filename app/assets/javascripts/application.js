@@ -11,12 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery.Jcrop
 //= require jquery.color
 //= require jquery_ujs
 // require jquery-ui
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require cocoon
 //= require nested_form_fields
 //= require_tree .
+//= require turbolinks

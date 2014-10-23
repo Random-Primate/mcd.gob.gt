@@ -417,7 +417,7 @@ $colHighlight   : #efefef;
  */
 #solicitante_first_name, #solicitante_second_name, #solicitante_first_last_name,
 #solicitante_second_last_name, #solicitante_email, #solicitante_cui, #solicitante_tel,
-#solicitud_comunidades, #solicitud_disciplina {
+#solicitud_comunidades, #solicitud_disciplina, .string.email.required {
   @extend .bs_field_in;
   &:focus {
     @extend .bs_field_active;

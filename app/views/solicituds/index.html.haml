@@ -1,27 +1,47 @@
-%h1 Listing solicituds
+.container
+  - breadcrumb :solicitudes
+  .well
+    .row
+      %h1.col-md-6
+        = 'Lista de Solicitudes'
+  .panel.panel-default
+    .panel-body
+      = form_tag departamentos_path, html: { class: 'navbar-form' }, method: 'get' do
+        .input-group
+          = text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Buscar'
+          .input-group-btn
+            = submit_tag 'Buscar', :name => nil, class: 'btn btn-default'
 
-%table
-  %tr
-    %th Comunidades
-    %th Municipio
-    %th Departamento
-    %th Implementos
-    %th Solicitante
-    %th
-    %th
-    %th
-
-  - @solicituds.each do |solicitud|
+  %table.table.table-striped.table-hover
     %tr
-      %td= solicitud.comunidades
-      %td= solicitud.municipio
-      %td= solicitud.departamento
-      %td= solicitud.implementos
-      %td= solicitud.solicitante.complete_name
-      %td= link_to 'Show', solicitud
-      %td= link_to 'Edit', edit_solicitud_path(solicitud)
-      %td= link_to 'Destroy', solicitud, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Comunidades
+      %th Municipio
+      %th Departamento
+      %th Implementos
+      %th{colspan: 2}
+        = 'Nombre Solicitante'
+      %th{colspan: 2}
+        = 'Appellidos Solicitante'
+      %th
+      %th
 
-%br
+    - @solicituds.each do |solicitud|
+      %tr
+        %td= solicitud.comunidades
+        %td= solicitud.municipio
+        %td= solicitud.departamento
+        - solicitud.implementos.each do |imps|
+          %td
+            = imps.name
+        end
+        %td= solicitud.sol_f_name
+        %td= solicitud.sol_s_name
+        %td= solicitud.sol_fl_name
+        %td= solicitud.sol_sl_name
+        %td= link_to 'Show', solicitud
+        %td= link_to 'Edit', edit_solicitud_path(solicitud)
+        %td= link_to 'Destroy', solicitud, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'New Solicitud', new_solicitud_path
+  %br
+
+  = link_to 'New Solicitud', new_solicitud_path

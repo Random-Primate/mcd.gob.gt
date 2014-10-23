@@ -5,7 +5,7 @@
       %h1.col-md-6
         = 'Usuarios'
       .col-md-6
-        = link_to 'Agregar Usuario (pend)', '#', class: 'btn btn-default pull-right title-btn'
+        = link_to 'Agregar Usuario', new_user_registration_path, class: 'btn btn-default pull-right title-btn'
   %br
 
   %table.table.table-striped.table-hover
@@ -18,8 +18,6 @@
       %tr
         %td= full_name(user)
         %td= user.email
-        %td= link_to 'Edit', edit_user_registration_path(user.id)
-        /= link_to 'Edit', edit_user_registration_path(user.id)
-        /= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Editar', edit_user_registration_path(user.id)
 
   = will_paginate @users, class: 'paginate-bot'

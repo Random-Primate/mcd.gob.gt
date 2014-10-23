@@ -1,5 +1,6 @@
 = simple_form_for @solicitud, html: { class: 'form-horizontal' } do |f|
   = f.error_notification
+  /= devise_error_messages!
 
   .container
     .progress{style: 'margin-bottom: 3em;'}
@@ -46,9 +47,14 @@
 
     #solicitante
       .col-md-4.col-md-offset-1
-        .form-inputs
-          = simple_fields_for :solicitante do |solicitante|
-            = render 'solicitante_fields', :f => solicitante
+        = f.input :sol_f_name, class: 'form-control top', placeholder: 'Primer Nombre', label: false
+        = f.input :sol_s_name, class: 'form-control med', placeholder: 'Segundo Nombre', label: false
+        = f.input :sol_fl_name, class: 'form-control med', placeholder: 'Primer Apellido', label: false
+        = f.input :sol_sl_name, class: 'form-control med', placeholder: 'Segundo Appellido', label: false
+        = f.input :sol_cui, class: 'form-control med', placeholder: 'DPI', label: false
+        = f.input :sol_tel, class: 'form-control med', placeholder: 'Teléfono', label: false
+        = f.input :sol_email, class: 'form-control top', placeholder: 'Email', label: false
+
 
     #ubicacion
       .col-md-4
