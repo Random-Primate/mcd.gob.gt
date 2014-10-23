@@ -12,8 +12,6 @@
 class Article < ActiveRecord::Base
   resourcify
 
-  # RELATIONS
-  #belongs_to  :user
   has_many    :comments, dependent: :destroy
 
   # VALIDATIONS

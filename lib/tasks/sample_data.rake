@@ -29,14 +29,6 @@ namespace :db do
                      password_confirmation: password)
       end
       #
-      # Articles
-      #
-      7.times do
-        title = Faker::Lorem.sentence(1)
-        text = Faker::Lorem.paragraph(8)
-        Article.create!(title: title, text: text)
-      end
-      #
       # Solicitantes
       #
       5.times do

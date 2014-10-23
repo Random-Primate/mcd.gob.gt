@@ -1,0 +1,13 @@
+= simple_form_for(@beneficiario) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :cui
+    = f.input :first_name
+    = f.input :second_first_name
+    = f.input :first_last_name
+    = f.input :second_last_name
+    = f.input :menor
+
+  .form-actions
+    = f.button :submit

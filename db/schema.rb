@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021042155) do
+ActiveRecord::Schema.define(version: 20141022225752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,20 @@ ActiveRecord::Schema.define(version: 20141021042155) do
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "beneficiarios", force: true do |t|
+    t.string   "cui"
+    t.string   "first_name"
+    t.string   "second_first_name"
+    t.string   "first_last_name"
+    t.string   "second_last_name"
+    t.boolean  "menor"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "solicitud_id"
+    t.string   "departamento"
+    t.string   "municipio"
   end
 
   create_table "comments", force: true do |t|
@@ -51,6 +65,7 @@ ActiveRecord::Schema.define(version: 20141021042155) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "beneficiario_id"
   end
 
   create_table "implementos", force: true do |t|
@@ -78,6 +93,7 @@ ActiveRecord::Schema.define(version: 20141021042155) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "beneficiario_id"
   end
 
   create_table "roles", force: true do |t|
@@ -110,6 +126,7 @@ ActiveRecord::Schema.define(version: 20141021042155) do
     t.datetime "updated_at"
     t.string   "departamento"
     t.string   "municipio"
+    t.string   "disciplina"
   end
 
   add_index "solicituds", ["solicitante_id"], name: "index_solicituds_on_solicitante_id", using: :btree

@@ -9,6 +9,7 @@
 #  updated_at     :datetime
 #  departamento   :string(255)
 #  municipio      :string(255)
+#  disciplina     :string(255)
 #
 
 require 'rails_helper'

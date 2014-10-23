@@ -432,3 +432,25 @@ Implemento.create([
   { name: 'Pelota de basquetbol', piezas: 1 },
   { name: 'Pelota de voleibol', piezas: 1 }
 ])
+Article.create([
+  {
+      title: '¡Genere su solicitud en línea!',
+      text: 'Para agilizar el proceso de solicitud de implementos deportivos ahora puede generarla en este sitio. Adelantando la validación de datos para sus beneficiarios.'
+  },
+  {
+      title: 'Primer Paso',
+      text: 'Descargue los documentos requeridos para presentarlos en el departamento de implementos.'
+  },
+  {
+      title: 'Primer Paso',
+      text: 'Descargue los documentos requeridos para presentarlos en el departamento de implementos.'
+  },
+  {
+      title: 'Primer Paso',
+      text: 'Descargue los documentos requeridos para presentarlos en el departamento de implementos.'
+  },
+  {
+      title: 'Primer Paso',
+      text: 'Descargue los documentos requeridos para presentarlos en el departamento de implementos.'
+  },
+])

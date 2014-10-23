@@ -1,4 +1,6 @@
 .nested-fields
-  = f.input :name, collection: Implemento.order(:name), value_method: :name
-  = f.input :piezas
-  = link_to_remove_association 'Eliminar', f, class: 'btn btn-lg btn-default'
+  .well
+    = f.input :name, collection: Implemento.order(:name), value_method: :name, label: false,
+    prompt: 'Implemento'
+    = f.input :piezas, label: false, placeholder: 'Cantidad'
+    = link_to_remove_association 'Eliminar', f, class: 'btn btn-default pull-right'

@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Cui:
+  = @beneficiario.cui
+%p
+  %b First name:
+  = @beneficiario.first_name
+%p
+  %b Second first name:
+  = @beneficiario.second_first_name
+%p
+  %b First last name:
+  = @beneficiario.first_last_name
+%p
+  %b Second last name:
+  = @beneficiario.second_last_name
+%p
+  %b Menor:
+  = @beneficiario.menor
+
+= link_to 'Edit', edit_beneficiario_path(@beneficiario)
+\|
+= link_to 'Back', beneficiarios_path

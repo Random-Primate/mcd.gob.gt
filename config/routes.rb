@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :beneficiarios
+
+  #resources :solicituds
   resources :solicituds
-  get 'solicituds/agregar_comunidad', as: 'agregar_comunidad'
+
+  get 'welcome/thankyou'
 
   resources :implementos
 
@@ -30,9 +34,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index]
 
   # Articles and Comments
-  resources :articles do
-    resources :comments
-  end
+  resources :articles, except: [:new, :destroy]
 
   # Users
   get '/user/:id', :to => 'user#show', :as => :user

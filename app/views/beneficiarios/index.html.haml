@@ -1,0 +1,29 @@
+%h1 Listing beneficiarios
+
+%table
+  %tr
+    %th Cui
+    %th First name
+    %th Second first name
+    %th First last name
+    %th Second last name
+    %th Menor
+    %th
+    %th
+    %th
+
+  - @beneficiarios.each do |beneficiario|
+    %tr
+      %td= beneficiario.cui
+      %td= beneficiario.first_name
+      %td= beneficiario.second_first_name
+      %td= beneficiario.first_last_name
+      %td= beneficiario.second_last_name
+      %td= beneficiario.menor
+      %td= link_to 'Show', beneficiario
+      %td= link_to 'Edit', edit_beneficiario_path(beneficiario)
+      %td= link_to 'Destroy', beneficiario, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Beneficiario', new_beneficiario_path

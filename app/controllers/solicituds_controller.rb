@@ -13,6 +13,7 @@ class SolicitudsController < ApplicationController
 
   def new
     @solicitud = Solicitud.new
+    @implementos = Implemento.where('piezas > ?', 1)
     respond_with(@solicitud)
   end
 
@@ -22,7 +23,8 @@ class SolicitudsController < ApplicationController
   def create
     @solicitud = Solicitud.new(solicitud_params)
     @solicitud.save
-    respond_with(@solicitud)
+    #respond_with(@solicitud)
+    redirect_to '/welcome/thankyou'
   end
 
   def update

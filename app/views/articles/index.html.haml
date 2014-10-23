@@ -1,7 +1,6 @@
 .container
   %h1
-    = 'Listing articles'
-  = link_to 'New article', new_article_path
+    = 'Contenido Inicial'
   %table.table.table-stripped
     %tr
       %th
@@ -17,9 +16,6 @@
         %td
           = article.text
         %td
-          = link_to 'Show', article_path(article)
+          = link_to 'Ver', article_path(article)
         %td
-          = link_to 'Edit', edit_article_path(article)
-        %td
-          = link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
-  = link_to 'Home', controller: :welcome
+          = link_to 'Editar', edit_article_path(article)

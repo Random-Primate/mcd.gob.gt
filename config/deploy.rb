@@ -10,8 +10,8 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :domain, 'portal.nomisys.com.gt'
-set :deploy_to, '/home/portalnomisyscom/rails_apps/Blast/'
+set :domain, 'implementos.vdr.gt'
+set :deploy_to, '/home/implementacionvd/rails_apps/appgob/'
 set :repository, 'git@github.com:Random-Primate/mcd.gob.gt.git'
 set :branch, 'master'
 
@@ -23,7 +23,7 @@ set :term_mode, nil
 set :shared_paths, ['config/database.yml', 'log']
 
 # Optional settings:
-set :user, 'portalnomisyscom'    # Username in the server to SSH to.
+set :user, 'implementacionvd'    # Username in the server to SSH to.
 set :port, '22022'               # SSH port number.
 
 # This task is the environment that is loaded for most commands, such as
