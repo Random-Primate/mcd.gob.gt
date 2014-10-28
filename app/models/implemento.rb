@@ -2,20 +2,19 @@
 #
 # Table name: implementos
 #
-#  id           :integer          not null, primary key
-#  name         :string(255)
-#  piezas       :integer
-#  created_at   :datetime
-#  updated_at   :datetime
-#  solicitud_id :integer
-#  description  :text
-#  available    :integer
-#  reserved     :integer
-#  solicited    :integer
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  piezas      :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#  description :text
+#  available   :integer
+#  reserved    :integer
+#  solicited   :integer
 #
 
 class Implemento < ActiveRecord::Base
-  belongs_to :solicitud
+  has_and_belongs_to_many :solicituds
 
   def self.search(search)
     if search

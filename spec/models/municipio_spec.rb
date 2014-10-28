@@ -7,7 +7,6 @@
 #  departamento_id :integer
 #  created_at      :datetime
 #  updated_at      :datetime
-#  solicitud_id    :integer
 #
 
 require 'rails_helper'

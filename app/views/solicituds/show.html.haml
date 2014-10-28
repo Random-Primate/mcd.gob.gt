@@ -40,10 +40,7 @@
         = @solicitud.disciplina
       %p
         %b Departamento:
-        - if @solicitud.departamento
-          = @solicitud.departamento.name
-        - else
-          = @solicitud.departamento
+        = @solicitud.departamento.name
       %p
         %b Municipio:
         = @solicitud.municipio.name

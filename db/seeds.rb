@@ -5,7 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+puts '####################'
+puts 'Seed Data: '
+puts '-------------------'
 Departamento.create([
   { name: 'GUATEMALA' },
   { name: 'EL PROGRESO' },
@@ -30,6 +32,9 @@ Departamento.create([
   { name: 'JALAPA' },
   { name: 'JUTIAPA' }
 ])
+# Notify through console.
+puts 'Departamentos Creados: ' + Departamento.count.to_s
+puts '-------------------'
 Municipio.create([
   { departamento_id: 1, name: 'GUATEMALA' },
   { departamento_id: 1, name: 'SANTA CATARINA PINULA' },
@@ -366,6 +371,9 @@ Municipio.create([
   { departamento_id: 22, name: 'SAN JOSÉ ACATEMPA' },
   { departamento_id: 22, name: 'QUEZADA' }
 ])
+# Notify through console.
+puts 'Municipios Creados: ' + Municipio.count.to_s
+puts '-------------------'
 Pueblo.create([
   { name: 'XINCA' },
   { name: 'GARÍFUNA' },
@@ -374,6 +382,9 @@ Pueblo.create([
   { name: 'MAYA' },
   { name: 'NO INDICA' },
 ])
+# Notify through console.
+puts 'Pueblos Creados: ' + Pueblo.count.to_s
+puts '-------------------'
 Idioma.create([
   { name: "ACHI'" },
   { name: 'AKATEKA' },
@@ -403,6 +414,9 @@ Idioma.create([
   { name: 'IDIOMA EXTRANJERO' },
   { name: 'NO INDICA' }
 ])
+# Notify through console.
+puts 'Idiomas Creados: ' + Idioma.count.to_s
+puts '-------------------'
 Implemento.create([
   { description: 'Juegos de uniformes de papi fútbol niño', name: 'Uniforme Papi Fútbol Niño', available: 1000, reserved: 0, solicited: 0, piezas: 8 },
   { description: 'Juegos de uniformes de papi fútbol femenino', name: 'Uniforme Papi Fútbol Femenino', available: 1000, reserved: 0, solicited: 0, piezas: 8 },
@@ -428,6 +442,9 @@ Implemento.create([
   { description: 'Balón de basquetbol', name: 'Balón de Basquetbol', available: 1000, reserved: 0, solicited: 0, piezas: 1 },
   { description: 'Balón de voleibol', name: 'Balón de Voleibol', available: 1000, reserved: 0, solicited: 0, piezas: 1 }
 ])
+# Notify through console.
+puts 'Implementos Creados: ' + Implemento.count.to_s
+puts '-------------------'
 Article.create([
   {
       title: '¡Genere su solicitud en línea!',
@@ -458,3 +475,6 @@ Article.create([
       text: 'Ingrese el departamento y municipio donde se entregaran los implementos. Cuando lo complete puede presionar el botón Siguiente.'
   }
 ])
+# Notify through console.
+puts 'Artículos Creados: ' + Article.count.to_s
+puts '####################'

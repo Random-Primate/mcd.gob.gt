@@ -42,7 +42,7 @@ namespace :db do
         arr
       end
       100.times do |time|
-        puts 'Solicitud No.' + time.to_s
+        puts 'Solicitud No.' + (time + 1).to_s
         comunidades = iter_coms(5)
         correlativo =rand(10000...100000)
         sol_f_name = Faker::Name.first_name
@@ -56,13 +56,12 @@ namespace :db do
         # Must be from db list
         dep_id = rand(1..22)
         departamento = Departamento.find(dep_id)
-        puts 'Var Departamento: ' + departamento.name
         max = departamento.municipios.last.id
         min = departamento.municipios.first.id
         muni_id = rand(min..max)
-        municipio = Municipio.find(muni_id)
-        puts 'Var Municipio: ' + municipio.name
         disciplina = Faker::Lorem.word
+        # Implementos
+        implementos = [Implemento.find(1), Implemento.find(2)]
 
         sol = Solicitud.create!(
           # Solicitante's details
@@ -74,15 +73,17 @@ namespace :db do
           sol_tel: sol_tel,
           sol_email: sol_email,
           # General info
-          departamento: departamento,
-          municipio: municipio,
+          departamento_id: dep_id,
+          municipio_id: muni_id,
           disciplina: disciplina,
           comunidades: comunidades,
-          correlativo: correlativo
+          correlativo: correlativo,
           # Implementos
+          #implemento: implementos - look at has and belongs to many syntax
         )
-        puts 'Departamento Value: ' + sol.departamento.name
-        puts 'Municipio Value: ' + sol.municipio.name
+        #puts 'Implementos: '  +   sol.implementos.first.name
+        puts 'Departamento: ' +   sol.departamento.name
+        puts 'Municipio: '    +   sol.municipio.name
         puts '##################'
       end
 

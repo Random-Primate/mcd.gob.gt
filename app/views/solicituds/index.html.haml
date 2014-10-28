@@ -29,10 +29,7 @@
         %td= solicitud.correlativo
         %td= 'Estado'
         %td= solicitud.beneficiarios.count
-        - if solicitud.departamento
-          %td= solicitud.departamento.name
-        - else
-          %td= solicitud.departamento
+        %td= solicitud.departamento.name
         %td= link_to 'Show', solicitud
         %td= link_to 'Edit', edit_solicitud_path(solicitud)
         %td= link_to 'Destroy', solicitud, :method => :delete, :data => { :confirm => 'Are you sure?' }

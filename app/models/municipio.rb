@@ -7,12 +7,11 @@
 #  departamento_id :integer
 #  created_at      :datetime
 #  updated_at      :datetime
-#  solicitud_id    :integer
 #
 
 class Municipio < ActiveRecord::Base
-  belongs_to :departamento
-  belongs_to :solicitud
+  belongs_to  :departamento
+  has_many    :solicituds
 
   def self.search(search)
     if search

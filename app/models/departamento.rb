@@ -2,16 +2,15 @@
 #
 # Table name: departamentos
 #
-#  id           :integer          not null, primary key
-#  name         :string(255)
-#  created_at   :datetime
-#  updated_at   :datetime
-#  solicitud_id :integer
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
 #
 
 class Departamento < ActiveRecord::Base
   has_many :municipios
-  belongs_to :solicitud
+  has_many :solicituds
 
   def self.search(search)
     if search

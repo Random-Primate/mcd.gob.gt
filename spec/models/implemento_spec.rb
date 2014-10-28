@@ -2,16 +2,15 @@
 #
 # Table name: implementos
 #
-#  id           :integer          not null, primary key
-#  name         :string(255)
-#  piezas       :integer
-#  created_at   :datetime
-#  updated_at   :datetime
-#  solicitud_id :integer
-#  description  :text
-#  available    :integer
-#  reserved     :integer
-#  solicited    :integer
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  piezas      :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#  description :text
+#  available   :integer
+#  reserved    :integer
+#  solicited   :integer
 #
 
 require 'rails_helper'
