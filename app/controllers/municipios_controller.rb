@@ -1,4 +1,5 @@
 class MunicipiosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_municipio, only: [:show, :edit, :update, :destroy]
   respond_to :html, :json
 

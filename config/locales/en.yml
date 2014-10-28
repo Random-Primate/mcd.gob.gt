@@ -39,3 +39,15 @@ en:
 
       multi_page: "Desplegando %{model} %{from} - %{to} de %{count} en total"
       multi_page_html: "Desplegando %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b> en total"
+
+  simple_form:
+      "yes": 'Si'
+      "no": 'No'
+      required:
+        text: 'Requerido'
+        mark: '*'
+        # You can uncomment the line below if you need to overwrite the whole required html.
+        # When using html, text and mark won't be used.
+        # html: '<abbr title="required">*</abbr>'
+      error_notification:
+        default_message: "Existe un problema con su información, por favor revisarla."

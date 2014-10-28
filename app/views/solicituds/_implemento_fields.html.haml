@@ -2,5 +2,5 @@
   .well
     = f.input :name, collection: Implemento.order(:name), value_method: :name, label: false,
     prompt: 'Implemento'
-    = f.input :piezas, label: false, placeholder: 'Cantidad'
+    = f.input :solicited, label: false, placeholder: 'Cantidad'
     = link_to_remove_association 'Eliminar', f, class: 'btn btn-default pull-right'

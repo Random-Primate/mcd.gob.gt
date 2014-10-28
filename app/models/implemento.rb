@@ -8,6 +8,10 @@
 #  created_at   :datetime
 #  updated_at   :datetime
 #  solicitud_id :integer
+#  description  :text
+#  available    :integer
+#  reserved     :integer
+#  solicited    :integer
 #
 
 class Implemento < ActiveRecord::Base

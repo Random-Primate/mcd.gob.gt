@@ -1,25 +1,106 @@
-%p#notice= notice
+.container
+  - breadcrumb :solicitud, @solicitud
+  .row
+    .well
+      %h1
+        = 'No. Correlativo:'
+        %span{style: 'font-weight: 300;'}
+          = @solicitud.correlativo
+      %h2
+        = 'Estado:'
+      /- if @solicitud.estado == 'Verificado'
+      /  = 'No. Gestión:'
+      /  = @solicitud.no_gestion
+  .row{style: 'margin-bottom: 4em;'}
+    %p#notice= notice
 
-%p
-  %b Comunidades:
-  - @solicitud.comunidades.each do |c|
-    = c + ', '
-%p
-  %b Municipio:
-  = @solicitud.municipio
-%p
-  %b Departamento:
-  = @solicitud.departamento
-%p
-  %b Implementos:
-  -@solicitud.implementos.each do |implemento|
-    %tr
-      %td= implemento.name
-      %td= implemento.piezas
-%p
-  %b Solicitante:
-  = @solicitud.solicitante.complete_name
-
-= link_to 'Edit', edit_solicitud_path(@solicitud)
-\|
-= link_to 'Back', solicituds_path
+    .col-md-4
+      %h3 Solicitante:
+      %p
+        %b Apellidos:
+        = @solicitud.sol_fl_name
+        = @solicitud.sol_sl_name
+      %p
+        %b Nombres:
+        = @solicitud.sol_f_name
+        = @solicitud.sol_s_name
+      %p
+        %b DPI:
+        = @solicitud.sol_cui
+      %p
+        %b Teléfono:
+        = @solicitud.sol_tel
+      %p
+        %b Correo:
+        = @solicitud.sol_email
+    .col-md-4
+      %h3 Solicitud:
+      %p
+        %b Disciplina:
+        = @solicitud.disciplina
+      %p
+        %b Departamento:
+        - if @solicitud.departamento
+          = @solicitud.departamento.name
+        - else
+          = @solicitud.departamento
+      %p
+        %b Municipio:
+        = @solicitud.municipio.name
+    .col-md-4
+      %h3 Comunidades:
+      -if @solicitud.comunidades.count > 1
+        %ul.list-group
+        - @solicitud.comunidades.each do |comunidad|
+          %li.list-group-item
+            = comunidad
+      - else
+        .well
+          %h3
+            = 'No hay comunidades que mostrar.'
+  .row
+    .panel-group#accordion
+      .panel.panel-default
+        .panel-heading
+          %a{ 'data-toggle' => 'collapse', 'data-parent' => '#accordion', href: '#collapseOne'}
+            %h3.panel-title
+              = 'Implementos Solicitados: '
+        #collapseOne.panel-collapse.collapse
+          .panel-body
+            -if @solicitud.implementos.count > 1
+              %table.table.table-striped.table-hover
+                %tr
+                  %th Implemento
+                  %th Cantidad Solicitada
+                -@solicitud.implementos.each do |implemento|
+                  %tr
+                    %td= implemento.name
+                    %td= implemento.solicited
+            - else
+              .well
+                %h3
+                  = 'No hay implementos que mostrar.'
+      .panel.panel-default
+        .panel-heading
+          %a{ 'data-toggle' => 'collapse', 'data-parent' => '#accordion', href: '#collapseTwo'}
+            %h3.panel-title
+              = 'Beneficiarios: '
+        #collapseTwo.panel-collapse.collapse
+          .panel-body
+            -if @solicitud.beneficiarios.count > 1
+              %table.table.table-striped.table-hover
+                %tr
+                  %th Beneficiario
+                  %th Pueblo
+                -@solicitud.beneficiarios.each do |beneficiario|
+                  %tr
+                    %td= beneficiario.first_name
+                    %td= beneficiario.pueblo
+            - else
+              .well
+                %h3
+                  = 'No hay beneficiarios que mostrar.'
+  .row
+    .well{style: 'min-height: 70px; margin-top: 2em;'}
+      = link_to 'Editar if admin', edit_solicitud_path(@solicitud),  class: 'btn btn-primary pull-right'
+      = link_to 'Atras', solicituds_path, class: 'btn btn-primary pull-left'

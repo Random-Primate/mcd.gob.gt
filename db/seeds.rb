@@ -404,33 +404,29 @@ Idioma.create([
   { name: 'NO INDICA' }
 ])
 Implemento.create([
-  { name: 'Uniforme de papi fútbol niño', piezas: 8 },
-  { name: 'Uniforme de papi fútbol femenino', piezas: 8 },
-  { name: 'Uniforme de papi fútbol masculino', piezas: 8 },
-  { name: 'Uniforme de fútbol masculino', piezas: 15 },
-  { name: 'Uniforme de fútbol femenino', piezas: 15 },
-  { name: 'Uniforme de fútbol niño', piezas: 15 },
-  { name: 'Uniforme de basquetbol masculino', piezas: 8 },
-  { name: 'Uniforme de basquetbol femenino', piezas: 8 },
-  { name: 'Uniforme de voleibol masculino', piezas: 8 },
-  { name: 'Uniforme de voleibol femenino', piezas: 8 },
-  { name: 'Uniforme de multidisciplinario masculino', piezas: 20 },
-  { name: 'Uniforme de multidisciplinario femenino', piezas: 20 },
-  { name: 'Uniforme de multidisciplinario niño', piezas: 20 },
-  { name: 'Zapatos de fútbol', piezas: 1 },
-  { name: 'Zapatos de papi fútbol', piezas: 1 },
-  { name: 'Zapatos tenis deportivo', piezas: 1 },
-  { name: 'Zapatos tenis para correr', piezas: 1 },
-  { name: 'Medalla de plata', piezas: 1 },
-  { name: 'Medalla de oro', piezas: 1 },
-  { name: 'Medalla de bronce', piezas: 1 },
-  { name: 'Trofeo de plata', piezas: 1 },
-  { name: 'Trofeo de oro', piezas: 1 },
-  { name: 'Trofeo de bronce', piezas: 1 },
-  { name: 'Pelota de fútbol No. 4', piezas: 1 },
-  { name: 'Pelota de fútbol No. 5', piezas: 1 },
-  { name: 'Pelota de basquetbol', piezas: 1 },
-  { name: 'Pelota de voleibol', piezas: 1 }
+  { description: 'Juegos de uniformes de papi fútbol niño', name: 'Uniforme Papi Fútbol Niño', available: 1000, reserved: 0, solicited: 0, piezas: 8 },
+  { description: 'Juegos de uniformes de papi fútbol femenino', name: 'Uniforme Papi Fútbol Femenino', available: 1000, reserved: 0, solicited: 0, piezas: 8 },
+  { description: 'Juegos de uniformes de papi fútbol masculino', name: 'Uniforme Papi Fútbol Masculino', available: 1000, reserved: 0, solicited: 0, piezas: 8 },
+  { description: 'Juegos de uniformes de fútbol masculino', name: 'Uniforme Fútbol Masculino', available: 1000, reserved: 0, solicited: 0, piezas: 15 },
+  { description: 'Juegos de uniformes de fútbol femenino', name: 'Uniforme Fútbol Femenino', available: 1000, reserved: 0, solicited: 0, piezas: 15 },
+  { description: 'Juegos de uniformes de fútbol niño', name: 'Uniforme Fútbol Niño', available: 1000, reserved: 0, solicited: 0, piezas: 15 },
+  { description: 'Juegos de uniformes de basquetbol masculino', name: 'Uniforme Basquetbol Masculino', available: 1000, reserved: 0, solicited: 0, piezas: 8 },
+  { description: 'Juegos de uniformes de basquetbol femenino', name: 'Uniforme Basquetbol Femenino', available: 1000, reserved: 0, solicited: 0, piezas: 8 },
+  { description: 'Juegos de uniformes de voleibol masculino', name: 'Uniforme Voleibol Masculino', available: 1000, reserved: 0, solicited: 0, piezas: 8 },
+  { description: 'Juegos de uniformes de voleibol femenino', name: 'Uniforme Voleibol Femenino', available: 1000, reserved: 0, solicited: 0, piezas: 8 },
+  { description: 'Juegos de uniformes multidisciplinario masculino', name: 'Uniforme Multidisciplinario Masculino', available: 1000, reserved: 0, solicited: 0, piezas: 20 },
+  { description: 'Juegos de uniformes multidisciplinario femenino', name: 'Uniforme Multidisciplinario Femenino', available: 1000, reserved: 0, solicited: 0, piezas: 20 },
+  { description: 'Juegos de uniformes multidisciplinario niño', name: 'Uniforme Multidisciplinario Niño', available: 1000, reserved: 0, solicited: 0, piezas: 20 },
+  { description: 'Pares de zapatos de fútbol', name: 'Zapatos de Fútbol', available: 1000, reserved: 0, solicited: 0, piezas: 1 },
+  { description: 'Pares de zapatos de papi fútbol', name: 'Zapatos de Papi Fútbol', available: 1000, reserved: 0, solicited: 0, piezas: 1 },
+  { description: 'Pares de zapatos tenis deportivo', name: 'Zapatos Tenis Deportivos', available: 1000, reserved: 0, solicited: 0, piezas: 1 },
+  { description: 'Pares de zapatos tenis para trotar', name: 'Zapatos para Trotar', available: 1000, reserved: 0, solicited: 0, piezas: 1 },
+  { description: 'Juego de medallas de oro, plata, y bronce', name: 'Juego de Medallas', available: 1000, reserved: 0, solicited: 0, piezas: 1 },
+  { description: 'Juego de trofeos de oro, plata, y bronce', name: 'Juego de Trofeos', available: 1000, reserved: 0, solicited: 0, piezas: 1 },
+  { description: 'Balón de fútbol No. 4', name: 'Balón No.4 Futbol', available: 1000, reserved: 0, solicited: 0, piezas: 1 },
+  { description: 'Balón de fútbol No. 5', name: 'Balón No.5 Futbol ', available: 1000, reserved: 0, solicited: 0, piezas: 1 },
+  { description: 'Balón de basquetbol', name: 'Balón de Basquetbol', available: 1000, reserved: 0, solicited: 0, piezas: 1 },
+  { description: 'Balón de voleibol', name: 'Balón de Voleibol', available: 1000, reserved: 0, solicited: 0, piezas: 1 }
 ])
 Article.create([
   {
@@ -438,7 +434,7 @@ Article.create([
       text: 'Para agilizar el proceso de solicitud de implementos deportivos ahora puede generarla en este sitio. Adelantando la validación de datos para sus beneficiarios.'
   },
   {
-      title: 'Primer Paso',
+      title: 'Galería de Implementos',
       text: 'Descargue los documentos requeridos para presentarlos en el departamento de implementos.'
   },
   {
@@ -453,4 +449,12 @@ Article.create([
       title: 'Primer Paso',
       text: 'Descargue los documentos requeridos para presentarlos en el departamento de implementos.'
   },
+  {
+      title: 'No. 1: Instrucciones',
+      text: 'Por favor ingrese los datos de la persona solicitante en las casillas a la derecha. Cuando lo complete puede presionar el botón Siguiente.'
+  },
+  {
+      title: 'No. 2: Instrucciones',
+      text: 'Ingrese el departamento y municipio donde se entregaran los implementos. Cuando lo complete puede presionar el botón Siguiente.'
+  }
 ])

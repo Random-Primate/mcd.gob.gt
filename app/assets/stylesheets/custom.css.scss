@@ -39,7 +39,7 @@ footer, .page-wrap:after {
   /* .push must be the same height as footer */
   height: 100px;
 }
-h1, h2, h3, h4, h5, h6, p, a, th, label, span {
+h1, h2, h3, h4, h5, h6, p, a, th, label, span, li, select {
   font-family: $quick !important;
 }
 
@@ -181,6 +181,10 @@ h1, h2, h3, h4, h5, h6, p, a, th, label, span {
   margin-top: 1em;
 }
 
+li.list-group-item {
+  font-size: 0.8em;
+}
+
 /*
  *
  *  Sidebar
@@ -266,6 +270,7 @@ $colHighlight   : #efefef;
   .navbar-default .navbar-nav .open .dropdown-menu {
     > li > a {
       color: $colDefault;
+      background-color: #666666;
       &:hover, &:focus {
         color: $colHighlight; }}
     > .active {

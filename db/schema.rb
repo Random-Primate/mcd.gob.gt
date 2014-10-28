@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141023082855) do
+ActiveRecord::Schema.define(version: 20141028020642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,10 @@ ActiveRecord::Schema.define(version: 20141023082855) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "solicitud_id"
+    t.text     "description"
+    t.integer  "available"
+    t.integer  "reserved"
+    t.integer  "solicited"
   end
 
   create_table "municipios", force: true do |t|
@@ -111,8 +115,6 @@ ActiveRecord::Schema.define(version: 20141023082855) do
     t.text     "comunidades"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "departamento"
-    t.string   "municipio"
     t.string   "disciplina"
     t.string   "sol_f_name"
     t.string   "sol_s_name"
@@ -121,6 +123,8 @@ ActiveRecord::Schema.define(version: 20141023082855) do
     t.string   "sol_cui"
     t.string   "sol_tel"
     t.string   "sol_email"
+    t.string   "correlativo"
+    t.string   "no_gestion"
   end
 
   create_table "users", force: true do |t|

@@ -6,42 +6,37 @@
         = 'Lista de Solicitudes'
   .panel.panel-default
     .panel-body
-      = form_tag departamentos_path, html: { class: 'navbar-form' }, method: 'get' do
+      = form_tag solicituds_path, html: { class: 'navbar-form' }, method: 'get' do
         .input-group
           = text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Buscar'
           .input-group-btn
             = submit_tag 'Buscar', :name => nil, class: 'btn btn-default'
 
+  = will_paginate @solicituds, class: 'paginate-bot'
+
   %table.table.table-striped.table-hover
     %tr
-      %th Comunidades
-      %th Municipio
+      %th Correlativo
+      %th Estado
+      %th Beneficiarios
       %th Departamento
-      %th Implementos
-      %th{colspan: 2}
-        = 'Nombre Solicitante'
-      %th{colspan: 2}
-        = 'Appellidos Solicitante'
+      %th
       %th
       %th
 
     - @solicituds.each do |solicitud|
       %tr
-        %td= solicitud.comunidades
-        %td= solicitud.municipio
-        %td= solicitud.departamento
-        - solicitud.implementos.each do |imps|
-          %td
-            = imps.name
-        end
-        %td= solicitud.sol_f_name
-        %td= solicitud.sol_s_name
-        %td= solicitud.sol_fl_name
-        %td= solicitud.sol_sl_name
+        %td= solicitud.correlativo
+        %td= 'Estado'
+        %td= solicitud.beneficiarios.count
+        - if solicitud.departamento
+          %td= solicitud.departamento.name
+        - else
+          %td= solicitud.departamento
         %td= link_to 'Show', solicitud
         %td= link_to 'Edit', edit_solicitud_path(solicitud)
         %td= link_to 'Destroy', solicitud, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
   %br
 
-  = link_to 'New Solicitud', new_solicitud_path
+  = will_paginate @solicituds, class: 'paginate-bot'

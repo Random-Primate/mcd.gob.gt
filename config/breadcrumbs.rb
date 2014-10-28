@@ -47,6 +47,11 @@ crumb :solicitudes do
   parent :dashboard
 end
 
+crumb :solicitud do |solicitud|
+  link solicitud.correlativo, solicitud_path(solicitud)
+  parent :solicitudes
+end
+
 crumb :beneficiarios do
   link 'Beneficiarios', beneficiarios_path
   parent :dashboard

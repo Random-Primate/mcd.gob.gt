@@ -12,21 +12,20 @@
         .panel.panel-default
           .panel-heading
             %h3.panel-title
-              = 'No. 1: Instrucciones'
+              = @article_6.title
           .panel-body
             %p
-              = 'Por favor ingrese los datos de la persona solicitante en las casillas a la derecha. Cuando lo complete puede presionar el botón Siguiente.'
+              = @article_6.text
 
     #instrucciones_solicitud
       .col-md-4
         .panel.panel-default
           .panel-heading
             %h3.panel-title
-              = 'No. 2: Instrucciones'
+              = @article_7.title
           .panel-body
             %p
-              = 'Ingrese el departamento y municipio donde se entregaran los implementos.'
-              = 'Cuando lo complete puede presionar el botón Siguiente.'
+              = @article_7.text
         .panel.panel-default
           .panel-heading
             %h3.panel-title
@@ -53,7 +52,7 @@
         = f.input :sol_sl_name, class: 'form-control med', placeholder: 'Segundo Appellido', label: false
         = f.input :sol_cui, class: 'form-control med', placeholder: 'DPI', label: false
         = f.input :sol_tel, class: 'form-control med', placeholder: 'Teléfono', label: false
-        = f.input :sol_email, class: 'form-control top', placeholder: 'Email', label: false
+        = f.input :sol_email, class: 'form-control last', placeholder: 'Email', label: false
 
 
     #ubicacion
@@ -64,15 +63,16 @@
               %h3.panel-title
                 = 'Departamento y Municipio'
             .panel-body
-              = f.input :departamento, collection: Departamento.order(:name), value_method: :name, prompt: 'Departamento', label: false
-              = f.input :municipio, collection: Departamento.order(:name), value_method: :name, as: :grouped_select, label: false, group_method: :municipios, prompt: 'Municipio'
+              = f.input :departamento, collection: Departamento.order(:name), value_method: :id, prompt: 'DEPARTAMENTO', label: false
+              = f.input :municipio, collection: Departamento.order(:name), value_method: :id, as: :grouped_select, label: false, group_method: :municipios, prompt: 'MUNICIPIO'
         #comunidades
           .panel.panel-info
             .panel-heading
               %h3.panel-title
                 = 'Comunidades'
             .panel-body
-              = 'Listar las comunidades beneficiadas. Agregar campos por cada comunidad distinta.'
+              %p
+                = 'Listar las comunidades beneficiadas. Agregar campos por cada comunidad distinta.'
               %br
               .input_fields_wrap
                 = f.input_field :comunidades, as: :string, multiple: true, value:''
@@ -94,8 +94,9 @@
               %h3.panel-title
                 = 'Implementos'
             .panel-body
-              = 'Por favor seleccione el panel "Piezas por Implemento" para ver una lista de unidades por implemento.'
-              = 'Al agregar un implemento a su solicitud está agregando un grupo según la lista.'
+              %p
+                = 'Por favor seleccione el panel "Piezas por Implemento" para ver una lista de unidades por implemento.'
+                = 'Al agregar un implemento a su solicitud está agregando un grupo según la lista.'
               %br
               %hr.faded
               .input_fields_wrap_second
@@ -109,7 +110,7 @@
           .panel.panel-info
             .panel-heading
               %h3.panel-title
-                = 'Beneficiarios Mayores de Edad'
+                = 'Beneficiarios'
             .panel-body
               = f.simple_fields_for :beneficiarios do |beneficiarios|
                 = render 'beneficiario_fields', :f => beneficiarios

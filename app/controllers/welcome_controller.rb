@@ -5,4 +5,7 @@ class WelcomeController < ApplicationController
     @article_3 = Article.find(3)
     @article_4 = Article.find(4)
   end
+  def thankyou
+    @solicitud = Solicitud.find(flash[:solicitud])
+  end
 end

@@ -29,26 +29,65 @@ namespace :db do
                      password_confirmation: password)
       end
       #
-      # Solicitantes
+      # Solicitudes
       #
-      5.times do
-        first_name  = Faker::Name.first_name
-        second_name = Faker::Name.first_name
-        first_last_name = Faker::Name.last_name
-        second_last_name = Faker::Name.last_name
-        # We can generate valid cui
-        cui = 1_000_000_000_000 + Random.rand(10_000_000_000_000 - 1_000_000_000_000)
-        tel = Faker::PhoneNumber.phone_number
-        email = Faker::Internet.email
-        Solicitante.create!(
-          first_name: first_name,
-          second_name: second_name,
-          first_last_name: first_last_name,
-          second_last_name: second_last_name,
-          cui: cui,
-          tel: tel,
-          email: email)
+      # Creates amount of communities:
+      def iter_coms(amnt)
+        ctr = amnt
+        arr = Array.new
+        while ctr > 0 do
+          arr.push(Faker::Address.street_name)
+          ctr -= 1
+        end
+        arr
       end
+      100.times do |time|
+        puts 'Solicitud No.' + time.to_s
+        comunidades = iter_coms(5)
+        correlativo =rand(10000...100000)
+        sol_f_name = Faker::Name.first_name
+        sol_s_name = Faker::Name.first_name
+        sol_fl_name = Faker::Name.last_name
+        sol_sl_name = Faker::Name.last_name
+        # We can generate valid cui
+        sol_cui = 1_000_000_000_000 + Random.rand(10_000_000_000_000 - 1_000_000_000_000)
+        sol_tel = Faker::PhoneNumber.phone_number
+        sol_email = Faker::Internet.email
+        # Must be from db list
+        dep_id = rand(1..22)
+        departamento = Departamento.find(dep_id)
+        puts 'Var Departamento: ' + departamento.name
+        max = departamento.municipios.last.id
+        min = departamento.municipios.first.id
+        muni_id = rand(min..max)
+        municipio = Municipio.find(muni_id)
+        puts 'Var Municipio: ' + municipio.name
+        disciplina = Faker::Lorem.word
+
+        sol = Solicitud.create!(
+          # Solicitante's details
+          sol_f_name: sol_f_name,
+          sol_s_name: sol_s_name,
+          sol_fl_name: sol_fl_name,
+          sol_sl_name: sol_sl_name,
+          sol_cui: sol_cui,
+          sol_tel: sol_tel,
+          sol_email: sol_email,
+          # General info
+          departamento: departamento,
+          municipio: municipio,
+          disciplina: disciplina,
+          comunidades: comunidades,
+          correlativo: correlativo
+          # Implementos
+        )
+        puts 'Departamento Value: ' + sol.departamento.name
+        puts 'Municipio Value: ' + sol.municipio.name
+        puts '##################'
+      end
+
+      # Add beneficiario
+
       #
       # Should do / Scoped Articles
       #

@@ -20,12 +20,18 @@
 
     %tr
       %th= 'IMPLEMENTO'
-      %th= 'PIEZAS'
+      %th= 'PIEZAS POR JUEGO'
+      %th= 'DISPONIBLES'
+      %th= 'RESERVADO'
+      %th= 'SOLICITADO'
       %th{colspan: 2}
     - @implementos.each do |implemento|
       %tr
         %td= implemento.name
         %td= implemento.piezas
+        %td= implemento.available
+        %td= implemento.reserved
+        %td= implemento.solicited
         %td= link_to 'Editar', edit_implemento_path(implemento)
         %td= link_to 'Eliminar', implemento, :method => :delete, :data => { :confirm => 'Confirmar' }
 

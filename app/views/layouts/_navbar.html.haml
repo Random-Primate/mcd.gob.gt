@@ -18,11 +18,12 @@
         = link_to 'Inicio', root_path, class: 'active'
       %li
         = link_to 'Solicitud', new_solicitud_path
+      %li
+        = link_to 'Transparencia', '#'
       - if user_signed_in?
         %li.dropdown
           %a.dropdown-toggle{href:'#', 'data-toggle' => 'dropdown'}
             = "Hola, #{current_user.first_name}!"
-            / Change for Hi name!
             %span.caret
           %ul.dropdown-menu{role:'menu'}
             %li
@@ -37,5 +38,5 @@
               %li
                 = link_to 'Admin', rails_admin_path
       - else
-        %li
-          = link_to 'Ingresar', new_user_session_path
+        /%li
+        /= link_to 'Ingresar', new_user_session_path

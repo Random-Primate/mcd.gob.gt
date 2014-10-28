@@ -1,4 +1,5 @@
 class ImplementosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_implemento, only: [:show, :edit, :update, :destroy]
   respond_to :html, :json
 
@@ -41,6 +42,6 @@ class ImplementosController < ApplicationController
     end
 
     def implemento_params
-      params.require(:implemento).permit(:name, :piezas)
+      params.require(:implemento).permit(:name, :piezas, :solicited, :reserved, :available)
     end
 end
