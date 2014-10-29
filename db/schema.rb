@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141029024605) do
+ActiveRecord::Schema.define(version: 20141029185155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20141029024605) do
     t.string   "second_first_name"
     t.string   "first_last_name"
     t.string   "second_last_name"
-    t.boolean  "menor"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "solicitud_id"
@@ -37,6 +36,11 @@ ActiveRecord::Schema.define(version: 20141029024605) do
     t.string   "municipio"
     t.string   "pueblo"
     t.string   "idioma"
+    t.date     "birth_date"
+    t.string   "no_partida_nacimiento"
+    t.string   "folio_partida_nacimiento"
+    t.string   "libro_partida_nacimiento"
+    t.string   "entidad"
   end
 
   create_table "comments", force: true do |t|
@@ -129,6 +133,7 @@ ActiveRecord::Schema.define(version: 20141029024605) do
     t.string   "no_gestion"
     t.integer  "departamento_id"
     t.integer  "municipio_id"
+    t.string   "entidad"
   end
 
   create_table "users", force: true do |t|

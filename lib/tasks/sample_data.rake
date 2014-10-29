@@ -51,6 +51,41 @@ namespace :db do
         end
         arr
       end
+
+      # Create Beneficiario
+      def ben_array
+        ctr = rand(1..20)
+        arr = Array.new
+        while ctr > 0 do
+          dep_id = rand(1..22)
+          departamento = Departamento.find(dep_id)
+          max = departamento.municipios.last.id
+          min = departamento.municipios.first.id
+          muni_id = rand(min..max)
+          arr.push(
+              Beneficiario.create(
+                  first_name: Faker::Name.first_name,
+                  second_first_name: Faker::Name.first_name,
+                  first_last_name: Faker::Name.last_name,
+                  second_last_name: Faker::Name.last_name,
+                  departamento: departamento,
+                  municipio: Municipio.find(muni_id),
+                  pueblo: Pueblo.find(rand(1..6)),
+                  idioma: Idioma.find(rand(1..27)),
+                  entidad: '1300000002000',
+                  # Mayores de Edad
+                  cui: rand(10000...20000), # Validate
+                  # Menores de Edad
+                  no_partida_nacimiento: 'No Partida',
+                  folio_partida_nacimiento: 'Folio Partida',
+                  libro_partida_nacimiento: 'Libro Partida'
+              )
+          )
+          ctr -= 1
+        end
+        arr
+      end
+
       10.times do |time|
         puts 'Solicitud No.' + (time + 1).to_s
         comunidades = iter_coms(5)
@@ -70,6 +105,7 @@ namespace :db do
         min = departamento.municipios.first.id
         muni_id = rand(min..max)
         disciplina = Faker::Lorem.word
+        codigo_entidad = '1300000002000'
 
         sol = Solicitud.create!(
           # Solicitante's details
@@ -86,18 +122,15 @@ namespace :db do
           disciplina: disciplina,
           comunidades: comunidades,
           correlativo: correlativo,
+          entidad: codigo_entidad,
           # Implementos
-          #implemento_ids: implemento_array
           implemento_ids: implemento_array,
-          beneficiarios: [
-              Beneficiario.create(
-                  first_name: 'Cuan',
-                  cui: 10101,
-                  first_last_name: 'Men',
-                  departamento: 'GUATEMALA',
-                  municipio: 'GUATEMALA'
-              )]
+          # Add Beneficiarios
+          beneficiarios: ben_array
         )
+        puts 'Correlativo No. '    + sol.correlativo.to_s
+        puts 'Beneficiarios: '   + sol.beneficiarios.count.to_s
+        puts 'Implementos Qty: ' + sol.implemento.count.to_s
         puts 'Departamento: ' +   sol.departamento.name
         puts 'Municipio: '    +   sol.municipio.name
         puts '##################'
@@ -111,19 +144,6 @@ namespace :db do
         end
         s.save!
       end
-
-      # Add beneficiario
-
-      #
-      # Should do / Scoped Articles
-      #
-      #users = User.all#(limit: 6)
-      #5.times do
-      #  title = Faker::Lorem.words(2)
-      #  content = Faker::Lorem.sentence(5)
-      #  users.each { |user| user.articles.create!(title: title, content: content) }
-      #end
-      #
 
     end
 end

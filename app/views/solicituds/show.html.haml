@@ -67,12 +67,14 @@
             -if @solicitud.implemento.count >= 1
               %table.table.table-striped.table-hover
                 %tr
-                  %th Implemento
-                  %th Cantidad Solicitada
+                  %th IMPLEMENTO
+                  %th{style: 'text-align: center;'}
+                    = 'CANTIDAD SOLICITADA'
                 -@solicitud.implemento.each do |implemento|
                   %tr
                     %td= implemento.name
-                    %td= implemento.solicited
+                    %td{style: 'text-align: center;'}
+                      = implemento.solicited
             - else
               .well
                 %h3
@@ -87,12 +89,15 @@
             -if @solicitud.beneficiarios.count >= 1
               %table.table.table-striped.table-hover
                 %tr
-                  %th Beneficiario
-                  %th Pueblo
+                  %th BENEFICIARIO
+                  %th RESIDENCIA
+                  %th EDAD
                 -@solicitud.beneficiarios.each do |beneficiario|
                   %tr
-                    %td= beneficiario.first_name
-                    %td= beneficiario.pueblo
+                    %td= beneficiario.first_last_name + ', ' + beneficiario.first_name + '.'
+                    %td
+                      = Municipio.find(beneficiario.municipio).name + ', ' + Departamento.find(beneficiario.departamento).name + '.'
+                    %td Tantos Años.
             - else
               .well
                 %h3

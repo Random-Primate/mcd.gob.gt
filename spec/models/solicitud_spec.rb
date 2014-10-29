@@ -18,6 +18,7 @@
 #  no_gestion      :string(255)
 #  departamento_id :integer
 #  municipio_id    :integer
+#  entidad         :string(255)
 #
 
 require 'rails_helper'
