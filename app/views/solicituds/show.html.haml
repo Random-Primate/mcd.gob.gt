@@ -64,7 +64,7 @@
               = 'Implementos Solicitados: '
         #collapseOne.panel-collapse.collapse
           .panel-body
-            -if @solicitud.implemento.count > 1
+            -if @solicitud.implemento.count >= 1
               %table.table.table-striped.table-hover
                 %tr
                   %th Implemento
@@ -84,7 +84,7 @@
               = 'Beneficiarios: '
         #collapseTwo.panel-collapse.collapse
           .panel-body
-            -if @solicitud.beneficiarios.count > 1
+            -if @solicitud.beneficiarios.count >= 1
               %table.table.table-striped.table-hover
                 %tr
                   %th Beneficiario

@@ -88,7 +88,15 @@ namespace :db do
           correlativo: correlativo,
           # Implementos
           #implemento_ids: implemento_array
-          implemento_ids: implemento_array
+          implemento_ids: implemento_array,
+          beneficiarios: [
+              Beneficiario.create(
+                  first_name: 'Cuan',
+                  cui: 10101,
+                  first_last_name: 'Men',
+                  departamento: 'GUATEMALA',
+                  municipio: 'GUATEMALA'
+              )]
         )
         puts 'Departamento: ' +   sol.departamento.name
         puts 'Municipio: '    +   sol.municipio.name
@@ -105,8 +113,6 @@ namespace :db do
       end
 
       # Add beneficiario
-
-
 
       #
       # Should do / Scoped Articles

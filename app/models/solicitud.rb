@@ -27,7 +27,6 @@ class Solicitud < ActiveRecord::Base
   belongs_to                    :departamento
   belongs_to                    :municipio
   accepts_nested_attributes_for :beneficiarios, :reject_if => :all_blank, :allow_destroy => true
-  #accepts_nested_attributes_for :implementos,   :reject_if => :all_blank, :allow_destroy => true
   serialize :comunidades, Array
 
   validates :sol_f_name, :sol_s_name, :sol_fl_name, :sol_sl_name, :sol_cui, :sol_email, :sol_tel,
