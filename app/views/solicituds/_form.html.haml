@@ -100,10 +100,11 @@
               %br
               %hr.faded
               .input_fields_wrap_second
-                = f.simple_fields_for :implementos do |implemento|
-                  = render 'implemento_fields', :f => implemento
-                .links
-                  = link_to_add_association 'Agregar', f, :implementos, class: 'btn btn-primary'
+                /
+                  = f.simple_fields_for :implementos do |implemento|
+                    = render 'implemento_fields', :f => implemento
+                  .links
+                    = link_to_add_association 'Agregar', f, :implementos, class: 'btn btn-primary'
 
       #beneficiarios
         .col-md-12

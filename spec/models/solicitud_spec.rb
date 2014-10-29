@@ -18,7 +18,6 @@
 #  no_gestion      :string(255)
 #  departamento_id :integer
 #  municipio_id    :integer
-#  implemento_id   :integer
 #
 
 require 'rails_helper'

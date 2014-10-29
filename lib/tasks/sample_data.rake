@@ -41,7 +41,17 @@ namespace :db do
         end
         arr
       end
-      100.times do |time|
+      # Create implemento array
+      def implemento_array
+        qty = rand(1..23)
+        arr = Array.new
+        while qty > 0 do
+          arr.push(rand(1..23))
+          qty -= 1
+        end
+        arr
+      end
+      10.times do |time|
         puts 'Solicitud No.' + (time + 1).to_s
         comunidades = iter_coms(5)
         correlativo =rand(10000...100000)
@@ -60,8 +70,6 @@ namespace :db do
         min = departamento.municipios.first.id
         muni_id = rand(min..max)
         disciplina = Faker::Lorem.word
-        # Implementos
-        implementos = [Implemento.find(1), Implemento.find(2)]
 
         sol = Solicitud.create!(
           # Solicitante's details
@@ -79,15 +87,26 @@ namespace :db do
           comunidades: comunidades,
           correlativo: correlativo,
           # Implementos
-          #implemento: implementos - look at has and belongs to many syntax
+          #implemento_ids: implemento_array
+          implemento_ids: implemento_array
         )
-        #puts 'Implementos: '  +   sol.implementos.first.name
         puts 'Departamento: ' +   sol.departamento.name
         puts 'Municipio: '    +   sol.municipio.name
         puts '##################'
       end
 
+      # Add Implementos
+      Solicitud.all.each do |s|
+        s.implemento.each do |i|
+          i.solicited = rand(1..20)
+          i.save!
+        end
+        s.save!
+      end
+
       # Add beneficiario
+
+
 
       #
       # Should do / Scoped Articles
@@ -99,13 +118,6 @@ namespace :db do
       #  users.each { |user| user.articles.create!(title: title, content: content) }
       #end
       #
-      # Should do / Scoped Comments
-      #
-      #users = User.all#(limit: 6)
-      #5.times do
-      #  title = Faker::Lorem.words(2)
-      #  content = Faker::Lorem.sentence(5)
-      #  users.each { |user| user.articles.create!(title: title, content: content) }
-      #end
+
     end
 end

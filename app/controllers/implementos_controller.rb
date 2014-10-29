@@ -42,6 +42,7 @@ class ImplementosController < ApplicationController
     end
 
     def implemento_params
-      params.require(:implemento).permit(:name, :piezas, :solicited, :reserved, :available)
+      params.require(:implemento).permit(:name, :piezas, :solicited, :reserved, :available,
+                                         :solicitud_ids)
     end
 end

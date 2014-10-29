@@ -64,12 +64,12 @@
               = 'Implementos Solicitados: '
         #collapseOne.panel-collapse.collapse
           .panel-body
-            -if @solicitud.implementos.count > 1
+            -if @solicitud.implemento.count > 1
               %table.table.table-striped.table-hover
                 %tr
                   %th Implemento
                   %th Cantidad Solicitada
-                -@solicitud.implementos.each do |implemento|
+                -@solicitud.implemento.each do |implemento|
                   %tr
                     %td= implemento.name
                     %td= implemento.solicited
