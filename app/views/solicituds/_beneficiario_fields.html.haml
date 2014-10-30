@@ -13,8 +13,6 @@
           = f.input :second_last_name, label: false, placeholder: 'Segundo Apellido'
       .col-md-6
         .well
-          /= f.input :menor, label: false, collection: ['Menor de Edad', 'Mayor de Edad'], prompt: 'Edad'
-          = f.input :menor, label: false
           = f.input :departamento, collection: Departamento.order(:name), value_method: :name, prompt: 'Departamento', label: false
           = f.input :municipio, collection: Departamento.order(:name), value_method: :name, as: :grouped_select, label: false, group_method: :municipios, prompt: 'Municipio'
           = f.input :pueblo, collection: Pueblo.all, label: false, value_method: :name, prompt: 'Pueblo'

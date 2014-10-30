@@ -6,6 +6,6 @@ class WelcomeController < ApplicationController
     @article_4 = Article.find(4)
   end
   def thankyou
-    @solicitud = Solicitud.find(flash[:solicitud])
+    @solicitud = Solicitud.find(params[:id])
   end
 end

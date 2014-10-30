@@ -1,10 +1,10 @@
 = simple_form_for @solicitud, html: { class: 'form-horizontal' } do |f|
   = f.error_notification
-  /= devise_error_messages!
 
   .container
     .progress{style: 'margin-bottom: 3em;'}
-      .progress-bar#progress{ role:'progressbar', 'aria-valuenow'=>'20', 'aria-valuemin'=>'0', 'aria-valuemax'=>'100', style: 'width: 20%;'}
+      .progress-bar#progress{ role:'progressbar', 'aria-valuenow'=>'20', 'aria-valuemin'=>'0',
+                              'aria-valuemax'=>'100', style: 'width: 20%;'}
         = 'Solicitante'
 
     #instrucciones_solicitante
@@ -54,7 +54,6 @@
         = f.input :sol_tel, class: 'form-control med', placeholder: 'Teléfono', label: false
         = f.input :sol_email, class: 'form-control last', placeholder: 'Email', label: false
 
-
     #ubicacion
       .col-md-4
         #place
@@ -63,8 +62,10 @@
               %h3.panel-title
                 = 'Departamento y Municipio'
             .panel-body
-              = f.input :departamento, collection: Departamento.order(:name), value_method: :id, prompt: 'DEPARTAMENTO', label: false
-              = f.input :municipio, collection: Departamento.order(:name), value_method: :id, as: :grouped_select, label: false, group_method: :municipios, prompt: 'MUNICIPIO'
+              = f.input :departamento_ids, collection: Departamento.order(:name), value_method: :id,
+                        prompt: 'DEPARTAMENTO', label: false
+              = f.input :municipio_ids, collection: Departamento.order(:name), value_method: :id,
+                        as: :grouped_select, label: false, group_method: :municipios, prompt: 'MUNICIPIO'
         #comunidades
           .panel.panel-info
             .panel-heading
@@ -100,11 +101,8 @@
               %br
               %hr.faded
               .input_fields_wrap_second
-                /
-                  = f.simple_fields_for :implementos do |implemento|
-                    = render 'implemento_fields', :f => implemento
-                  .links
-                    = link_to_add_association 'Agregar', f, :implementos, class: 'btn btn-primary'
+                = f.input :implemento
+
 
       #beneficiarios
         .col-md-12
@@ -117,6 +115,9 @@
                 = render 'beneficiario_fields', :f => beneficiarios
               .links
                 = link_to_add_association 'Agregar', f, :beneficiarios, class: 'btn btn-primary'
+
+      = f.hidden_field :entidad, value: '1300000002000'
+      = f.hidden_field_tag :solicitud_id, value: :id
 
   .well{style: 'min-height: 70px; margin-top: 2em;'}
     = link_to 'Siguiente', '#', id: 'siguiente', class: 'btn btn-primary pull-right'
