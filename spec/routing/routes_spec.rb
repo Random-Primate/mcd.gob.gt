@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Home' do
-
+=begin
   describe 'routing' do
 
     it 'routes to #index' do
@@ -17,4 +17,5 @@ RSpec.describe 'Home' do
     end
 
   end
+=end
 end

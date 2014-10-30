@@ -19,7 +19,7 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe MunicipiosController, :type => :controller do
-
+=begin
   # This should return the minimal set of attributes required to create a valid
   # Municipio. As you add validations to Municipio, be sure to
   # adjust the attributes here as well.
@@ -155,5 +155,5 @@ RSpec.describe MunicipiosController, :type => :controller do
       expect(response).to redirect_to(municipios_url)
     end
   end
-
+=end
 end

@@ -19,7 +19,7 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe IdiomasController, :type => :controller do
-
+=begin
   # This should return the minimal set of attributes required to create a valid
   # Idioma. As you add validations to Idioma, be sure to
   # adjust the attributes here as well.
@@ -155,5 +155,5 @@ RSpec.describe IdiomasController, :type => :controller do
       expect(response).to redirect_to(idiomas_url)
     end
   end
-
+=end
 end

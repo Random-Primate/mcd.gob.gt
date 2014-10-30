@@ -19,7 +19,7 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe DepartamentosController, :type => :controller do
-
+=begin
   # This should return the minimal set of attributes required to create a valid
   # Departamento. As you add validations to Departamento, be sure to
   # adjust the attributes here as well.
@@ -155,5 +155,5 @@ RSpec.describe DepartamentosController, :type => :controller do
       expect(response).to redirect_to(departamentos_url)
     end
   end
-
+=end
 end

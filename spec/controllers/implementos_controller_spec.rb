@@ -19,7 +19,7 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe ImplementosController, :type => :controller do
-
+=begin
   # This should return the minimal set of attributes required to create a valid
   # Implemento. As you add validations to Implemento, be sure to
   # adjust the attributes here as well.
@@ -155,5 +155,5 @@ RSpec.describe ImplementosController, :type => :controller do
       expect(response).to redirect_to(implementos_url)
     end
   end
-
+=end
 end

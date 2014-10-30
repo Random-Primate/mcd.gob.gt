@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "beneficiarios/edit", :type => :view do
+=begin
   before(:each) do
     @beneficiario = assign(:beneficiario, Beneficiario.create!(
       :cui => "MyString",
@@ -30,4 +31,5 @@ RSpec.describe "beneficiarios/edit", :type => :view do
       assert_select "input#beneficiario_menor[name=?]", "beneficiario[menor]"
     end
   end
+=end
 end

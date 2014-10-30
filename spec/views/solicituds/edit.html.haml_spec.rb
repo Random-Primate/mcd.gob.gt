@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "solicituds/edit", :type => :view do
+=begin
   before(:each) do
     @solicitud = assign(:solicitud, Solicitud.create!(
       :comunidades => "MyText",
@@ -27,4 +28,5 @@ RSpec.describe "solicituds/edit", :type => :view do
       assert_select "input#solicitud_solicitante_id[name=?]", "solicitud[solicitante_id]"
     end
   end
+=end
 end
