@@ -14,6 +14,7 @@ class SolicitudsController < ApplicationController
 
   def new
     @solicitud    =   Solicitud.new
+    #@par = params
     @implementos  =   Implemento.all.where('piezas > ?', 1)
     @article_6    =   Article.find(6)
     @article_7    =   Article.find(7)
@@ -29,9 +30,8 @@ class SolicitudsController < ApplicationController
     @solicitud = Solicitud.new(solicitud_params)
     @implementos = Implemento.where('piezas > ?', 1)
     if @solicitud.save
-      #flash[:solicitud] = @solicitud.id
-      params[:id] = 1
-      redirect_to '/welcome/thankyou'
+      @solicitud.correlativo = set_correlativo(@solicitud)
+      redirect_to controller: 'welcome', action: 'thankyou', id: @solicitud.id
     else
       render action: 'new'
     end
@@ -50,6 +50,11 @@ class SolicitudsController < ApplicationController
   private
     def set_solicitud
       @solicitud = Solicitud.find(params[:id])
+    end
+
+    def set_correlativo(sol)
+      sol.created_at.year.to_s[2..4] + sol.created_at.month.to_s +
+          sol.created_at.day.to_s + sol.id.to_s
     end
 
     def solicitud_params

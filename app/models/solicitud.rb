@@ -47,13 +47,4 @@ class Solicitud < ActiveRecord::Base
     depto.id
   end
 
-
-  def self.wtf
-    "WTF"
-  end
-
-  def mtf
-    "Yo MTF"
-  end
-
 end

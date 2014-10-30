@@ -89,7 +89,7 @@ namespace :db do
       10.times do |time|
         puts 'Solicitud No.' + (time + 1).to_s
         comunidades = iter_coms(5)
-        correlativo =rand(10000...100000)
+        correlativo = rand(10000...100000) #Set logical
         sol_f_name = Faker::Name.first_name
         sol_s_name = Faker::Name.first_name
         sol_fl_name = Faker::Name.last_name
