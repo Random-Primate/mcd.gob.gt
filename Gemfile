@@ -65,6 +65,8 @@ gem 'nested_form_fields'
 gem 'jquery-turbolinks'
 # Excell Exporting
 gem 'axlsx_rails'
+# Documentation
+gem 'inch', require: false
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
