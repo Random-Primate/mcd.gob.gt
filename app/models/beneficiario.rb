@@ -26,6 +26,13 @@ class Beneficiario < ActiveRecord::Base
   validates :cui, :first_name, :first_last_name, :departamento, :municipio, presence: true
   belongs_to :solicitud
 
+  public
+    def age(bd)
+      since = Date.today - bd
+      a = since / 365
+      a.to_i
+    end
+
   #before_save bool_turn(:menor)
 
   #def bool_turn(menor)

@@ -14,15 +14,13 @@
 
   = will_paginate @solicituds, class: 'paginate-bot'
 
-  %table.table.table-striped.table-hover
+  %table.table.table-striped.table-hover#ctr_row
     %tr
-      %th Correlativo
-      %th Estado
-      %th Beneficiarios
-      %th Departamento
-      %th
-      %th
-      %th
+      %th CORRELATIVO
+      %th ESTADO
+      %th BENEFICIADOS
+      %th DEPARTAMENTO
+      %th PERFIL
 
     - @solicituds.each do |solicitud|
       %tr
@@ -30,9 +28,7 @@
         %td= 'Estado'
         %td= solicitud.beneficiarios.count
         %td= solicitud.departamento.name
-        %td= link_to 'Show', solicitud
-        %td= link_to 'Edit', edit_solicitud_path(solicitud)
-        %td= link_to 'Destroy', solicitud, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Ver', solicitud
 
   %br
 

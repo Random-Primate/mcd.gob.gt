@@ -57,6 +57,12 @@ crumb :beneficiarios do
   parent :dashboard
 end
 
+crumb :beneficiario do |beneficiario|
+  name = beneficiario.first_last_name + ', ' + beneficiario.first_name + '.'
+  link name, beneficiario_path(beneficiario)
+  parent :beneficiarios
+end
+
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)
 #   parent :project, project

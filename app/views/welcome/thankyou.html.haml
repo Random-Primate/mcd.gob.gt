@@ -11,8 +11,10 @@
   %h2
     = 'Su solicitúd ha sido enviada a Ventanilla Única. '
   .well
-    %b No. Correlativo:
-    %p= @solicitud.correlativo
+    %h2
+      = 'No. Correlativo:'
+      %span{style: 'font-weight: 300;'}
+        = @solicitud.correlativo
   %h3
     = 'Presentar solicitud con todos los requisitos antes mencionados en original y copia en '
     = 'Ventanilla Única en el Palacio Nacional de la Cultura (6a calle y 6ta. Avenida, zona 1, '

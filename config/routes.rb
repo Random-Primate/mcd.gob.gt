@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :beneficiarios
 
   #resources :solicituds
-  resources :solicituds
+  resources :solicituds, except: [:edit]
 
   get 'welcome/thankyou'
 

@@ -1,4 +1,5 @@
 namespace :db do
+
   desc 'Fill database with sample data'
     task populate: :environment do
       #
@@ -32,6 +33,10 @@ namespace :db do
       # Solicitudes
       #
       # Creates amount of communities:
+      def set_correlativo(sol)
+        rand(10...100).to_s + sol.created_at.year.to_s[2..4] + rand(100...1000).to_s +
+            sol.created_at.month.to_s + sol.created_at.day.to_s + rand(100...1000).to_s + sol.id.to_s
+      end
       def iter_coms(amnt)
         ctr = amnt
         arr = Array.new
@@ -51,7 +56,6 @@ namespace :db do
         end
         arr
       end
-
       # Create Beneficiario
       def ben_array
         ctr = rand(1..20)
@@ -73,6 +77,7 @@ namespace :db do
                   pueblo: Pueblo.find(rand(1..6)),
                   idioma: Idioma.find(rand(1..27)),
                   entidad: '1300000002000',
+                  birth_date: Faker::Date.between(60.years.ago, 5.years.ago),
                   # Mayores de Edad
                   cui: rand(10000...20000), # Validate
                   # Menores de Edad
@@ -89,7 +94,6 @@ namespace :db do
       10.times do |time|
         puts 'Solicitud No.' + (time + 1).to_s
         comunidades = iter_coms(5)
-        correlativo = rand(10000...100000) #Set logical
         sol_f_name = Faker::Name.first_name
         sol_s_name = Faker::Name.first_name
         sol_fl_name = Faker::Name.last_name
@@ -121,13 +125,14 @@ namespace :db do
           municipio_id: muni_id,
           disciplina: disciplina,
           comunidades: comunidades,
-          correlativo: correlativo,
           entidad: codigo_entidad,
           # Implementos
           implemento_ids: implemento_array,
           # Add Beneficiarios
           beneficiarios: ben_array
         )
+        sol.correlativo = set_correlativo(sol)
+        sol.save
         puts 'Correlativo No. '    + sol.correlativo.to_s
         puts 'Beneficiarios: '   + sol.beneficiarios.count.to_s
         puts 'Implementos Qty: ' + sol.implemento.count.to_s
@@ -146,4 +151,5 @@ namespace :db do
       end
 
     end
+
 end

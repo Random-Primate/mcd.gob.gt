@@ -12,8 +12,6 @@
 //
 //= require jquery
 //= require jquery.turbolinks
-//= require jquery.Jcrop
-//= require jquery.color
 //= require jquery_ujs
 // require jquery-ui
 //= require bootstrap-sprockets

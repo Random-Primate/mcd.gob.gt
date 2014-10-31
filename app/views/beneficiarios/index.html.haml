@@ -12,14 +12,16 @@
           .input-group-btn
             = submit_tag 'Buscar', :name => nil, class: 'btn btn-default'
 
-  %table.table.table-striped.table-hover
+  = will_paginate @beneficiarios, class: 'paginate-bot'
+
+  %table.table.table-striped.table-hover#ctr_row
     %tr
-      %th Cui
-      %th First name
-      %th Second first name
-      %th First last name
-      %th Second last name
-      %th Menor
+      %th CUI
+      %th NOMBRE
+      %th SEGUNDO NOMBRE
+      %th APELLIDO
+      %th SEGUNDO APELLIDO
+      %th EDAD
       %th
       %th
       %th
@@ -31,11 +33,11 @@
         %td= beneficiario.second_first_name
         %td= beneficiario.first_last_name
         %td= beneficiario.second_last_name
-        %td= beneficiario.menor
+        %td= beneficiario.age(beneficiario.birth_date)
         %td= link_to 'Show', beneficiario
         %td= link_to 'Edit', edit_beneficiario_path(beneficiario)
         %td= link_to 'Destroy', beneficiario, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  %br
+  = will_paginate @beneficiarios, class: 'paginate-bot'
 
   /= link_to 'New Beneficiario', new_beneficiario_path

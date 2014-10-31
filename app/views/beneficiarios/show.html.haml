@@ -1,24 +1,70 @@
-%p#notice= notice
+.container
+  %p#notice= notice
 
-%p
-  %b Cui:
-  = @beneficiario.cui
-%p
-  %b First name:
-  = @beneficiario.first_name
-%p
-  %b Second first name:
-  = @beneficiario.second_first_name
-%p
-  %b First last name:
-  = @beneficiario.first_last_name
-%p
-  %b Second last name:
-  = @beneficiario.second_last_name
-%p
-  %b Menor:
-  = @beneficiario.menor
+  - breadcrumb :beneficiario, @beneficiario
+  .row
+    .well
+      %h1
+        = 'Nombre:'
+        %span{style: 'font-weight: 300;'}
+          = @beneficiario.first_last_name + ' ' + @beneficiario.second_last_name + ', ' + @beneficiario.first_name + ' ' +  @beneficiario.second_first_name + '.'
+      %h2
+        = 'CUI: '
+        %span{style: 'font-weight: 300;'}
+          = @beneficiario.cui
+  .row
+    .col-md-5
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title
+            = 'Información: '
+        .panel-body
+          %p
+            %b RESIDENCIA:
+            = Municipio.find(@beneficiario.municipio).name + ', ' + Departamento.find(@beneficiario.departamento).name + '.'
+          %p
+            %b FECHA DE NACIMIENTO:
+            = @beneficiario.birth_date.day.to_s + ' / ' + @beneficiario.birth_date.month.to_s + ' / ' + @beneficiario.birth_date.year.to_s
+          %p
+            %b PUEBLO:
+            = Pueblo.find(@beneficiario.pueblo).name
+          %p
+            %b IDIOMA:
+            = Idioma.find(@beneficiario.idioma).name
+    .col-md-5.col-md-offset-2
+      - if @beneficiario.age(@beneficiario.birth_date) < 18
+        .panel.panel-default
+          .panel-heading
+            %h3.panel-title
+              = 'PARTIDA DE NACIMIENTO: '
+          .panel-body
+            %p
+              %b No.
+              = @beneficiario.no_partida_nacimiento
+            %p
+              %b Folio.
+              = @beneficiario.folio_partida_nacimiento
+            %p
+              %b Libro.
+              = @beneficiario.libro_partida_nacimiento
 
-= link_to 'Edit', edit_beneficiario_path(@beneficiario)
-\|
-= link_to 'Back', beneficiarios_path
+  /.panel.panel-default
+  /  .panel-heading
+  /    %h3.panel-title
+  /      = 'Beneficiados en: '
+  /  .panel-body
+  /    %table.table.table-striped.table-hover
+  /      %tr
+  /        %th CORRELATIVO
+  /        %th SOLICITANTE
+  /        %th FECHA
+  /        %th LUGAR
+  /        %th PERFIL
+  /    -@beneficiario.solicitud.each do |solicitud|
+  /      %tr
+  /        %td= solicitud.correlativo
+
+  .row
+    .well{style: 'min-height: 70px; margin-top: 2em;'}
+      = link_to 'Atras', beneficiarios_path, class: 'btn btn-primary pull-left'
+      = link_to 'Editar', edit_beneficiario_path(@beneficiario), class: 'btn btn-primary pull-right'

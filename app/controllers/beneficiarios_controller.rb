@@ -4,7 +4,7 @@ class BeneficiariosController < ApplicationController
   respond_to :html, :json
 
   def index
-    @beneficiarios = Beneficiario.all
+    @beneficiarios = Beneficiario.all.paginate(:page => params[:page], :per_page => 20)
     respond_with(@beneficiarios)
   end
 

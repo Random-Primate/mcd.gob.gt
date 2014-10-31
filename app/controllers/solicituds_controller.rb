@@ -31,6 +31,7 @@ class SolicitudsController < ApplicationController
     @implementos = Implemento.where('piezas > ?', 1)
     if @solicitud.save
       @solicitud.correlativo = set_correlativo(@solicitud)
+      @solicitud.save
       redirect_to controller: 'welcome', action: 'thankyou', id: @solicitud.id
     else
       render action: 'new'
@@ -52,16 +53,18 @@ class SolicitudsController < ApplicationController
       @solicitud = Solicitud.find(params[:id])
     end
 
+    # Correlativo: Two random digits - Year - Three random digits - Month - Day
+    #              - Three random digits - Solicitud ID
     def set_correlativo(sol)
-      sol.created_at.year.to_s[2..4] + sol.created_at.month.to_s +
-          sol.created_at.day.to_s + sol.id.to_s
+      rand(10...100).to_s + sol.created_at.year.to_s[2..4] + rand(100...1000).to_s +
+          sol.created_at.month.to_s + sol.created_at.day.to_s + rand(100...1000).to_s + sol.id.to_s
     end
 
     def solicitud_params
       params.require(:solicitud).permit(:disciplina, :sol_f_name,
                                         :sol_s_name, :sol_fl_name, :sol_sl_name,
                                         :sol_cui, :sol_tel, :sol_email, :correlativo,
-                                        :implemento_ids,
+                                        :implemento_ids, :departamento_id, :municipio_id,
                                         beneficiarios_attributes: [:id, :cui, :first_name,
                                                                    :second_name, :second_first_name,
                                                                    :first_last_name, :menor,

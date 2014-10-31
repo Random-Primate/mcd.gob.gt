@@ -469,3 +469,14 @@ $colHighlight   : #efefef;
     margin-right: 1em;
   }
 }
+
+/*
+ *
+ * Table
+ *
+ */
+#ctr_row {
+  td, th{
+    text-align: center;
+  }
+}

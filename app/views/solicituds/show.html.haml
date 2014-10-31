@@ -97,12 +97,13 @@
                     %td= beneficiario.first_last_name + ', ' + beneficiario.first_name + '.'
                     %td
                       = Municipio.find(beneficiario.municipio).name + ', ' + Departamento.find(beneficiario.departamento).name + '.'
-                    %td Tantos Años.
+                    %td
+                      = beneficiario.age(beneficiario.birth_date).to_s + ' Años'
             - else
               .well
                 %h3
                   = 'No hay beneficiarios que mostrar.'
   .row
     .well{style: 'min-height: 70px; margin-top: 2em;'}
-      = link_to 'Editar if admin', edit_solicitud_path(@solicitud),  class: 'btn btn-primary pull-right'
+      /= link_to 'Editar if admin', edit_solicitud_path(@solicitud),  class: 'btn btn-primary pull-right'
       = link_to 'Atras', solicituds_path, class: 'btn btn-primary pull-left'
