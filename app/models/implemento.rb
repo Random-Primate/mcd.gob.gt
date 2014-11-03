@@ -14,7 +14,9 @@
 #
 
 class Implemento < ActiveRecord::Base
-  has_and_belongs_to_many :solicituds
+  has_many :soliciteds
+  has_many :solicituds, through: :soliciteds
+  accepts_nested_attributes_for :soliciteds
 
   def self.search(search)
     if search

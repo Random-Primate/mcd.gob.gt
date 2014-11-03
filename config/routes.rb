@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :soliciteds
+
   resources :beneficiarios
 
   #resources :solicituds

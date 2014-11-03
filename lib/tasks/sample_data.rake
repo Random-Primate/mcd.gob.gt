@@ -81,9 +81,9 @@ namespace :db do
                   # Mayores de Edad
                   cui: rand(10000...20000), # Validate
                   # Menores de Edad
-                  no_partida_nacimiento: 'No Partida',
-                  folio_partida_nacimiento: 'Folio Partida',
-                  libro_partida_nacimiento: 'Libro Partida'
+                  no_partida_nacimiento: rand(1000...10000).to_s,
+                  folio_partida_nacimiento: rand(1000...10000).to_s,
+                  libro_partida_nacimiento: rand(1000...10000).to_s
               )
           )
           ctr -= 1
@@ -135,7 +135,7 @@ namespace :db do
         sol.save
         puts 'Correlativo No. '    + sol.correlativo.to_s
         puts 'Beneficiarios: '   + sol.beneficiarios.count.to_s
-        puts 'Implementos Qty: ' + sol.implemento.count.to_s
+        puts 'Implementos Qty: ' + sol.implementos.count.to_s
         puts 'Departamento: ' +   sol.departamento.name
         puts 'Municipio: '    +   sol.municipio.name
         puts '##################'
@@ -143,7 +143,7 @@ namespace :db do
 
       # Add Implementos
       Solicitud.all.each do |s|
-        s.implemento.each do |i|
+        s.implementos.each do |i|
           i.solicited = rand(1..20)
           i.save!
         end

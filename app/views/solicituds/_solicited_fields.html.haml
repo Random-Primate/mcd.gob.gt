@@ -1,0 +1,9 @@
+.nested-fields
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title
+        = 'Solicitado'
+    .panel-body
+      .well
+        = f.input :implemento_id, collection: Implemento.order(:name), value_method: :id, prompt: 'IMPLEMENTO', label: false
+        = f.input :amount, as: :integer, label: false

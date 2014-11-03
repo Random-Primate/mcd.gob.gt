@@ -4,7 +4,7 @@ class SolicitudsController < ApplicationController
   respond_to :html, :json, :xlsx
 
   def index
-    @solicituds = Solicitud.search(params[:search]).paginate(:page => params[:page], :per_page => 20)
+    @solicituds = Solicitud.search(params[:search]).paginate(:page => params[:page], :per_page => 20).order(created_at: :desc)
     respond_with(@solicituds)
   end
 
@@ -14,7 +14,6 @@ class SolicitudsController < ApplicationController
 
   def new
     @solicitud    =   Solicitud.new
-    #@par = params
     @implementos  =   Implemento.all.where('piezas > ?', 1)
     @article_6    =   Article.find(6)
     @article_7    =   Article.find(7)
@@ -32,6 +31,7 @@ class SolicitudsController < ApplicationController
     if @solicitud.save
       @solicitud.correlativo = set_correlativo(@solicitud)
       @solicitud.save
+      #@solicitud = Solicitud.find(params[:id])
       redirect_to controller: 'welcome', action: 'thankyou', id: @solicitud.id
     else
       render action: 'new'
@@ -64,12 +64,27 @@ class SolicitudsController < ApplicationController
       params.require(:solicitud).permit(:disciplina, :sol_f_name,
                                         :sol_s_name, :sol_fl_name, :sol_sl_name,
                                         :sol_cui, :sol_tel, :sol_email, :correlativo,
-                                        :implemento_ids, :departamento_id, :municipio_id,
+                                        :departamento_id, :municipio_id, :implemento_ids,
+                                        :entidad, :no_gestion, :implementos_ids, :implemento,
+                                        :solicited, :implementos,
+                                        soliciteds_attributes: [:solicited_id, :implemento_id,
+                                                                :amount, implemento_attributes: [
+                                                                :id, :name, :piezas, :description,
+                                                                :available, :reserved, :solicited
+                                                                ], implementos_attributes: [
+                                                                :id, :name, :piezas, :description,
+                                                                :available, :reserved, :solicited
+                                                                ]],
                                         beneficiarios_attributes: [:id, :cui, :first_name,
                                                                    :second_name, :second_first_name,
-                                                                   :first_last_name, :menor,
+                                                                   :first_last_name, :idioma,
                                                                    :second_last_name, :departamento,
-                                                                   :municipio, :pueblo, :_destroy],
-                                        :comunidades => [])
+                                                                   :municipio, :pueblo, :_destroy,
+                                                                   :entidad, :birth_date,
+                                                                   :no_partida_nacimiento,
+                                                                   :folio_partida_nacimiento,
+                                                                   :libro_partida_nacimiento
+                                        ],
+                                        comunidades: [])
     end
 end

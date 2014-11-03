@@ -99,10 +99,11 @@
                 = 'Por favor seleccione el panel "Piezas por Implemento" para ver una lista de unidades por implemento.'
                 = 'Al agregar un implemento a su solicitud está agregando un grupo según la lista.'
               %br
-              %hr.faded
               .input_fields_wrap_second
-                = f.input :implemento
-
+                = f.simple_fields_for :soliciteds do |solicited|
+                  = render 'solicited_fields', :f => solicited
+                .links
+                  = link_to_add_association 'Agregar', f, :soliciteds, class: 'btn btn-primary'
       #beneficiarios
         .col-md-12
           .panel.panel-info
@@ -110,13 +111,13 @@
               %h3.panel-title
                 = 'Beneficiarios'
             .panel-body
-              = f.simple_fields_for :beneficiarios do |beneficiarios|
-                = render 'beneficiario_fields', :f => beneficiarios
-              .links
-                = link_to_add_association 'Agregar', f, :beneficiarios, class: 'btn btn-primary'
+              #bene
+                = f.simple_fields_for :beneficiarios do |beneficiarios|
+                  = render 'beneficiario_fields', :f => beneficiarios
+                .links
+                  = link_to_add_association 'Agregar', f, :beneficiarios, class: 'btn btn-primary'
 
       = f.hidden_field :entidad, value: '1300000002000'
-      /= f.hidden_field_tag :solicitud_id, value: :id
 
   .well{style: 'min-height: 70px; margin-top: 2em;'}
     = link_to 'Siguiente', '#', id: 'siguiente', class: 'btn btn-primary pull-right'

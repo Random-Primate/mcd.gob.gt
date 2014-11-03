@@ -28,9 +28,15 @@ class Beneficiario < ActiveRecord::Base
 
   public
     def age(bd)
-      since = Date.today - bd
-      a = since / 365
-      a.to_i
+      today = Date.today()
+      birthday = bd
+
+      a = today.year - birthday.year
+      a = a - 1 if (
+      birthday.month >  today.month or
+          (birthday.month >= today.month and birthday.day > today.day)
+      )
+      return a
     end
 
   #before_save bool_turn(:menor)

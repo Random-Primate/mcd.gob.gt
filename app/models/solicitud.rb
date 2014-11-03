@@ -23,11 +23,13 @@
 
 class Solicitud < ActiveRecord::Base
   # Please take note that solicitud was pluralized as solicituds, damn english pluralizers.
-  has_and_belongs_to_many       :implemento
+  has_many                      :soliciteds
+  has_many                      :implementos, through: :soliciteds
   has_many                      :beneficiarios
   belongs_to                    :departamento
   belongs_to                    :municipio
   accepts_nested_attributes_for :beneficiarios, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :soliciteds
   serialize :comunidades, Array
 
   validates :sol_f_name, :sol_s_name, :sol_fl_name, :sol_sl_name, :sol_cui, :sol_email, :sol_tel,

@@ -1,0 +1,10 @@
+= simple_form_for(@solicited) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :amount
+    = f.input :solicitud_id
+    = f.input :implemento_id
+
+  .form-actions
+    = f.button :submit

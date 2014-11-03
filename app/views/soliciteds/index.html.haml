@@ -1,0 +1,23 @@
+%h1 Listing soliciteds
+
+%table
+  %tr
+    %th Amount
+    %th Solicitud
+    %th Implemento
+    %th
+    %th
+    %th
+
+  - @soliciteds.each do |solicited|
+    %tr
+      %td= solicited.amount
+      %td= solicited.solicitud_id
+      %td= solicited.implemento_id
+      %td= link_to 'Show', solicited
+      %td= link_to 'Edit', edit_solicited_path(solicited)
+      %td= link_to 'Destroy', solicited, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Solicited', new_solicited_path

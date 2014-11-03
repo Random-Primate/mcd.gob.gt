@@ -11,9 +11,20 @@
           = f.input :second_first_name, label: false, placeholder: 'Segundo Nombre'
           = f.input :first_last_name, label: false, placeholder: 'Apellido'
           = f.input :second_last_name, label: false, placeholder: 'Segundo Apellido'
+          = f.hidden_field :entidad, value: '1300000002000'
       .col-md-6
         .well
-          = f.input :departamento, collection: Departamento.order(:name), value_method: :name, prompt: 'Departamento', label: false
-          = f.input :municipio, collection: Departamento.order(:name), value_method: :name, as: :grouped_select, label: false, group_method: :municipios, prompt: 'Municipio'
+          .fecha
+            = f.input :birth_date, label: 'Fecha de Nacimiento', as: :date, start_year: Date.today.year - 90,
+                      end_year: Date.today.year - 1, order: [:day, :month, :year]
+          .partida
+            %p{style: 'margin-top: 1em;'}
+              %b Partida de Nacimiento
+            = f.input :no_partida_nacimiento, label: false, placeholder: 'No. de Partida'
+            = f.input :folio_partida_nacimiento, label: false, placeholder: 'Folio de Partida'
+            = f.input :libro_partida_nacimiento, label: false, placeholder: 'Libro de Partida'
+        .well
+          = f.input :departamento, collection: Departamento.order(:name), value_method: :id, prompt: 'Departamento', label: false
+          = f.input :municipio, collection: Departamento.order(:name), value_method: :id, as: :grouped_select, label: false, group_method: :municipios, prompt: 'Municipio'
           = f.input :pueblo, collection: Pueblo.all, label: false, value_method: :name, prompt: 'Pueblo'
       = link_to_remove_association 'Eliminar', f, class: 'btn btn-default pull-right'

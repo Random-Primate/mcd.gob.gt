@@ -46,7 +46,7 @@
         = @solicitud.municipio.name
     .col-md-4
       %h3 Comunidades:
-      -if @solicitud.comunidades.count > 1
+      -if @solicitud.comunidades.count >= 1
         %ul.list-group
         - @solicitud.comunidades.each do |comunidad|
           %li.list-group-item
@@ -64,17 +64,17 @@
               = 'Implementos Solicitados: '
         #collapseOne.panel-collapse.collapse
           .panel-body
-            -if @solicitud.implemento.count >= 1
+            -if @solicitud.implementos.count >= 1
               %table.table.table-striped.table-hover
                 %tr
                   %th IMPLEMENTO
                   %th{style: 'text-align: center;'}
-                    = 'CANTIDAD SOLICITADA'
-                -@solicitud.implemento.each do |implemento|
+                    = 'CANTIDAD SOLICTADA'
+                -@solicitud.soliciteds.each do |solis|
                   %tr
-                    %td= implemento.name
+                    %td= @solicitud.implementos.find(solis.implemento_id).name
                     %td{style: 'text-align: center;'}
-                      = implemento.solicited
+                      = solis.amount
             - else
               .well
                 %h3
@@ -98,7 +98,7 @@
                     %td
                       = Municipio.find(beneficiario.municipio).name + ', ' + Departamento.find(beneficiario.departamento).name + '.'
                     %td
-                      = beneficiario.age(beneficiario.birth_date).to_s + ' Años'
+                      = beneficiario.birth_date
             - else
               .well
                 %h3

@@ -1,0 +1,2 @@
+module SolicitedsHelper
+end

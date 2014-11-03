@@ -1,5 +1,6 @@
 en:
   simple_form:
+        month_names: [~, Enero, Febrero, Marzo, Abril, May, June, July, August, September, October, November, December]
         "yes": 'Si'
         "no": 'No'
         required:

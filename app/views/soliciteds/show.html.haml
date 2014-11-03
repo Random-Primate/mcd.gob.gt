@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Amount:
+  = @solicited.amount
+%p
+  %b Solicitud:
+  = @solicited.solicitud_id
+%p
+  %b Implemento:
+  = @solicited.implemento_id
+
+= link_to 'Edit', edit_solicited_path(@solicited)
+\|
+= link_to 'Back', soliciteds_path
