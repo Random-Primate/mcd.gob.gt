@@ -9,3 +9,6 @@
   .col-md-8.col-md-offset-1
     - if current_user.admin?
       = render 'admin_dash'
+    - elsif current_user.supervisor?
+      = 'Hello'
+

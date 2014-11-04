@@ -360,7 +360,6 @@ DEPENDENCIES
   jquery-turbolinks
   mina
   nested_form_fields
-  nokogiri (~> 1.6.1)
   omniauth (>= 1.0.0)
   paper_trail (~> 3.0.6)
   pg

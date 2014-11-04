@@ -1,8 +1,7 @@
 .container
   = form_for resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-devise', multipart: true, method: :put } do |f|
     %h2
-      = 'Editar'
-      = resource_name.to_s.humanize
+      = 'Editar Perfil'
     = devise_error_messages!
     = image_tag @user.avatar.url(:thumb), width: '170', class: 'avatar'
     = link_to 'Cambiar Avatar', '#', data: {toggle: 'modal', target: '#myModal'}, class: 'btn btn-primary', id: 'crop_btn'
@@ -28,7 +27,7 @@
       = link_to 'Regresar', :back
     - if current_user.admin?
       %h3
-        = '¿Eliminar usuario?'
+        = 'Eliminar usuario?'
         %p
           = link_to 'Eliminar', registration_path(resource_name), data: { confirm: '¿Seguro?' }, method: :delete, class: 'btn btn-default cancel-acct'
 
@@ -46,18 +45,12 @@
       .modal-body
         = form_for resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true, method: :put } do |f|
           .row
-            = f.file_field :avatar, class: 'custom-file-input well filef pull-left'
-            %div.pull-right.prev{style: 'width:100px; height:100px; overflow:hidden'}
-              = image_tag @user.avatar.url(:large), :id => 'preview'
-          .cropper{style: 'margin-left: 2.5em; margin-bottom: 1em; margin-top: 2em;'}
-            = image_tag @user.avatar.url(:large), :id => 'cropbox'
+            = f.file_field :avatar, class: 'custom-file-input well filef'
           .row
             .col-md-8.col-md-offset-2
               %hr.faded
               %h4
                 = 'Por favor confirmar ingresando su contraseña actual.'
-              - %w[x y w h].each do |attribute|
-                = f.hidden_field "crop_#{attribute}"
               = f.password_field :current_password, autocomplete: 'off', placeholder: 'Contraseña Actual', :class => 'form-control last'
               = f.submit 'Actualizar', :class => 'btn btn-lg btn-primary btn-block', id: 'modalsub'
       .modal-footer

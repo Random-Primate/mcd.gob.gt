@@ -1,6 +1,7 @@
 class SolicitudsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
   before_action :set_solicitud, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
   respond_to :html, :json, :xlsx
 
   def index

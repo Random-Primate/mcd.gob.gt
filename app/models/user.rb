@@ -38,7 +38,12 @@ class User < ActiveRecord::Base
   #     def before_add_method(role)
   #       do something before it gets added
   #     end
-  rolify
+  rolify :before_add => :before_add_method
+
+  def before_add_method(role)
+    # do something before it gets added
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -46,20 +51,12 @@ class User < ActiveRecord::Base
          :lockable, :omniauthable
          # :timeoutable, :confirmable,
 
-  # :default_url => 'http://robohash.org/blast.png'
-
   # Carrierwave
   mount_uploader :avatar, AvatarUploader
-  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
-  after_update :crop_avatar
 
   # Validations
   validates :first_name, presence: true
   validates :last_name,  presence: true
   validates :email,      presence: true
-
-  def crop_avatar
-    avatar.recreate_versions! if crop_x.present?
-  end
 
 end

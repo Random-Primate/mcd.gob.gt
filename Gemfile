@@ -68,7 +68,10 @@ gem 'axlsx_rails'
 # Documentation
 gem 'inch', require: false
 # XML Parsing
-gem 'nokogiri', '~> 1.6.1'
+#gem 'nokogiri', '~> 1.6.1'
+# Generate test data (remove from production)
+gem 'faker'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -103,7 +106,7 @@ group :development do
   # A I18n YAML deep sorter that will keep your locales organized
   gem 'i18n_yaml_sorter'
   # Generate test data
-  gem 'faker'
+  #gem 'faker'
   # Guard: automatically run commands when files are changed
   gem 'guard'
   gem 'guard-rspec', require: false      # Automatically run tests

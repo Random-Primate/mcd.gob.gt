@@ -10,6 +10,7 @@
 #
 
 class Article < ActiveRecord::Base
+
   resourcify
 
   has_many    :comments, dependent: :destroy

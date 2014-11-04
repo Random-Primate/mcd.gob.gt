@@ -30,17 +30,24 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
     alias_action :create, :read, :update, :destroy, to: :crud
 
-    can :read, :all                   # allow everyone to read everything
-    if user && user.admin?
+    user ||= User.new # guest user (not logged in)
+    #can :read, :all                   # allow everyone to read everything
+    if user.admin?
       can :access, :rails_admin       # only allow admin users to access Rails Admin
       can :dashboard                  # allow access to dashboard
-      can :crud, :all
-    elsif user.role == 'manager'
-      can :access, :rails_admin
-      can :dashboard
-      can :crud, :articles
-    elsif user.role == 'author'
-      can :crud, :articles
+      can :read, Solicitud # Correct use, for testing
+      #can :manage, :all Correct use for delivery
+    elsif user.role == 'supervisor'
+      can :read, Solicitud
+      can :read, Implemento
+      can :read, Beneficiario
+    elsif user.role == 'impadmin'
+      #can :dashboard
+      #can :crud, :articles
+    elsif user.role == 'impventanilla'
+      #can :crud, :articles
+    elsif user
+      can :create, Solicitud
     end
     cannot :destroy, User do |usr|    # user can't destroy himself
       usr == user

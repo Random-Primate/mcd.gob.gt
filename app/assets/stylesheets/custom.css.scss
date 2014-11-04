@@ -172,6 +172,9 @@ h1, h2, h3, h4, h5, h6, p, a, th, label, span, li, select {
 .filef {
   height: 170px;
   margin-left: 3.5em;
+  & {
+    margin: auto;
+  }
 }
 .cropper {
   position: relative;
@@ -484,4 +487,20 @@ $colHighlight   : #efefef;
 .red {
   background-color: red;
   color: blue;
+}
+
+/*
+ *
+ * For Retina
+ *
+ */
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+  .avatar {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    height: 100px;
+    width: 100px;
+  }
 }

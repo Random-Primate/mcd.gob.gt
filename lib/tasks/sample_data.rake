@@ -5,11 +5,11 @@ namespace :db do
       #
       # Administrador
       #
-      random_string = (0...8).map { (65 + rand(26)).chr }.join
+      avatar = 'empty-user.png'
       admin = User.create!(
                    first_name: Faker::Name.first_name,
                    last_name: Faker::Name.last_name,
-                   avatar: "http://robohash.org/#{random_string}.png",
+                   avatar: avatar,
                    email: 'john@doe.com',
                    password: 'password',
                    password_confirmation: 'password')
@@ -25,6 +25,7 @@ namespace :db do
         User.create!(
                      first_name: first_name,
                      last_name: last_name,
+                     avatar: avatar,
                      email: email,
                      password: password,
                      password_confirmation: password)

@@ -54,3 +54,61 @@ es:
         # html: '<abbr title="required">*</abbr>'
       error_notification:
         default_message: "Existe un problema con su información, por favor revisarla."
+
+  devise:
+    confirmations:
+      confirmed: "Su dirección de correo ha sido confirmada exitosamente.."
+      send_instructions: "Recibirá un correo con instrucciones sobre como confirmar su dirección de correo en un momento."
+      send_paranoid_instructions: "Sí su dirección de correo existe en nuestra base de datos usted recibirá un correo con instrucciones sobre como confirmar su dirección de correo en un momento"
+    failure:
+      already_authenticated: "Ya ha ingresado."
+      inactive: "Su cuenta no ha sido activada todavía."
+      invalid: "Correo o contraseña inválido."
+      locked: "Su cuenta está bloqueada."
+      last_attempt: "Tienen un último intento antes de bloquear su cuenta."
+      not_found_in_database: "Correo o contraseña inválido."
+      timeout: "Su sesión expiró, por favor ingrese de nuevo."
+      unauthenticated: "Debe ingresar a su cuenta o registrarse para continuar."
+      unconfirmed: "Debe confirmar su dirección de correo para continuar."
+    mailer:
+      confirmation_instructions:
+        subject: "Instrucciones de Confirmación"
+      reset_password_instructions:
+        subject: "Instrucciones para Reestablecer contraseña"
+      unlock_instructions:
+        subject: "Instrucciones para desbloquear su cuenta"
+    omniauth_callbacks:
+      failure: "No se ha logrado autenticar de %{kind} por \"%{reason}\"."
+      success: "Se autenticó existosamente de su cuenta en %{kind}."
+    passwords:
+      no_token: "No puede acceder a esta página sin ser redireccionado por un correo para reestablecer contraseñas. De ser así por favor asegurese de usar la dirección completa enviada."
+      send_instructions: "Recibirá un correo con instrucciones para reestablecer su contraseña en un momento."
+      send_paranoid_instructions: "Si su correo ya existe en nuestra base de datos usted recibirá un correo con el vínculo para reestablecer su contraseña en unos minutos."
+      updated: "Su contraseña a sido cambiada exitosamente. Ha sido ingresado a su sesión."
+      updated_not_active: "Su contraseña a sido cambiada existosamente."
+    registrations:
+      destroyed: "¡Adios! Su cuenta ha sido cancelada exitosamente. Esperamos verlo pronto."
+      signed_up: "¡Bienvenido! Se ha registrado exitosamente."
+      signed_up_but_inactive: "Se ha registrado exitosamente, pero no ha comenzado su sesión ya a que su cuenta no ha sido activada todavía."
+      signed_up_but_locked: "Se ha registrado exitosamente, pero no ha comenzado su sesión ya a que su cuenta está bloqueada."
+      signed_up_but_unconfirmed: "Un mensaje con su vínculo de confirmación ha sido enviado a su correo. Por favor use el vínculo para activar su cuenta."
+      update_needs_confirmation: "Ha actualizado su cuenta exitosamente, pero debemos verificar su nueva dirección de correo. Por favor revise su correo y utilice el vinculo de confirmación."
+      updated: "Su cuenta ha sido actualizada exitosamente."
+    sessions:
+      signed_in: "Ha ingresado a su sesión exitosamente."
+      signed_out: "Ha cerrado su sesión exitosamente"
+      already_signed_out: "Ha cerrado su sesión exitosamente"
+    unlocks:
+      send_instructions: "Recibirá un correo con instrucciones para desbloquear su cuenta en unos minutos."
+      send_paranoid_instructions: "Si su cuenta existe usted recibirá un correo con instrucciones para desbloquear su cuenta en unos minutos."
+      unlocked: "Su cuenta ha sido desbloqueada exitosamente, por favor ingrese a su sesión para continuar."
+  errors:
+    messages:
+      already_confirmed: "ya ha sido confirmado, por favor intente nuevo."
+      confirmation_period_expired: "debe ser confirmada dentro de %{period}, por favor solicitelo de nuevo"
+      expired: "ha expirado, por favor solicite uno nuevo"
+      not_found: "no se ha encontrado"
+      not_locked: "no ha sido bloqueado"
+      not_saved:
+        one: "1 error ha evitado que este %{resource} se guardara:"
+        other: "%{count} errores evitaron que este %{resource} se guardara:"

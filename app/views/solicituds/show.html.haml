@@ -98,7 +98,7 @@
                     %td
                       = Municipio.find(beneficiario.municipio).name + ', ' + Departamento.find(beneficiario.departamento).name + '.'
                     %td
-                      = beneficiario.birth_date
+                      = beneficiario.age(beneficiario.birth_date)
             - else
               .well
                 %h3

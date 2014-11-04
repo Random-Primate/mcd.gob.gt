@@ -1,4 +1,6 @@
 class WelcomeController < ApplicationController
+  #load_and_authorize_resource class: false
+
   def index
     @article_1 = Article.find(1)
     @article_2 = Article.find(2)
