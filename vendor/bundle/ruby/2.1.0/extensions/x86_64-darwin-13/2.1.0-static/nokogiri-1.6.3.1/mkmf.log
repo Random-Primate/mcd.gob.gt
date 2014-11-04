@@ -1,0 +1,253 @@
+have_header: checking for iconv.h... -------------------- yes
+
+"gcc -o conftest -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/ruby/backward -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0 -I. -I/usr/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/travis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.7 -pipe  -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/Users/hades/.rvm/rubies/ruby-2.1.2/lib -L/usr/lib -L. -L/Users/travis/.sm/pkg/active/lib -fPIC -Bstatic -fstack-protector   -arch x86_64   -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc  "
+ld: warning: directory not found for option '-L/Users/travis/.sm/pkg/active/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"gcc -E -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/ruby/backward -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0 -I. -I/usr/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/travis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.7 -pipe  -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <iconv.h>
+/* end */
+
+--------------------
+
+have_func: checking for iconv_open() in iconv.h... -------------------- no
+
+"gcc -o conftest -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/ruby/backward -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0 -I. -I/usr/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/travis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.7 -pipe  -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/Users/hades/.rvm/rubies/ruby-2.1.2/lib -L/usr/lib -L. -L/Users/travis/.sm/pkg/active/lib -fPIC -Bstatic -fstack-protector   -arch x86_64   -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc  "
+ld: warning: directory not found for option '-L/Users/travis/.sm/pkg/active/lib'
+Undefined symbols for architecture x86_64:
+  "_libiconv_open", referenced from:
+      _t in conftest-6d3df5.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+15: int t(void) { void ((*volatile p)()); p = (void ((*)()))iconv_open; return 0; }
+/* end */
+
+"gcc -o conftest -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/ruby/backward -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0 -I. -I/usr/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/travis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.7 -pipe  -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/Users/hades/.rvm/rubies/ruby-2.1.2/lib -L/usr/lib -L. -L/Users/travis/.sm/pkg/active/lib -fPIC -Bstatic -fstack-protector   -arch x86_64   -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc  "
+conftest.c:15:26: error: too few arguments to function call, expected 2, have 0
+int t(void) { iconv_open(); return 0; }
+              ~~~~~~~~~~ ^
+/usr/local/include/iconv.h:73:1: note: 'libiconv_open' declared here
+extern iconv_t iconv_open (const char* tocode, const char* fromcode);
+^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+15: int t(void) { iconv_open(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for iconv_open() in -liconv... -------------------- no
+
+"gcc -o conftest -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/ruby/backward -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0 -I. -I/usr/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/travis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.7 -pipe  -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/Users/hades/.rvm/rubies/ruby-2.1.2/lib -L/usr/lib -L. -L/Users/travis/.sm/pkg/active/lib -fPIC -Bstatic -fstack-protector   -arch x86_64   -lruby-static -framework CoreFoundation -liconv  -lpthread -ldl -lobjc  "
+ld: warning: directory not found for option '-L/Users/travis/.sm/pkg/active/lib'
+Undefined symbols for architecture x86_64:
+  "_libiconv_open", referenced from:
+      _t in conftest-d59b30.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+15: int t(void) { void ((*volatile p)()); p = (void ((*)()))iconv_open; return 0; }
+/* end */
+
+"gcc -o conftest -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/ruby/backward -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0 -I. -I/usr/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/travis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.7 -pipe  -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/Users/hades/.rvm/rubies/ruby-2.1.2/lib -L/usr/lib -L. -L/Users/travis/.sm/pkg/active/lib -fPIC -Bstatic -fstack-protector   -arch x86_64   -lruby-static -framework CoreFoundation -liconv  -lpthread -ldl -lobjc  "
+conftest.c:15:26: error: too few arguments to function call, expected 2, have 0
+int t(void) { iconv_open(); return 0; }
+              ~~~~~~~~~~ ^
+/usr/local/include/iconv.h:73:1: note: 'libiconv_open' declared here
+extern iconv_t iconv_open (const char* tocode, const char* fromcode);
+^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+15: int t(void) { iconv_open(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for libiconv_open() in iconv.h... -------------------- no
+
+"gcc -o conftest -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/ruby/backward -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0 -I. -I/usr/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/travis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.7 -pipe  -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/Users/hades/.rvm/rubies/ruby-2.1.2/lib -L/usr/lib -L. -L/Users/travis/.sm/pkg/active/lib -fPIC -Bstatic -fstack-protector   -arch x86_64   -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc  "
+ld: warning: directory not found for option '-L/Users/travis/.sm/pkg/active/lib'
+Undefined symbols for architecture x86_64:
+  "_libiconv_open", referenced from:
+      _t in conftest-70ac24.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+15: int t(void) { void ((*volatile p)()); p = (void ((*)()))libiconv_open; return 0; }
+/* end */
+
+"gcc -o conftest -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/ruby/backward -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0 -I. -I/usr/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/travis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.7 -pipe  -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/Users/hades/.rvm/rubies/ruby-2.1.2/lib -L/usr/lib -L. -L/Users/travis/.sm/pkg/active/lib -fPIC -Bstatic -fstack-protector   -arch x86_64   -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc  "
+conftest.c:15:29: error: too few arguments to function call, expected 2, have 0
+int t(void) { libiconv_open(); return 0; }
+              ~~~~~~~~~~~~~ ^
+/usr/local/include/iconv.h:73:1: note: 'libiconv_open' declared here
+extern iconv_t iconv_open (const char* tocode, const char* fromcode);
+^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+15: int t(void) { libiconv_open(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for libiconv_open() in -liconv... -------------------- no
+
+"gcc -o conftest -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/ruby/backward -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0 -I. -I/usr/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/travis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.7 -pipe  -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/Users/hades/.rvm/rubies/ruby-2.1.2/lib -L/usr/lib -L. -L/Users/travis/.sm/pkg/active/lib -fPIC -Bstatic -fstack-protector   -arch x86_64   -lruby-static -framework CoreFoundation -liconv  -lpthread -ldl -lobjc  "
+ld: warning: directory not found for option '-L/Users/travis/.sm/pkg/active/lib'
+Undefined symbols for architecture x86_64:
+  "_libiconv_open", referenced from:
+      _t in conftest-133fae.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+15: int t(void) { void ((*volatile p)()); p = (void ((*)()))libiconv_open; return 0; }
+/* end */
+
+"gcc -o conftest -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/x86_64-darwin13.0 -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0/ruby/backward -I/Users/hades/.rvm/rubies/ruby-2.1.2/include/ruby-2.1.0 -I. -I/usr/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/travis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.7 -pipe  -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/Users/hades/.rvm/rubies/ruby-2.1.2/lib -L/usr/lib -L. -L/Users/travis/.sm/pkg/active/lib -fPIC -Bstatic -fstack-protector   -arch x86_64   -lruby-static -framework CoreFoundation -liconv  -lpthread -ldl -lobjc  "
+conftest.c:15:29: error: too few arguments to function call, expected 2, have 0
+int t(void) { libiconv_open(); return 0; }
+              ~~~~~~~~~~~~~ ^
+/usr/local/include/iconv.h:73:1: note: 'libiconv_open' declared here
+extern iconv_t iconv_open (const char* tocode, const char* fromcode);
+^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &t);
+11:   }
+12: 
+13:   return 0;
+14: }
+15: int t(void) { libiconv_open(); return 0; }
+/* end */
+
+--------------------
+
+package configuration for libiconv is not found

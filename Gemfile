@@ -5,7 +5,7 @@ gem 'rails', '4.1.7'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Bootstrap Sass for rails
-gem 'bootstrap-sass', '<= 3.3.0.1', '>= 3.2.0.2'
+gem 'bootstrap-sass', '3.3.0.1'#'<= 3.3.0.1', '>= 3.2.0.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Adds vendor prefixes to css rules
@@ -15,7 +15,7 @@ gem 'haml-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '<= 4.1.0', '>= 4.0.1'
+gem 'coffee-rails', '4.1.0'#'<= 4.1.0', '>= 4.0.1'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 # Use jquery as the JavaScript library
@@ -67,6 +67,8 @@ gem 'jquery-turbolinks'
 gem 'axlsx_rails'
 # Documentation
 gem 'inch', require: false
+# XML Parsing
+gem 'nokogiri', '~> 1.6.1'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -89,7 +91,7 @@ group :development do
   # Acceptance testing framework for Rails
   gem 'capybara', '>= 2.4.1'
   # Test data object creation for Ruby
-  gem 'factory_girl', '<= 4.5.0', '>= 4.4.0'
+  gem 'factory_girl', '4.5.0'#'<= 4.5.0', '>= 4.4.0'
   # Test data object creation for Ruby
   gem 'annotate'
   # Restarts an app when the filesystem changes
