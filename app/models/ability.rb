@@ -35,6 +35,7 @@ class Ability
     if user.admin?
       can :access, :rails_admin       # only allow admin users to access Rails Admin
       can :dashboard                  # allow access to dashboard
+      can :edit, User
       can :read, Solicitud # Correct use, for testing
       #can :manage, :all Correct use for delivery
     elsif user.role == 'supervisor'

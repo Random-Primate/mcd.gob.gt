@@ -19,7 +19,7 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe SolicitedsController, :type => :controller do
-
+=begin
   # This should return the minimal set of attributes required to create a valid
   # Solicited. As you add validations to Solicited, be sure to
   # adjust the attributes here as well.
@@ -155,5 +155,5 @@ RSpec.describe SolicitedsController, :type => :controller do
       expect(response).to redirect_to(soliciteds_url)
     end
   end
-
+=end
 end

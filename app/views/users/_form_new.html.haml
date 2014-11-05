@@ -1,0 +1,11 @@
+.container
+  =simple_form_for @user, html: { class: 'form-horizontal' }, url: admins_create_user_path(50) do |f|
+    = f.error_notification
+    = f.text_field      :first_name,              class: 'form-control top',  placeholder: 'Nombre',      required: '', autofocus: ''
+    = f.text_field      :last_name,               class: 'form-control mid',  placeholder: 'Apellido',    required: ''
+    = f.email_field     :email,                   class: 'form-control mid',  placeholder: 'Correo',      required: ''
+    = f.password_field  :password,                class: 'form-control mid',  placeholder: 'Contraseña',  required: '', autocomplete: 'off'
+    = f.password_field  :password_confirmation,   class: 'form-control last', placeholder: 'Confirmar',   required: '', autocomplete: 'off'
+    /- if current_user.try(admin?)
+    /  = f.select        :role,                    class: 'role', options_from_collection_for_select(Role.all,'name','name')
+    = f.submit 'Enviar', :class => 'btn btn-lg btn-primary btn-block'

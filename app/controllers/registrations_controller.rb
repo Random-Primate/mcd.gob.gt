@@ -1,9 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-  def create
-    super
-    #@user = User.new(sign_up_params)
-    #@user.add_role params[:user][:role]
-  end
 
   private
 

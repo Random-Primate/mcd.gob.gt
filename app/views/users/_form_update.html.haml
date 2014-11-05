@@ -1,0 +1,38 @@
+.container
+  =simple_form_for @user, html: { class: 'form-devise' }, url: admins_update_user_path do |f|
+    = image_tag @user.avatar.url(:thumb), width: '170', class: 'avatar'
+    = link_to 'Cambiar Avatar', '#', data: {toggle: 'modal', target: '#myModal'}, class: 'btn btn-primary', id: 'crop_btn'
+    = f.error_notification
+    = f.text_field      :first_name,              class: 'form-control top',  placeholder: 'Nombre',      required: '', autofocus: ''
+    = f.text_field      :last_name,               class: 'form-control mid',  placeholder: 'Apellido',    required: ''
+    = f.email_field     :email,                   class: 'form-control last',  placeholder: 'Correo',      required: ''
+    /= f.password_field  :password,                class: 'form-control mid',  placeholder: 'Contraseña',  required: '', autocomplete: 'off'
+    /= f.password_field  :password_confirmation,   class: 'form-control last', placeholder: 'Confirmar',   required: '', autocomplete: 'off'
+    /- if current_user.try(admin?)
+    /  = f.select        :role,                    class: 'role', options_from_collection_for_select(Role.all,'name','name')
+    = f.submit 'Enviar', :class => 'btn btn-lg btn-primary btn-block'
+.modal.fade#myModal{tabindex: '-1', role: 'dialog', 'aria-labelledby'=>'myModalLabel', 'aria-hidden'=>'true'}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{ type: 'button', 'data-dismiss'=>'modal'}
+          %span{'aria-hidden'=>'true'}
+            = 'x'
+          %span.sr-only
+            = 'Cerrar'
+        %h4.modal-title#myModalLabel
+          = 'Recortar'
+      .modal-body
+        =simple_form_for @user, html: { class: 'form-horizontal', multipart: true, method: :put }, url: admins_update_user_path(50) do |f|
+          .row
+            = f.file_field :avatar, class: 'custom-file-input well filef'
+          .row
+            .col-md-8.col-md-offset-2
+              %hr.faded
+              %h4
+                = 'Por favor confirmar ingresando su contraseña actual.'
+              = f.password_field :current_password, autocomplete: 'off', placeholder: 'Contraseña Actual', :class => 'form-control last'
+              = f.submit 'Actualizar', :class => 'btn btn-lg btn-primary btn-block', id: 'modalsub'
+      .modal-footer
+        %button.btn.btn-default{type: 'button', 'data-dismiss' => 'modal'}
+          = 'Cerrar'
