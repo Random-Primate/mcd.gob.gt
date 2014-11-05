@@ -14,6 +14,10 @@
     = f.password_field :password, autocomplete: 'off', placeholder: 'Nueva Contraseña', :class => 'form-control mid', id: 'newpwd'
     = f.password_field :password_confirmation, autocomplete: 'off', placeholder: 'Confirmar Nueva Contraseña', :class => 'form-control mid'
     = f.password_field :current_password, autocomplete: 'off', placeholder: 'Contraseña Actual', :class => 'form-control last'
+    - if current_user.try(admin?)
+      - if current_user == resource
+        = 'Same User'
+      = f.select :role, options_from_collection_for_select(Role.all,'name','name'), class: 'role'
     = f.submit 'Update', :class => 'btn btn-lg btn-primary btn-block'
     %hr.faded
     %i.requirements

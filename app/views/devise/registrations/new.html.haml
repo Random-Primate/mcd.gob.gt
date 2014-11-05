@@ -7,14 +7,15 @@
     = f.email_field :email, :class => 'form-control mid', :placeholder => 'Correo', :required => ''
     = f.password_field :password, autocomplete: 'off', :class => 'form-control mid', :required => '', :placeholder => 'Contraseña'
     = f.password_field :password_confirmation, autocomplete: 'off', :class => 'form-control last', :placeholder => 'Confirmar', :required => ''
-    = f.select :role, options_from_collection_for_select(Role.all,'name','name')
+    - if current_user.try(admin?)
+      = f.select :role, options_from_collection_for_select(Role.all,'name','name'), class: 'role'
     = f.submit 'Enviar', :class => 'btn btn-lg btn-primary btn-block'
     - if @validatable
       %br
       %p.requirements
-        = 'Password requires '
+        = 'La contraseña requiere de '
         = @minimum_password_length
-        ='characters minimum'
+        ='characteres como mínimo.'
         %br
     %hr.faded
     = render 'devise/shared/links'
