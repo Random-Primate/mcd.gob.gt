@@ -32,6 +32,9 @@ class Solicitud < ActiveRecord::Base
   accepts_nested_attributes_for :soliciteds
   serialize :comunidades, Array
 
+  # Make this a role based class
+  resourcify
+
   validates :sol_f_name, :sol_s_name, :sol_fl_name, :sol_sl_name, :sol_cui, :sol_email, :sol_tel,
             :disciplina, presence: true
 
