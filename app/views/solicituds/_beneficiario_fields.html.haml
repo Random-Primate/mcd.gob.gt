@@ -26,5 +26,6 @@
         .well
           = f.input :departamento, collection: Departamento.order(:name), value_method: :id, prompt: 'Departamento', label: false
           = f.input :municipio, collection: Departamento.order(:name), value_method: :id, as: :grouped_select, label: false, group_method: :municipios, prompt: 'Municipio'
-          = f.input :pueblo, collection: Pueblo.all, label: false, value_method: :name, prompt: 'Pueblo'
+          = f.input :pueblo, collection: Pueblo.all, label: false, value_method: :id, prompt: 'Pueblo'
+          = f.input :idioma, collection: Idioma.all, label: false, value_method: :id, prompt: 'Idioma'
       = link_to_remove_association 'Eliminar', f, class: 'btn btn-default pull-right'

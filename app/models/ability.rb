@@ -31,14 +31,12 @@ class Ability
     alias_action :create, :read, :update, :destroy, to: :crud
 
     user ||= User.new # guest user (not logged in)
-    #can :read, :all                   # allow everyone to read everything
+    #can :read, :all                    # allow everyone to read everything
     if user.admin?
-      can :access, :rails_admin       # only allow admin users to access Rails Admin
-      can :dashboard                  # allow access to dashboard
-      can :edit, User
-      can :read, Solicitud # Correct use, for testing
-      #can :manage, :all Correct use for delivery
-    elsif user.role == 'supervisor'
+      can :access, :rails_admin         # only allow admin users to access Rails Admin
+      can :dashboard                    # allow access to dashboard
+      can :manage, :all
+    elsif user.has_role? :supervisor
       can :read, Solicitud
       can :read, Implemento
       can :read, Beneficiario
@@ -50,9 +48,9 @@ class Ability
     elsif user
       can :create, Solicitud
     end
-    cannot :destroy, User do |usr|    # user can't destroy himself
-      usr == user
-    end
+    #cannot :destroy, User do |usr|    # user can't destroy himself
+    #  usr == user
+    #end
 
   end
 end

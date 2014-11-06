@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   #before_filter :get_user, :only => [:index,:new,:edit]
-  #load_and_authorize_resource :only => [:show,:new,:destroy,:edit,:update]
+  load_and_authorize_resource# :only => [:show,:new,:destroy,:edit,:update]
   respond_to :html, :json
 
   #def update

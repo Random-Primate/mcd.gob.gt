@@ -1,10 +1,17 @@
 class ImplementosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_implemento, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
   respond_to :html, :json
 
   def index
-    @implementos = Implemento.search(params[:search]).paginate(:page => params[:page], :per_page => 10)
+    # Searching algo
+    if params[:search]
+      min = params[:search].downcase
+    else
+      min = params[:search]
+    end
+    @implementos = Implemento.search(min).paginate(:page => params[:page], :per_page => 10)
     respond_with(@implementos)
   end
 

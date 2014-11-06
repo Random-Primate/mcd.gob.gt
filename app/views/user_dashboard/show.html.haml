@@ -8,11 +8,16 @@
 
   .col-md-8.col-md-offset-1
     - if current_user.admin?
+      .well
+        %h1
+          = 'Administrador'
       = render 'admin_dash'
     - elsif current_user.has_role? :supervisor
       .well
-        %h3 Supervisor
+        %h1
+          = 'Supervisor'
+      = render 'supervisor_dash'
     - else
       .well
-        %h3 Too bad
-
+        %h1
+          = 'Too Bad'

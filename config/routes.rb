@@ -43,8 +43,7 @@ Rails.application.routes.draw do
   get     '/users/new_user',        to: 'users#new_user',     as: 'admins_new_user'
   post    '/users/create_user/:id', to: 'users#create_user',  as: 'admins_create_user'
   get     '/users/edit_user/:id',   to: 'users#edit_user',    as: 'admins_edit_user'
-  patch     '/users/update_user/:id', to: 'users#update_user',  as: 'admins_update_user'
-  #put   '/users/update_user/:id', to: 'users#update_user',  as: 'admins_update_user'
+  patch   '/users/update_user/:id', to: 'users#update_user',  as: 'admins_update_user'
   delete  '/users/:id',             to: 'users#destroy_user', as: 'admins_destroy_user'
 
   # The priority is based upon order of creation: first created -> highest priority.

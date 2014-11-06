@@ -18,11 +18,13 @@ class Implemento < ActiveRecord::Base
   has_many :solicituds, through: :soliciteds
   accepts_nested_attributes_for :soliciteds
 
+  # Searching algo
   def self.search(search)
     if search
-      where('name LIKE ?', "%#{search}%")
+      where('lower(name) LIKE ?', "%#{search}%")
     else
       all
     end
   end
+
 end

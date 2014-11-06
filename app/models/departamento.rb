@@ -11,6 +11,7 @@
 class Departamento < ActiveRecord::Base
   has_many :municipios
   has_many :solicituds
+  validates :name, presence: true
 
   def self.search(search)
     if search
