@@ -22,6 +22,8 @@
 #
 
 class Solicitud < ActiveRecord::Base
+  include AASM
+
   # Please take note that solicitud was pluralized as solicituds, damn english pluralizers.
   has_many                      :soliciteds
   has_many                      :implementos, through: :soliciteds
@@ -50,6 +52,25 @@ class Solicitud < ActiveRecord::Base
     place = @solicitud.departamento.name
     depto = Departamento.where('name = ?', place)
     depto.id
+  end
+
+  aasm column: 'state' do
+    state :pending, :initial => true
+    state :confirmed
+    state :reserved
+    state :delivered
+
+    event :confirming do
+      transitions :from => :pending, :to => :confirmed
+    end
+
+    event :reserving do
+      transitions :from => :confirmed, :to => :reserved
+    end
+
+    event :delivering do
+      transitions :from => :reserved, :to => :delivered
+    end
   end
 
 end

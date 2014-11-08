@@ -57,8 +57,8 @@ gem 'will_paginate', '~> 3.0'
 gem 'bootstrap-will_paginate'
 # Breadcrumbs
 gem 'gretel'
-# Handle States
-gem 'state_machine'
+# Handles States
+gem 'aasm'
 # Adds dynamic fields
 gem 'nested_form_fields'
 # Turbolink Fix
@@ -105,14 +105,6 @@ group :development do
   gem 'i18n_yaml_sorter'
   # Generate test data
   gem 'faker'
-  # Guard: automatically run commands when files are changed
-  gem 'guard'
-  gem 'guard-rspec', require: false      # Automatically run tests
-  gem 'terminal-notifier-guard'          # Mac OS X User Notifications for Guard
-  gem 'guard-livereload', require: false # Automatically reload your browser when 'view' files are modified
-  gem 'guard-bundler'                    # Automatically install/update gem bundle when needed
-  gem 'guard-annotate'                   # Automatically run the annotate gem when needed
-  gem 'guard-migrate'                    # Automatically run migrations when they are edited
 end
 
 group :production do

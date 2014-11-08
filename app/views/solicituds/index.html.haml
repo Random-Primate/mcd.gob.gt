@@ -14,8 +14,9 @@
 
   = will_paginate @solicituds, class: 'paginate-bot'
 
-  %table.table.table-striped.table-hover#ctr_row
+  %table.table.table-hover#ctr_row
     %tr
+      %th ID
       %th CORRELATIVO
       %th ESTADO
       %th BENEFICIADOS
@@ -23,12 +24,46 @@
       %th PERFIL
 
     - @solicituds.each do |solicitud|
-      %tr
-        %td= solicitud.correlativo
-        %td= 'Estado'
-        %td= solicitud.beneficiarios.count
-        %td= solicitud.departamento.name
-        %td= link_to 'Ver', solicitud
+      - if solicitud.id == 2
+        %tr{class: 'success'}
+          %td= solicitud.id
+          %td= solicitud.correlativo
+          %td= 'Estado'
+          %td= solicitud.beneficiarios.count
+          %td= solicitud.departamento.name
+          %td= link_to 'Ver', solicitud
+      - elsif solicitud.id == 4
+        %tr{class: 'info'}
+          %td= solicitud.id
+          %td= solicitud.correlativo
+          %td= 'Estado'
+          %td= solicitud.beneficiarios.count
+          %td= solicitud.departamento.name
+          %td= link_to 'Ver', solicitud
+      - elsif solicitud.id == 6
+        %tr{class: 'warning'}
+          %td= solicitud.id
+          %td= solicitud.correlativo
+          %td= 'Estado'
+          %td= solicitud.beneficiarios.count
+          %td= solicitud.departamento.name
+          %td= link_to 'Ver', solicitud
+      - elsif solicitud.id == 8
+        %tr{class: 'danger'}
+          %td= solicitud.id
+          %td= solicitud.correlativo
+          %td= 'Estado'
+          %td= solicitud.beneficiarios.count
+          %td= solicitud.departamento.name
+          %td= link_to 'Ver', solicitud
+      - else
+        %tr
+          %td= solicitud.id
+          %td= solicitud.correlativo
+          %td= 'Estado'
+          %td= solicitud.beneficiarios.count
+          %td= solicitud.departamento.name
+          %td= link_to 'Ver', solicitud
 
   %br
 
