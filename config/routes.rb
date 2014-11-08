@@ -30,21 +30,20 @@ Rails.application.routes.draw do
   # Rails Admin
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  # Devise
-  devise_for :users, :controllers => { registrations: 'registrations' }
-  resources :users, only: [:index, :edit_user]
-
   # Articles and Comments
   resources :articles, except: [:new, :destroy]
 
+  # Devise
+  devise_for  :users,   controllers: { registrations: 'registrations' }
+  resources   :users,   only: [:index, :edit_user]
+
   # Users
-  #get    '/user/:id',              to: 'user#show',          as: :user This was working in singular form, why?
-  get     '/users/:id',             to: 'users#show',         as: :user
+  get     '/user/:id',              to: 'user#show',          as: :user
   get     '/users/new_user',        to: 'users#new_user',     as: 'admins_new_user'
-  post    '/users/create_user/:id', to: 'users#create_user',  as: 'admins_create_user'
+  post    '/users/create_user',     to: 'users#create_user',  as: 'admins_create_user'
   get     '/users/edit_user/:id',   to: 'users#edit_user',    as: 'admins_edit_user'
   patch   '/users/update_user/:id', to: 'users#update_user',  as: 'admins_update_user'
-  delete  '/users/:id',             to: 'users#destroy_user', as: 'admins_destroy_user'
+  delete  '/user/:id',              to: 'users#destroy_user', as: 'admins_destroy_user'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -8,8 +8,42 @@
     = f.email_field     :email,                   class: 'form-control last',  placeholder: 'Correo',      required: ''
     /= f.password_field  :password,                class: 'form-control mid',  placeholder: 'Contraseña',  required: '', autocomplete: 'off'
     /= f.password_field  :password_confirmation,   class: 'form-control last', placeholder: 'Confirmar',   required: '', autocomplete: 'off'
-    /- if current_user.try(admin?)
-    /  = f.select        :role,                    class: 'role', options_from_collection_for_select(Role.all,'name','name')
+    - if current_user.has_role? :implementacion
+      %fieldset{style: 'margin-bottom: 1em;'}
+        %legend User Roles
+        = hidden_field_tag(:supervisor, 0)
+        = check_box_tag(:supervisor, 1, @user.has_role?(:supervisor))
+        = f.label(:supervisor)
+        %br
+        = hidden_field_tag(:ventanilla, 0)
+        = check_box_tag(:ventanilla, 1, @user.has_role?(:ventanilla))
+        = f.label(:ventanilla)
+        %br
+        = hidden_field_tag(:usuario, 0)
+        = check_box_tag(:usuario, 1, @user.has_role?(:usuario))
+        = f.label(:usuario)
+    - elsif current_user.has_role? :admin
+      %fieldset{style: 'margin-bottom: 1em;'}
+        %legend User Roles
+        = hidden_field_tag(:admin, 0)
+        = check_box_tag(:admin, 1, @user.has_role?(:admin))
+        = f.label(:admin)
+        %br
+        = hidden_field_tag(:supervisor, 0)
+        = check_box_tag(:supervisor, 1, @user.has_role?(:supervisor))
+        = f.label(:supervisor)
+        %br
+        = hidden_field_tag(:implementacion, 0)
+        = check_box_tag(:implementacion, 1, @user.has_role?(:implementacion))
+        = f.label(:implementacion)
+        %br
+        = hidden_field_tag(:ventanilla, 0)
+        = check_box_tag(:ventanilla, 1, @user.has_role?(:ventanilla))
+        = f.label(:ventanilla)
+        %br
+        = hidden_field_tag(:usuario, 0)
+        = check_box_tag(:usuario, 1, @user.has_role?(:usuario))
+        = f.label(:usuario)
     = f.submit 'Enviar', :class => 'btn btn-lg btn-primary btn-block'
 .modal.fade#myModal{tabindex: '-1', role: 'dialog', 'aria-labelledby'=>'myModalLabel', 'aria-hidden'=>'true'}
   .modal-dialog
@@ -23,7 +57,7 @@
         %h4.modal-title#myModalLabel
           = 'Recortar'
       .modal-body
-        =simple_form_for @user, html: { class: 'form-horizontal', multipart: true, method: :put }, url: admins_update_user_path(50) do |f|
+        =simple_form_for @user, html: { class: 'form-horizontal', multipart: true, method: :patch }, url: admins_update_user_path do |f|
           .row
             = f.file_field :avatar, class: 'custom-file-input well filef'
           .row

@@ -9,8 +9,7 @@ class UsersController < ApplicationController
   #end
 
   def index
-    @users = User.paginate(:page => params[:page], :per_page => 10)
-    #User.accessible_by(current_ability, :index)
+    @users = User.accessible_by(current_ability, :read).order(:last_name).paginate(page: params[:page], per_page: 10)
   end
 
   def show
@@ -20,10 +19,13 @@ class UsersController < ApplicationController
 
   def edit_user
     @user = User.find(params[:id])
+    #@rol = @user.roles.first
   end
 
   def update_user
     @user = User.update(params[:id], user_params)
+
+    set_roles_form
 
     if @user.save
       flash[:notice] = 'Se lograron guardar sus cambios.'
@@ -40,15 +42,16 @@ class UsersController < ApplicationController
 
   def create_user
     @user = User.new(user_params)
-    #@user.add_role params[:user][:role]
+
+    set_roles_form
 
     if @user.save
       flash[:notice] = 'Se ha creado un nuevo usuario!'
+      redirect_to action: 'index'
     else
       flash[:notice] = 'No se ha logrado guardar el usuario.'
+      render :new_user
     end
-
-    redirect_to action: 'index'
   end
 
   def destroy_user
@@ -71,9 +74,44 @@ class UsersController < ApplicationController
     @current_user = current_user
   end
 
+  # Set Role modification
+  #----------------------------------------
+  def set_roles_form
+    if params[:admin] == '1'
+      @user.grant(:admin)
+    elsif params[:admin] == '0'
+      @user.remove_role(:admin)
+    end
+
+    if params[:supervisor] == '1'
+      @user.grant(:supervisor)
+    elsif params[:supervisor] == '0'
+      @user.remove_role(:supervisor)
+    end
+
+    if params[:implementacion] == '1'
+      @user.grant(:implementacion)
+    elsif params[:implementacion] == '0'
+      @user.remove_role(:implementacion)
+    end
+
+    if params[:ventanilla] == '1'
+      @user.grant(:ventanilla)
+    elsif params[:ventanilla] == '0'
+      @user.remove_role(:ventanilla)
+    end
+
+    if params[:usuario] == '1'
+      @user.grant(:usuario)
+    elsif params[:usuario] == '0'
+      @user.remove_role(:usuario)
+    end
+  end
+
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :avatar, :email, :password,
-                                 :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :avatar, :email, :role, :password,
+                                 :password_confirmation, :admin, :supervisor, :implementacion,
+                                 :ventanilla, :usuario)
   end
 
 end

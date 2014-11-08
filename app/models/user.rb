@@ -30,6 +30,8 @@
 #
 
 class User < ActiveRecord::Base
+  #after_create :add_rol
+
   # Gem Integrations
   #   Rolify: Very simple Roles library without any authorization enforcement supporting scope
   #   on resource object.
@@ -43,6 +45,10 @@ class User < ActiveRecord::Base
   def before_add_method(role)
     # do something before it gets added
   end
+
+  #def add_rol(user)
+  #  user.add_role :user
+  #end
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

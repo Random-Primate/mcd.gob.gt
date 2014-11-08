@@ -2,10 +2,10 @@ namespace :db do
 
   desc 'Fill database with sample data'
     task populate: :environment do
+      avatar = 'empty-user.png'
       #
       # Administrador
       #
-      avatar = 'empty-user.png'
       admin = User.create!(
                    first_name: Faker::Name.first_name,
                    last_name: Faker::Name.last_name,
@@ -14,6 +14,40 @@ namespace :db do
                    password: 'password',
                    password_confirmation: 'password')
       admin.toggle!(:admin)
+      admin.add_role :admin
+      #
+      # Supervisor
+      #
+      supervisor = User.create!(
+          first_name: Faker::Name.first_name,
+          last_name: Faker::Name.last_name,
+          avatar: avatar,
+          email: 'supervisor@doe.com',
+          password: 'password',
+          password_confirmation: 'password')
+      supervisor.add_role :supervisor
+      #
+      # Implementacion
+      #
+      implementacion = User.create!(
+          first_name: Faker::Name.first_name,
+          last_name: Faker::Name.last_name,
+          avatar: avatar,
+          email: 'implementacion@doe.com',
+          password: 'password',
+          password_confirmation: 'password')
+      implementacion.add_role :implementacion
+      #
+      # Ventanilla
+      #
+      ventanilla = User.create!(
+          first_name: Faker::Name.first_name,
+          last_name: Faker::Name.last_name,
+          avatar: avatar,
+          email: 'ventanilla@doe.com',
+          password: 'password',
+          password_confirmation: 'password')
+      ventanilla.add_role :ventanilla
       #
       # Users
       #
@@ -22,13 +56,14 @@ namespace :db do
         last_name = Faker::Name.last_name
         email = "example-#{n+1}@doe.com"
         password = 'password'
-        User.create!(
+        usr = User.create!(
                      first_name: first_name,
                      last_name: last_name,
                      avatar: avatar,
                      email: email,
                      password: password,
                      password_confirmation: password)
+        usr.add_role :usuario
       end
       #
       # Solicitudes

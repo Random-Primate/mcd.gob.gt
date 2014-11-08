@@ -13,13 +13,19 @@
     %tr
       %th= 'NOMBRE'
       %th= 'CORREO'
+      %th= 'ROL'
       %th{colspan: 3}
     - @users.each do |user|
       %tr
-        %td= full_name(user)
+        %td= formal_format(user)
         %td= user.email
-        /%td= link_to_if can?(:edit, User), 'Editar', admins_edit_user_path(user.id)
-        - if can?(:edit, User)
+        %td
+          - user.roles.each do |role|
+            = role.name + ', '
+        - if can?(:edit, user)
           %td= link_to 'Editar', admins_edit_user_path(user.id)
           %td= link_to 'Eliminar', user, :method => :delete, :data => { :confirm => 'Por favor confirmar:' }
+        - else
+          %td
+          %td
   = will_paginate @users, class: 'paginate-bot'

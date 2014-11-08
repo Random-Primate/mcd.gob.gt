@@ -17,6 +17,16 @@
         %h1
           = 'Supervisor'
       = render 'supervisor_dash'
+    - elsif current_user.has_role? :implementacion
+      .well
+        %h1
+          = 'Implementacion'
+      = render 'implementacion_dash'
+    - elsif current_user.has_role? :ventanilla
+      .well
+        %h1
+          = 'Ventanilla'
+      = render 'ventanilla_dash'
     - else
       .well
         %h1
