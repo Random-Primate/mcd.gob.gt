@@ -68,7 +68,25 @@ class SolicitudsController < ApplicationController
   def reservar
     flash[:notice] = 'Se han reservado los implementos.'
     @solicitud = Solicitud.find(params[:id])
+
     @solicitud.reservar!
+=begin
+    # Check implementos availability
+    @solicitud.implementos.each do |i|
+      i.soliciteds.each do |s|
+        if s.solicitud_id == @solicitud.id
+          res = i.reserved + s.amount
+          av  = i.available - res
+          if av >= 0
+            i.reserved =  i.reserved + s.amount
+            @solicitud.reservar!
+          else
+            flash[:notice] = 'No se han logrado reservar los implementos.'
+          end
+        end
+      end
+    end
+=end
     render 'show'
   end
 
