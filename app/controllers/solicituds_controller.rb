@@ -59,34 +59,50 @@ class SolicitudsController < ApplicationController
   end
 
   def liberar
-    flash[:notice] = 'Se han liberado los implementos.'
     @solicitud = Solicitud.find(params[:id])
+    # Check implementos availability
+    @solicitud.soliciteds.each do |sol|
+      # Add to Implemento availability
+      # Avaialable:
+      av = sol.implemento.available
+      flash[:notice] = 'Se han liberado los implementos.'
+      # Store reserved amount
+      sol.reserved =  sol.amount
+      # Deduct
+      sol.implemento.available = av + sol.reserved
+      sol.implemento.save
+    end
+    # Proceed to reserve state
     @solicitud.liberar!
     render 'show'
   end
 
   def reservar
-    flash[:notice] = 'Se han reservado los implementos.'
     @solicitud = Solicitud.find(params[:id])
-
-    @solicitud.reservar!
-=begin
+    prob_ctr = 0
     # Check implementos availability
-    @solicitud.implementos.each do |i|
-      i.soliciteds.each do |s|
-        if s.solicitud_id == @solicitud.id
-          res = i.reserved + s.amount
-          av  = i.available - res
-          if av >= 0
-            i.reserved =  i.reserved + s.amount
-            @solicitud.reservar!
-          else
-            flash[:notice] = 'No se han logrado reservar los implementos.'
-          end
-        end
+    @solicitud.soliciteds.each do |sol|
+      # Deduct from Implemento availability
+      # Avaialable:
+      av = sol.implemento.available
+      # Validate if not negative
+      if(av - sol.amount) >= 0
+        flash[:notice] = 'Se han reservado los implementos.'
+        # Store reserved amount
+        sol.reserved =  sol.amount
+        # Deduct
+        sol.implemento.available = av - sol.reserved
+        sol.implemento.save
+      else
+        flash[:alert] = 'No hay existencia suficiente.'
+        prob_ctr += 1
       end
     end
-=end
+    # If there's no problem then reserve
+    if prob_ctr == 0
+      # Proceed to reserve state
+      @solicitud.reservar!
+    end
     render 'show'
   end
 
