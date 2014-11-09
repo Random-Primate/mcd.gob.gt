@@ -58,13 +58,22 @@ class SolicitudsController < ApplicationController
     render 'show'
   end
 
+  def liberar
+    flash[:notice] = 'Se han liberado los implementos.'
+    @solicitud = Solicitud.find(params[:id])
+    @solicitud.liberar!
+    render 'show'
+  end
+
   def reservar
+    flash[:notice] = 'Se han reservado los implementos.'
     @solicitud = Solicitud.find(params[:id])
     @solicitud.reservar!
     render 'show'
   end
 
   def entregar
+    flash[:notice] = 'Se han entregado los implementos.'
     @solicitud = Solicitud.find(params[:id])
     @solicitud.entregar!
     render 'show'

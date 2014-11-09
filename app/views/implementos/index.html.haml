@@ -18,20 +18,22 @@
 
   %table.table.table-striped.table-hover
 
-    %tr
+    %tr#ctr_row
       %th= 'IMPLEMENTO'
       %th= 'PIEZAS POR JUEGO'
       %th= 'DISPONIBLES'
       %th= 'RESERVADO'
       %th= 'SOLICITADO'
+      %th= 'ENTREGADOS'
       %th{colspan: 2}
     - @implementos.each do |implemento|
-      %tr
-        %td= implemento.name
+      %tr#ctr_row
+        %td{style: 'text-align: left;'}= implemento.name
         %td= implemento.piezas
         %td= implemento.available
-        %td= implemento.reserved
-        %td= implemento.solicited
+        %td= implemento.total_reserved
+        %td= implemento.total_solicited
+        %td= implemento.total_delivered
         %td= link_to 'Editar', edit_implemento_path(implemento)
         %td= link_to 'Eliminar', implemento, :method => :delete, :data => { :confirm => 'Confirmar' }
 

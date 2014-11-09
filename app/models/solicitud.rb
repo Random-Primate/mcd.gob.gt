@@ -71,6 +71,10 @@ class Solicitud < ActiveRecord::Base
     event :entregar do
       transitions :from => :reservado, :to => :entregado
     end
+
+    event :liberar do
+      transitions :from => :reservado, :to => :confirmado
+    end
   end
 
 end

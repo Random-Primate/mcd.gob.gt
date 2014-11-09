@@ -21,19 +21,17 @@
       .panel-body
         = simple_form_for @solicitud do |f|
           = f.input :no_gestion, label: false, placeholder: 'Número de Gestión'
-          = f.button :submit, value: 'Enviar', class: 'btn btn-primary'
-  /
-  /= link_to 'Confirmar', confirmar_solicitud_path(@solicitud),  class: 'btn btn-primary', method: :post
-  /-elsif @solicitud.confirmado?
-  /  .panel.panel-default
-  /    .panel-body
-  /      = link_to 'Reservar', reservar_solicitud_path(@solicitud),  class: 'btn btn-primary', method: :post
-  /-elsif @solicitud.reservado?
-  /  .panel.panel-default
-  /    .panel-body
-  /      = link_to 'Entregar', entregar_solicitud_path(@solicitud),  class: 'btn btn-primary', method: :post
+          = f.button :submit, value: 'Confirmar', class: 'btn btn-primary pull-right confirmar_btn'
+  -elsif @solicitud.confirmado?
+    .panel.panel-default
+      .panel-body
+        = link_to 'Reservar', reservar_solicitud_path(@solicitud),  class: 'btn btn-primary', method: :post
+  -elsif @solicitud.reservado?
+    .panel.panel-default
+      .panel-body
+        = link_to 'Entregar', entregar_solicitud_path(@solicitud),  class: 'btn btn-primary', method: :post
+        = link_to 'Liberar', liberar_solicitud_path(@solicitud),  class: 'btn btn-primary pull-right', method: :post
   .row{style: 'margin-bottom: 4em;'}
-    %p#notice= notice
 
     .col-md-4
       %h3 Solicitante:

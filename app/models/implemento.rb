@@ -27,4 +27,57 @@ class Implemento < ActiveRecord::Base
     end
   end
 
+  # Total solicited amount
+  def total_solicited
+    ctr = 0
+    self.soliciteds.each do |s|
+      ctr += s.amount
+    end
+    ctr
+  end
+
+  # Total reserved amount
+  def total_reserved
+    ctr = 0
+    self.soliciteds.each do |s|
+      if s.solicitud.reservado?
+        ctr += s.amount
+      end
+    end
+    ctr
+  end
+
+  # Total delivered amount
+  def total_delivered
+    ctr = 0
+    self.soliciteds.each do |s|
+      if s.solicitud.entregado?
+        ctr += s.amount
+      end
+    end
+    ctr
+  end
+
+  # Reduct from available amount
+  def deduct
+    ctr = 0
+    self.soliciteds.each do |s|
+      ctr += s.amount
+      res = self.available - ctr
+      if res >= 0
+        if self.save
+          flash[:notice] = 'Se han eliminado implementos.'
+        else
+          flash[:notice] = 'No se han eleiminado.'
+        end
+      end
+    end
+    ctr
+  end
+
+  # Appears in this amount of solicituds
+  def appears_solicited_amount
+    self.soliciteds.count
+  end
+
 end

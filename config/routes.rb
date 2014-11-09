@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :solicituds, except: [:edit]
   post '/solicituds/confirmar/:id',    to: 'solicituds#confirmar',   as: 'confirmar_solicitud'
   post '/solicituds/reservar/:id',     to: 'solicituds#reservar',    as: 'reservar_solicitud'
+  post '/solicituds/liberar/:id',      to: 'solicituds#liberar',     as: 'liberar_solicitud'
   post '/solicituds/entregar/:id',     to: 'solicituds#entregar',    as: 'entregar_solicitud'
 
   get 'welcome/thankyou'
