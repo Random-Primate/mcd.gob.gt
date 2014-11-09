@@ -82,16 +82,6 @@ namespace :db do
         end
         arr
       end
-      # Create implemento array
-      def implemento_array
-        qty = rand(1..23)
-        arr = Array.new
-        while qty > 0 do
-          arr.push(rand(1..23))
-          qty -= 1
-        end
-        arr
-      end
       # Create Beneficiario
       def ben_array
         ctr = rand(1..20)
@@ -162,29 +152,30 @@ namespace :db do
           disciplina: disciplina,
           comunidades: comunidades,
           entidad: codigo_entidad,
-          # Implementos
-          implemento_ids: implemento_array,
-          # Add Beneficiarios
           beneficiarios: ben_array
         )
         sol.correlativo = set_correlativo(sol)
         sol.save
         puts 'Correlativo No. '    + sol.correlativo.to_s
         puts 'Beneficiarios: '   + sol.beneficiarios.count.to_s
-        puts 'Implementos Qty: ' + sol.implementos.count.to_s
         puts 'Departamento: ' +   sol.departamento.name
         puts 'Municipio: '    +   sol.municipio.name
         puts '##################'
       end
 
-      # Add Implementos
-      Solicitud.all.each do |s|
-        s.implementos.each do |i|
-          i.solicited = rand(1..20)
-          i.save!
+      def soliciteds_array
+        Solicitud.all.each do |s|
+          qty = rand(1..20)
+          while qty > 0 do
+            s.soliciteds.new(implemento_id: rand(1..23), amount: rand(1..20))
+            qty -= 1
+          end
+          s.save!
         end
-        s.save!
       end
+
+      # Implementos
+      soliciteds_array
 
     end
 

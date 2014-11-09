@@ -55,21 +55,21 @@ class Solicitud < ActiveRecord::Base
   end
 
   aasm column: 'state' do
-    state :pending, :initial => true
-    state :confirmed
-    state :reserved
-    state :delivered
+    state :pendiente, :initial => true
+    state :confirmado
+    state :reservado
+    state :entregado
 
-    event :confirming do
-      transitions :from => :pending, :to => :confirmed
+    event :confirmar do
+      transitions :from => :pendiente, :to => :confirmado
     end
 
-    event :reserving do
-      transitions :from => :confirmed, :to => :reserved
+    event :reservar do
+      transitions :from => :confirmado, :to => :reservado
     end
 
-    event :delivering do
-      transitions :from => :reserved, :to => :delivered
+    event :entregar do
+      transitions :from => :reservado, :to => :entregado
     end
   end
 

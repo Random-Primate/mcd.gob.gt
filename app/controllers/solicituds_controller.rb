@@ -31,8 +31,7 @@ class SolicitudsController < ApplicationController
     @implementos = Implemento.where('piezas > ?', 1)
     if @solicitud.save
       @solicitud.correlativo = set_correlativo(@solicitud)
-      @solicitud.save
-      #@solicitud = Solicitud.find(params[:id])
+      @solicitud.save                             # IS this necessary?
       redirect_to controller: 'welcome', action: 'thankyou', id: @solicitud.id
     else
       render action: 'new'
@@ -41,12 +40,34 @@ class SolicitudsController < ApplicationController
 
   def update
     @solicitud.update(solicitud_params)
+    if params[:no_gestion] != '' && @solicitud.save
+      flash[:notice] = 'Se ha confirmado la solicitud y asignado un número de gestión.'
+      @solicitud.confirmar!
+    end
     respond_with(@solicitud)
   end
 
   def destroy
     @solicitud.destroy
     respond_with(@solicitud)
+  end
+
+  def confirmar
+    @solicitud = Solicitud.find(params[:id])
+    @solicitud.confirmar!
+    render 'show'
+  end
+
+  def reservar
+    @solicitud = Solicitud.find(params[:id])
+    @solicitud.reservar!
+    render 'show'
+  end
+
+  def entregar
+    @solicitud = Solicitud.find(params[:id])
+    @solicitud.entregar!
+    render 'show'
   end
 
   private

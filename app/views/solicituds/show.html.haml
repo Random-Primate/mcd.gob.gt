@@ -8,9 +8,30 @@
           = @solicitud.correlativo
       %h2
         = 'Estado:'
-      /- if @solicitud.estado == 'Verificado'
-      /  = 'No. Gestión:'
-      /  = @solicitud.no_gestion
+        %span{style: 'font-weight: 300;'}
+          = @solicitud.state
+      - if @solicitud.state != 'pendiente'
+        %h2
+          = 'No. Gestión:'
+          %span{style: 'font-weight: 300;'}
+            = @solicitud.no_gestion
+
+  -if @solicitud.pendiente?
+    .panel.panel-default
+      .panel-body
+        = simple_form_for @solicitud do |f|
+          = f.input :no_gestion, label: false, placeholder: 'Número de Gestión'
+          = f.button :submit, value: 'Enviar', class: 'btn btn-primary'
+  /
+  /= link_to 'Confirmar', confirmar_solicitud_path(@solicitud),  class: 'btn btn-primary', method: :post
+  /-elsif @solicitud.confirmado?
+  /  .panel.panel-default
+  /    .panel-body
+  /      = link_to 'Reservar', reservar_solicitud_path(@solicitud),  class: 'btn btn-primary', method: :post
+  /-elsif @solicitud.reservado?
+  /  .panel.panel-default
+  /    .panel-body
+  /      = link_to 'Entregar', entregar_solicitud_path(@solicitud),  class: 'btn btn-primary', method: :post
   .row{style: 'margin-bottom: 4em;'}
     %p#notice= notice
 
