@@ -1,7 +1,8 @@
 wb = xlsx_package.workbook
 
 wb.add_worksheet(:name => "Solicitudes") do |sheet|
-    @solicitud.beneficiarios.each do |b|
-        sheet.add_row [ b.cui, b.first_name, b.second_first_name, b.first_last_name, b.birth_date, b.entidad.to_i, 'Guatemala', Departamento.find(b.departamento).name, Municipio.find(b.municipio).name ]
+  sheet.add_row [ 'CUI', 'PRIMER_NOMBRE', 'SEGUNDO_NOMBRE', 'TERCERO_NOMBRE', 'PRIMER_APELLIDO', 'SEGUNDO_APELLIDO', 'APELLIDO_CASADA', 'FECHA_NACIIENTO', 'ENTIDAD', 'PAIS_NACIMIENTO', 'DEPTO_NACIMIENTO', 'MUNIC_NACIMIENTO' ]
+  @solicitud.beneficiarios.each do |b|
+      sheet.add_row [ b.cui, b.first_name, b.second_first_name, '', b.first_last_name, b.second_last_name, '', human_date(b.birth_date), b.entidad.to_i, 'Guatemala', Departamento.find(b.departamento).name, Municipio.find(b.municipio).name ]
     end
 end

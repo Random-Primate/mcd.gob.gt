@@ -59,6 +59,7 @@ class Solicitud < ActiveRecord::Base
     state :confirmado
     state :reservado
     state :entregado
+    state :rechazado
 
     event :confirmar do
       transitions :from => :pendiente, :to => :confirmado
@@ -75,6 +76,11 @@ class Solicitud < ActiveRecord::Base
     event :liberar do
       transitions :from => :reservado, :to => :confirmado
     end
+
+    event :rechazar do
+      transitions :from => :confirmado, :to => :rechazado  # Terminar en controlador y vista
+    end
+
   end
 
 end
