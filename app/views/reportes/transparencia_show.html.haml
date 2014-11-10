@@ -1,0 +1,60 @@
+.container
+  - breadcrumb :transparencia_show, @solicitud
+  .row
+    .well
+      %h1
+        = 'Solicitud No:'
+        %span{style: 'font-weight: 300;'}
+          = @solicitud.correlativo
+
+  .row
+    .panel-group#accordion
+      .panel.panel-default
+        .panel-heading
+          %a{ 'data-toggle' => 'collapse', 'data-parent' => '#accordion', href: '#collapseOne'}
+            %h3.panel-title
+              = 'Implementos Solicitados: '
+        #collapseOne.panel-collapse.collapse.in
+          .panel-body
+            -if @solicitud.implementos.count >= 1
+              %table.table.table-striped.table-hover
+                %tr
+                  %th IMPLEMENTO
+                  %th{style: 'text-align: center;'}
+                    = 'CANTIDAD SOLICTADA'
+                -@solicitud.soliciteds.each do |solis|
+                  %tr
+                    %td= @solicitud.implementos.find(solis.implemento_id).name
+                    %td{style: 'text-align: center;'}
+                      = solis.amount
+            - else
+              .well
+                %h3
+                  = 'No hay implementos que mostrar.'
+      .panel.panel-default
+        .panel-heading
+          %a{ 'data-toggle' => 'collapse', 'data-parent' => '#accordion', href: '#collapseTwo'}
+            %h3.panel-title
+              = 'Beneficiarios: '
+        #collapseTwo.panel-collapse.collapse.in
+          .panel-body
+            -if @solicitud.beneficiarios.count >= 1
+              %table.table.table-striped.table-hover
+                %tr
+                  %th BENEFICIARIO
+                  %th RESIDENCIA
+                  %th EDAD
+                -@solicitud.beneficiarios.each do |beneficiario|
+                  %tr
+                    %td= beneficiario.first_last_name + ', ' + beneficiario.first_name + '.'
+                    %td
+                      = Municipio.find(beneficiario.municipio).name + ', ' + Departamento.find(beneficiario.departamento).name + '.'
+                    %td
+                      = beneficiario.age(beneficiario.birth_date)
+            - else
+              .well
+                %h3
+                  = 'No hay beneficiarios que mostrar.'
+  .row
+    .well{style: 'min-height: 70px; margin-top: 2em;'}
+      = link_to 'Atras', reportes_transparencia_path, class: 'btn btn-primary pull-left'

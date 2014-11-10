@@ -29,8 +29,12 @@
   -elsif @solicitud.reservado?
     .panel.panel-default
       .panel-body
-        = link_to 'Entregar', entregar_solicitud_path(@solicitud),  class: 'btn btn-primary', method: :post
-        = link_to 'Liberar', liberar_solicitud_path(@solicitud),  class: 'btn btn-primary pull-right', method: :post
+        .container
+          = simple_form_for @solicitud, html: { class: 'form-devise'} do |f|
+            = f.input :representante, label: 'Quien Recibe:', placeholder: 'Representante', class: 'rep-form'
+            = f.input :fecha_entrega, label: 'Fecha de Entrega', class: 'fech-form'
+            = f.button :submit, value: 'Entregar', class: 'btn btn-primary confirmar_btn2'
+            = link_to 'Liberar', liberar_solicitud_path(@solicitud),  class: 'btn btn-primary confirmar_btn2', method: :post
   .row{style: 'margin-bottom: 4em;'}
 
     .col-md-4
@@ -63,6 +67,13 @@
       %p
         %b Municipio:
         = @solicitud.municipio.name
+      - if @solicitud.entregado?
+        %p
+          %b Representante:
+          = @solicitud.representante
+        %p
+          %b Fecha de Entrega:
+          = human_date(@solicitud.fecha_entrega)
     .col-md-4
       %h3 Comunidades:
       -if @solicitud.comunidades.count >= 1
@@ -89,11 +100,17 @@
                   %th IMPLEMENTO
                   %th{style: 'text-align: center;'}
                     = 'CANTIDAD SOLICTADA'
+                  %th
                 -@solicitud.soliciteds.each do |solis|
                   %tr
                     %td= @solicitud.implementos.find(solis.implemento_id).name
                     %td{style: 'text-align: center;'}
                       = solis.amount
+                    - if can?(:edit, solis)
+                      %td= link_to 'Edit', edit_solicited_path(solis)
+                    -else
+                      %td
+
             - else
               .well
                 %h3

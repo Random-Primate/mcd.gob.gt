@@ -63,6 +63,16 @@ crumb :beneficiario do |beneficiario|
   parent :beneficiarios
 end
 
+crumb :transparencia do
+  link 'Transparencia', reportes_transparencia_path
+  parent :root
+end
+
+crumb :transparencia_show do |show|
+  link show.correlativo, reporte_perfil_transparencia_path
+  parent :transparencia
+end
+
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)
 #   parent :project, project

@@ -69,6 +69,8 @@ gem 'axlsx_rails'
 gem 'inch', require: false
 # XML Parsing
 #gem 'nokogiri', '~> 1.6.1'
+# Generate test data
+gem 'faker'
 
 
 group :doc do
@@ -104,7 +106,7 @@ group :development do
   # A I18n YAML deep sorter that will keep your locales organized
   gem 'i18n_yaml_sorter'
   # Generate test data
-  gem 'faker'
+  #gem 'faker'
 end
 
 group :production do

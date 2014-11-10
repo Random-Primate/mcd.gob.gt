@@ -8,7 +8,7 @@
     .panel-body
       = form_tag solicituds_path, html: { class: 'navbar-form' }, method: 'get' do
         .input-group
-          = text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Buscar'
+          = text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Buscar por Correlativo'
           .input-group-btn
             = submit_tag 'Buscar', :name => nil, class: 'btn btn-default'
   .row
@@ -37,46 +37,46 @@
 
   %table.table.table-hover#ctr_row
     %tr
-      %th ID
       %th CORRELATIVO
       %th ESTADO
       %th BENEFICIADOS
       %th DEPARTAMENTO
       %th PERFIL
+      %th DESCARGAR
 
     - @solicituds.each do |solicitud|
       - if solicitud.reservado?
         %tr{class: 'success'}
-          %td= solicitud.id
           %td= solicitud.correlativo
           %td= solicitud.state.capitalize
           %td= solicitud.beneficiarios.count
           %td= solicitud.departamento.name
           %td= link_to 'Ver', solicitud
+          %td= link_to 'RENAP', nueva_sol_path(solicitud)
       - elsif solicitud.confirmado?
         %tr{class: 'info'}
-          %td= solicitud.id
           %td= solicitud.correlativo
           %td= solicitud.state.capitalize
           %td= solicitud.beneficiarios.count
           %td= solicitud.departamento.name
           %td= link_to 'Ver', solicitud
+          %td= link_to 'RENAP', nueva_sol_path(solicitud)
       - elsif solicitud.pendiente?
         %tr{class: 'warning'}
-          %td= solicitud.id
           %td= solicitud.correlativo
           %td= solicitud.state.capitalize
           %td= solicitud.beneficiarios.count
           %td= solicitud.departamento.name
           %td= link_to 'Ver', solicitud
+          %td= link_to 'RENAP', nueva_sol_path(solicitud)
       - else
         %tr
-          %td= solicitud.id
           %td= solicitud.correlativo
           %td= solicitud.state.capitalize
           %td= solicitud.beneficiarios.count
           %td= solicitud.departamento.name
           %td= link_to 'Ver', solicitud
+          %td= link_to 'RENAP', nueva_sol_path(solicitud)
 
   %br
 

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :soliciteds
+  resources :soliciteds, except: [:new, :destroy, :index]
 
   resources :beneficiarios
 
@@ -9,8 +9,14 @@ Rails.application.routes.draw do
   post '/solicituds/reservar/:id',     to: 'solicituds#reservar',    as: 'reservar_solicitud'
   post '/solicituds/liberar/:id',      to: 'solicituds#liberar',     as: 'liberar_solicitud'
   post '/solicituds/entregar/:id',     to: 'solicituds#entregar',    as: 'entregar_solicitud'
+  get '/solicitud/solicitud/:id',         to: 'solicituds#descargar_sol', as: 'nueva_sol'
 
   get 'welcome/thankyou'
+
+  # Reportes
+  get '/reportes/transparencia',     to: 'reportes#transparencia',        as: 'reportes_transparencia'
+  get '/reporte/transparencia/:id',  to: 'reportes#transparencia_show',   as: 'reporte_perfil_transparencia'
+
 
   resources :implementos
 

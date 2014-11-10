@@ -1,0 +1,22 @@
+wb = xlsx_package.workbook
+ctr = 1
+
+@solicituds.each do |s|
+    wb.add_worksheet(name: "Solicitudes No." + ctr.to_s) do |sheet|
+        sheet.add_row []
+        sheet.add_row ['SOLICITUD', 'UBICACIÓN', 'REPRESENTANTE', 'FECHA DE ENTREGA']
+        sheet.add_row [s.correlativo, ubicacion(s), s.representante, s.fecha_entrega]
+        sheet.add_row []
+        sheet.add_row ['BENEFICIARIOS']
+        sheet.add_row ['DPI', 'PRIMER NOMBRE', 'SEGUNDO NOMBRE', 'PRIMER APELLIDO', 'SEGUNDO APELLIDO', 'FECHA DE NACIMIENTO', 'ENTIDAD', 'NACIONALIDAD', 'DEPARTAMENTO', 'MUNICIPIO']
+        s.beneficiarios.each do |b|
+            sheet.add_row [b.cui, b.first_name, b.second_first_name, b.first_last_name, b.second_last_name, b.birth_date, b.entidad.to_i, 'Guatemala', Departamento.find(b.departamento).name, Municipio.find(b.municipio).name ]
+        end
+        sheet.add_row []
+        sheet.add_row ['IMPLEMENTO', 'ENTREGADOS']
+        s.soliciteds.each do |i|
+            sheet.add_row [i.implemento.name, i.amount]
+        end
+    end
+    ctr += 1
+end

@@ -1,5 +1,6 @@
 class SolicitedsController < ApplicationController
   before_action :set_solicited, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :json
 
   def index
     @soliciteds = Solicited.all
@@ -21,12 +22,12 @@ class SolicitedsController < ApplicationController
   def create
     @solicited = Solicited.new(solicited_params)
     @solicited.save
-    respond_with(@solicited)
+    redirect_to controller: 'solicituds', action: 'show', id: @solicited.solicitud.id
   end
 
   def update
     @solicited.update(solicited_params)
-    respond_with(@solicited)
+    redirect_to controller: 'solicituds', action: 'show', id: @solicited.solicitud.id
   end
 
   def destroy

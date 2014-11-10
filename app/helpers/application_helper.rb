@@ -31,4 +31,12 @@ module ApplicationHelper
     user.sol_f_name + ' ' + user.sol_fl_name
   end
 
+  def human_date(date)
+    dt = date.day.to_s + ' / ' + date.month.to_s + ' / ' + date.year.to_s
+  end
+
+  def ubicacion(sol)
+    u = sol.municipio.name + ', ' + sol.departamento.name + '.'
+  end
+
 end

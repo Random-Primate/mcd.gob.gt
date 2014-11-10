@@ -1,7 +1,15 @@
-%h1 Editing solicited
+.container
+  .well
+    .row
+      %h1.col-md-6
+        = 'Editando Cantidad Solicitada'
+      .col-md-6
+        = link_to 'Regresar', solicitud_path(@solicited.solicitud.id), class: 'btn btn-default pull-right title-btn'
+    %br
 
 = render 'form'
 
-= link_to 'Show', @solicited
-\|
-= link_to 'Back', soliciteds_path
+/
+  = link_to 'Show', @solicited
+  \|
+  = link_to 'Back', soliciteds_path

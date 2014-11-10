@@ -31,6 +31,7 @@ class SolicitudsController < ApplicationController
     @implementos = Implemento.where('piezas > ?', 1)
     if @solicitud.save
       @solicitud.correlativo = set_correlativo(@solicitud)
+      NewSolicitud.nueva_solicitud(@solicitud).deliver
       @solicitud.save                             # IS this necessary?
       redirect_to controller: 'welcome', action: 'thankyou', id: @solicitud.id
     else
@@ -40,9 +41,18 @@ class SolicitudsController < ApplicationController
 
   def update
     @solicitud.update(solicitud_params)
-    if params[:no_gestion] != '' && @solicitud.save
-      flash[:notice] = 'Se ha confirmado la solicitud y asignado un número de gestión.'
-      @solicitud.confirmar!
+    if @solicitud.pendiente?
+      if params[:no_gestion] != ''
+        flash[:notice] = 'Se ha confirmado la solicitud y asignado un número de gestión.'
+        @solicitud.confirmar!
+        #@solicitud.save
+      end
+    elsif @solicitud.reservado?
+      #if params[:representante] != '' && params[:fecha_entrega] != nil
+      flash[:notice] = 'Se han entregado los implementos'
+      @solicitud.entregar!
+      #@solicitud.save
+      #end
     end
     respond_with(@solicitud)
   end
@@ -87,7 +97,7 @@ class SolicitudsController < ApplicationController
       av = sol.implemento.available
       # Validate if not negative
       if(av - sol.amount) >= 0
-        flash[:notice] = 'Se han reservado los implementos.'
+        #flash[:notice] = 'Se han reservado los implementos.'
         # Store reserved amount
         sol.reserved =  sol.amount
         # Deduct
@@ -113,6 +123,11 @@ class SolicitudsController < ApplicationController
     render 'show'
   end
 
+  def descargar_sol
+    @solicitud = Solicitud.find(params[:id])
+    render xlsx: 'Solicitudes', template: 'solicituds/index'
+  end
+
   private
     def set_solicitud
       @solicitud = Solicitud.find(params[:id])
@@ -131,7 +146,7 @@ class SolicitudsController < ApplicationController
                                         :sol_cui, :sol_tel, :sol_email, :correlativo,
                                         :departamento_id, :municipio_id, :implemento_ids,
                                         :entidad, :no_gestion, :implementos_ids, :implemento,
-                                        :solicited, :implementos,
+                                        :solicited, :implementos, :representante, :fecha_entrega,
                                         soliciteds_attributes: [:solicited_id, :implemento_id,
                                                                 :amount, implemento_attributes: [
                                                                 :id, :name, :piezas, :description,
