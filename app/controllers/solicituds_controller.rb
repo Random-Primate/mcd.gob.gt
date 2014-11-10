@@ -31,7 +31,7 @@ class SolicitudsController < ApplicationController
     @implementos = Implemento.where('piezas > ?', 1)
     if @solicitud.save
       @solicitud.correlativo = set_correlativo(@solicitud)
-      NewSolicitud.nueva_solicitud(@solicitud).deliver
+      #NewSolicitud.nueva_solicitud(@solicitud).deliver
       @solicitud.save                             # IS this necessary?
       redirect_to controller: 'welcome', action: 'thankyou', id: @solicitud.id
     else

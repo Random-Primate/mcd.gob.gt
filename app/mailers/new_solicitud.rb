@@ -5,7 +5,7 @@ class NewSolicitud < ActionMailer::Base
     @domain = 'http://implementacion.vdr.gt'
     @url = "/solicitud/solicitud/#{sol.id}"
     @vinculo = @domain + @url
-    mail(to: 'elennio@hotmail.com', subject: 'Se ha generado una nueva solicitud.')
+    mail(to: 'torres@balameb.com', subject: 'Se ha generado una nueva solicitud.')
   end
 
 end

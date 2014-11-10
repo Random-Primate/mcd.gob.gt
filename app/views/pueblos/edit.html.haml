@@ -1,7 +1,9 @@
-%h1 Editing pueblo
+.container
+  .well
+    .row
+      %h1.col-md-6
+        = 'Editar Pueblo'
+      .col-md-6
+        = link_to 'Regresar', pueblos_path, class: 'btn btn-default pull-right title-btn'
 
 = render 'form'
-
-= link_to 'Show', @pueblo
-\|
-= link_to 'Back', pueblos_path

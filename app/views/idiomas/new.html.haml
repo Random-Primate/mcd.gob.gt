@@ -1,5 +1,9 @@
-%h1 Nuevo Idioma
+.container
+  .well
+    .row
+      %h1.col-md-6
+        = 'Nuevo Idioma'
+      .col-md-6
+        = link_to 'Regresar', idiomas_path, class: 'btn btn-default pull-right title-btn'
 
 = render 'form'
-
-= link_to 'Back', idiomas_path
