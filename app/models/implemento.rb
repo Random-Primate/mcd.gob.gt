@@ -11,12 +11,16 @@
 #  available   :integer
 #  reserved    :integer
 #  solicited   :integer
+#  avatar      :string(255)
 #
 
 class Implemento < ActiveRecord::Base
   has_many :soliciteds
   has_many :solicituds, through: :soliciteds
   accepts_nested_attributes_for :soliciteds
+
+  # Carrierwave
+  mount_uploader :avatar, ProfileUploader
 
   # Searching algo
   def self.search(search)

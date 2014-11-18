@@ -7,101 +7,53 @@
     = button_to 'Solicitud', new_solicitud_path, { method: :get, class: 'btn btn-lg btn-warning' }
 .second-section
   .container
-    %h1
-      = @article_1.title
-    %p
-      = @article_1.text
+    .col-md-9
+      %h1
+        = @article_1.title
+      %p.section-text
+        = @article_1.text
+    .col-md-3
+      %i.fa.fa-child#child-icon
 .third-section
   .container
-    %h1
-      = @article_2.title
-    %p
-      = @article_2.text
+    .col-md-3
+      %i.fa.fa-briefcase#brief-icon
+    .col-md-9
+      %h1
+        = @article_2.title
+      %p.section-text
+        = @article_2.text
 .fourth-section
   .container
-    %h1
+    %h1{align: 'center'}
       = @article_3.title
-    %p
+    %p{align: 'center'}
       = @article_3.text
+    %br
+    .row.down-icons
+      .col-md-4.txt-file
+        %a{ href: 'fid2014a.pdf', target: 'blank' }
+          %i.fa.fa-file-text.txt-file
+          = 'ID-2014-A'
+      .col-md-4.txt-file
+        %a{ href: 'solicitud.pdf', target: 'blank' }
+          %i.fa.fa-file-text.txt-file
+          = 'Formato de Solicitud'
+      .col-md-4.txt-file
+        %a{ href: 'fid2014m.pdf', target: 'blank' }
+          %i.fa.fa-file-text.txt-file
+          = 'ID-2014-M'
 .fith-section
   .container
-    %h1
+    %h1{align: 'center'}
       = @article_4.title
-    %p
+    %p{align: 'center'}
       = @article_4.text
-  /
-    .row
-      .col-lg-12
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        .col-lg-3.col-md-4.col-xs-6.thumb
-          %a.thumbnail{href: '#'}
-            %img.img-responsive{src:'http://placehold.it/400x300', alt:''}
-        %hr
+    %br
+    %hr
+    %br
+    .imags
+      - @implementos.each do |i|
+        = image_tag i.avatar, class: 'image_gallery'
+    %br
+    %br

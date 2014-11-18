@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/solicituds/reservar/:id',     to: 'solicituds#reservar',    as: 'reservar_solicitud'
   post '/solicituds/liberar/:id',      to: 'solicituds#liberar',     as: 'liberar_solicitud'
   post '/solicituds/entregar/:id',     to: 'solicituds#entregar',    as: 'entregar_solicitud'
-  get '/solicitud/solicitud/:id',         to: 'solicituds#descargar_sol', as: 'nueva_sol'
+  get '/solicitud/solicitud/:id',      to: 'solicituds#descargar_sol', as: 'nueva_sol'
 
   get 'welcome/thankyou'
 

@@ -1,16 +1,19 @@
 .container
   %h1
     = 'Contenido Inicial'
-  %table.table.table-stripped
+  %br
+  %table.table.table-striped.table-hover
     %tr
+      %th ID
       %th
-        = 'Title'
+        = 'Título'
       %th
-        = 'Text'
+        = 'Contenido'
       %th{colspan:'3'}
 
     - @articles.each do |article|
       %tr
+        %td= article.id
         %td
           = article.title
         %td

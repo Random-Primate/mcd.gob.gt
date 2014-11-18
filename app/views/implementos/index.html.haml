@@ -28,7 +28,7 @@
       %th{colspan: 2}
     - @implementos.each do |implemento|
       %tr#ctr_row
-        %td{style: 'text-align: left;'}= implemento.name
+        %td{style: 'text-align: left;'}= link_to implemento.name, implemento
         %td= implemento.piezas
         %td= implemento.available
         %td= implemento.total_reserved

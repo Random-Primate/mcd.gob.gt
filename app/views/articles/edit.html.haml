@@ -1,5 +1,9 @@
 .container
-  %h1
-    = 'Editing article'
+  .well
+    .row
+      %h1.col-md-6
+        = 'Contenido'
+      .col-md-6
+        = link_to 'Regresar', articles_path, class: 'btn btn-default pull-right title-btn'
+
   = render 'form'
-  = link_to 'Back', articles_path

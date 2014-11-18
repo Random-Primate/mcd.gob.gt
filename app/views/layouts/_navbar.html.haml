@@ -33,10 +33,6 @@
             %li.divider
             %li
               = link_to 'Cerrar Sesión', destroy_user_session_path, :method => 'delete'
-            - if current_user.admin?
-              %li.divider
-              %li
-                = link_to 'Admin', rails_admin_path
       - else
         /%li
         /= link_to 'Ingresar', new_user_session_path

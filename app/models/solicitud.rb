@@ -19,6 +19,9 @@
 #  departamento_id :integer
 #  municipio_id    :integer
 #  entidad         :string(255)
+#  state           :string(255)
+#  representante   :string(255)
+#  fecha_entrega   :date
 #
 
 class Solicitud < ActiveRecord::Base

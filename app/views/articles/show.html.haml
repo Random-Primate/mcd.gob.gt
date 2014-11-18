@@ -1,11 +1,20 @@
 .container
   .well
-    %p
-      %strong
-        = 'Title:'
-      = @article.title
+    .row
+      %h1.col-md-6
+        = 'Contenido'
+      .col-md-6
+        = link_to 'Regresar', articles_path, class: 'btn btn-default pull-right title-btn'
 
-    %p
-      %strong
-        = 'Text:'
-    = @article.text
+  %br
+  .col-md-5.col-md-offset-4
+    .panel.panel-default
+      .panel-heading
+        = 'Título'
+      .panel-body
+        = @article.title
+    .panel.panel-default
+      .panel-heading
+        = 'Texto'
+      .panel-body
+        = @article.text

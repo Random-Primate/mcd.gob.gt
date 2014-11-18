@@ -1,12 +1,26 @@
-%p#notice= notice
+.container
+  .well
+    .row
+      %h3.col-md-6
+        = 'Implemento: '
+        %span{style: 'font-weight: 300;'}
+          = @implemento.name
+      .col-md-6
+        = link_to 'Regresar', implementos_path, class: 'btn btn-default pull-right title-btn'
 
-%p
-  %b Name:
-  = @implemento.name
-%p
-  %b Piezas:
-  = @implemento.piezas
+  = image_tag @implemento.avatar.url(:thumb), width: '200', class: 'avatar'
 
-= link_to 'Edit', edit_implemento_path(@implemento)
-\|
-= link_to 'Back', implementos_path
+  .col-md-4.col-md-offset-4
+    .panel.panel-default
+      .panel-heading
+        ='Información'
+      .panel-body
+        %p
+          %b Piezas:
+          = @implemento.piezas
+        %p
+          %b Descripción:
+          = @implemento.description
+        %p
+          %b Disponibles:
+          = @implemento.available

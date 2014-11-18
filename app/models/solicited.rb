@@ -8,6 +8,7 @@
 #  implemento_id :integer
 #  created_at    :datetime
 #  updated_at    :datetime
+#  reserved      :integer
 #
 
 class Solicited < ActiveRecord::Base

@@ -1,6 +1,10 @@
 = simple_form_for @implemento, html: { class: 'form-devise' } do |f|
   = f.error_notification
 
+  = image_tag @implemento.avatar.url(:thumb), width: '200', class: 'avatar'
+
+  = f.file_field :avatar
+  %br
   .form-inputs
     = f.text_field :name, class: 'form-control top', placeholder: 'Nombre'
     = f.text_field :piezas, class: 'form-control last', placeholder: 'Piezas'

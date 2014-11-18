@@ -11,6 +11,7 @@
 #  available   :integer
 #  reserved    :integer
 #  solicited   :integer
+#  avatar      :string(255)
 #
 
 require 'rails_helper'

@@ -418,53 +418,49 @@ Idioma.create([
 puts 'Idiomas Creados: ' + Idioma.count.to_s
 puts '-------------------'
 Implemento.create([
-  { description: 'Juegos de uniformes de papi fútbol niño', name: 'Uniforme Papi Fútbol Niño', available: 1000, reserved: 0, solicited: 0, piezas: 8 },
-  { description: 'Juegos de uniformes de papi fútbol femenino', name: 'Uniforme Papi Fútbol Femenino', available: 500, reserved: 0, solicited: 0, piezas: 8 },
-  { description: 'Juegos de uniformes de papi fútbol masculino', name: 'Uniforme Papi Fútbol Masculino', available: 2000, reserved: 0, solicited: 0, piezas: 8 },
-  { description: 'Juegos de uniformes de fútbol masculino', name: 'Uniforme Fútbol Masculino', available: 4000, reserved: 0, solicited: 0, piezas: 15 },
-  { description: 'Juegos de uniformes de fútbol femenino', name: 'Uniforme Fútbol Femenino', available: 1000, reserved: 0, solicited: 0, piezas: 15 },
-  { description: 'Juegos de uniformes de fútbol niño', name: 'Uniforme Fútbol Niño', available: 2000, reserved: 0, solicited: 0, piezas: 15 },
-  { description: 'Juegos de uniformes de basquetbol masculino', name: 'Uniforme Basquetbol Masculino', available: 600, reserved: 0, solicited: 0, piezas: 8 },
-  { description: 'Juegos de uniformes de basquetbol femenino', name: 'Uniforme Basquetbol Femenino', available: 400, reserved: 0, solicited: 0, piezas: 8 },
-  { description: 'Juegos de uniformes de voleibol masculino', name: 'Uniforme Voleibol Masculino', available: 600, reserved: 0, solicited: 0, piezas: 8 },
-  { description: 'Juegos de uniformes de voleibol femenino', name: 'Uniforme Voleibol Femenino', available: 400, reserved: 0, solicited: 0, piezas: 8 },
-  { description: 'Juegos de uniformes multidisciplinario masculino', name: 'Uniforme Multidisciplinario Masculino', available: 2000, reserved: 0, solicited: 0, piezas: 20 },
-  { description: 'Juegos de uniformes multidisciplinario femenino', name: 'Uniforme Multidisciplinario Femenino', available: 500, reserved: 0, solicited: 0, piezas: 20 },
-  { description: 'Juegos de uniformes multidisciplinario niño', name: 'Uniforme Multidisciplinario Niño', available: 500, reserved: 0, solicited: 0, piezas: 20 },
-  { description: 'Pares de zapatos de fútbol', name: 'Zapatos de Fútbol', available: 34992, reserved: 0, solicited: 0, piezas: 1 },
-  { description: 'Pares de zapatos de papi fútbol', name: 'Zapatos de Papi Fútbol', available: 24936, reserved: 0, solicited: 0, piezas: 1 },
-  { description: 'Pares de zapatos tenis deportivo', name: 'Zapatos Tenis Deportivos', available: 25068, reserved: 0, solicited: 0, piezas: 1 },
-  { description: 'Pares de zapatos tenis para trotar', name: 'Zapatos para Trotar', available: 35004, reserved: 0, solicited: 0, piezas: 1 },
-  { description: 'Juego de medallas de oro, plata, y bronce', name: 'Juego de Medallas', available: 2000, reserved: 0, solicited: 0, piezas: 3 },
-  { description: 'Juego de trofeos de oro, plata, y bronce', name: 'Juego de Trofeos', available: 3000, reserved: 0, solicited: 0, piezas: 3 },
-  { description: 'Balón de fútbol No. 4', name: 'Balón No.4 Futbol', available: 35000, reserved: 0, solicited: 0, piezas: 1 },
-  { description: 'Balón de fútbol No. 5', name: 'Balón No.5 Futbol ', available: 40000, reserved: 0, solicited: 0, piezas: 1 },
-  { description: 'Balón de basquetbol', name: 'Balón de Basquetbol', available: 25000, reserved: 0, solicited: 0, piezas: 1 },
-  { description: 'Balón de voleibol', name: 'Balón de Voleibol', available: 10000, reserved: 0, solicited: 0, piezas: 1 }
+  { description: 'Juegos de uniformes de papi fútbol niño', name: 'Uniforme Papi Fútbol Niño', available: 1000, reserved: 0, solicited: 0, piezas: 8, avatar: 'empty-implemento.svg' },
+  { description: 'Juegos de uniformes de papi fútbol femenino', name: 'Uniforme Papi Fútbol Femenino', available: 500, reserved: 0, solicited: 0, piezas: 8, avatar: 'empty-implemento.svg' },
+  { description: 'Juegos de uniformes de papi fútbol masculino', name: 'Uniforme Papi Fútbol Masculino', available: 2000, reserved: 0, solicited: 0, piezas: 8, avatar: 'empty-implemento.svg' },
+  { description: 'Juegos de uniformes de fútbol masculino', name: 'Uniforme Fútbol Masculino', available: 4000, reserved: 0, solicited: 0, piezas: 15, avatar: 'empty-implemento.svg' },
+  { description: 'Juegos de uniformes de fútbol femenino', name: 'Uniforme Fútbol Femenino', available: 1000, reserved: 0, solicited: 0, piezas: 15, avatar: 'empty-implemento.svg' },
+  { description: 'Juegos de uniformes de fútbol niño', name: 'Uniforme Fútbol Niño', available: 2000, reserved: 0, solicited: 0, piezas: 15, avatar: 'empty-implemento.svg' },
+  { description: 'Juegos de uniformes de basquetbol masculino', name: 'Uniforme Basquetbol Masculino', available: 600, reserved: 0, solicited: 0, piezas: 8, avatar: 'empty-implemento.svg' },
+  { description: 'Juegos de uniformes de basquetbol femenino', name: 'Uniforme Basquetbol Femenino', available: 400, reserved: 0, solicited: 0, piezas: 8, avatar: 'empty-implemento.svg' },
+  { description: 'Juegos de uniformes de voleibol masculino', name: 'Uniforme Voleibol Masculino', available: 600, reserved: 0, solicited: 0, piezas: 8, avatar: 'empty-implemento.svg' },
+  { description: 'Juegos de uniformes de voleibol femenino', name: 'Uniforme Voleibol Femenino', available: 400, reserved: 0, solicited: 0, piezas: 8, avatar: 'empty-implemento.svg' },
+  { description: 'Juegos de uniformes multidisciplinario masculino', name: 'Uniforme Multidisciplinario Masculino', available: 2000, reserved: 0, solicited: 0, piezas: 20, avatar: 'empty-implemento.svg' },
+  { description: 'Juegos de uniformes multidisciplinario femenino', name: 'Uniforme Multidisciplinario Femenino', available: 500, reserved: 0, solicited: 0, piezas: 20, avatar: 'empty-implemento.svg' },
+  { description: 'Juegos de uniformes multidisciplinario niño', name: 'Uniforme Multidisciplinario Niño', available: 500, reserved: 0, solicited: 0, piezas: 20, avatar: 'empty-implemento.svg' },
+  { description: 'Pares de zapatos de fútbol', name: 'Zapatos de Fútbol', available: 34992, reserved: 0, solicited: 0, piezas: 1, avatar: 'empty-implemento.svg' },
+  { description: 'Pares de zapatos de papi fútbol', name: 'Zapatos de Papi Fútbol', available: 24936, reserved: 0, solicited: 0, piezas: 1, avatar: 'empty-implemento.svg' },
+  { description: 'Pares de zapatos tenis deportivo', name: 'Zapatos Tenis Deportivos', available: 25068, reserved: 0, solicited: 0, piezas: 1, avatar: 'empty-implemento.svg' },
+  { description: 'Pares de zapatos tenis para trotar', name: 'Zapatos para Trotar', available: 35004, reserved: 0, solicited: 0, piezas: 1, avatar: 'empty-implemento.svg' },
+  { description: 'Juego de medallas de oro, plata, y bronce', name: 'Juego de Medallas', available: 2000, reserved: 0, solicited: 0, piezas: 3, avatar: 'empty-implemento.svg' },
+  { description: 'Juego de trofeos de oro, plata, y bronce', name: 'Juego de Trofeos', available: 3000, reserved: 0, solicited: 0, piezas: 3, avatar: 'empty-implemento.svg' },
+  { description: 'Balón de fútbol No. 4', name: 'Balón No.4 Futbol', available: 35000, reserved: 0, solicited: 0, piezas: 1, avatar: 'empty-implemento.svg' },
+  { description: 'Balón de fútbol No. 5', name: 'Balón No.5 Futbol ', available: 40000, reserved: 0, solicited: 0, piezas: 1, avatar: 'empty-implemento.svg' },
+  { description: 'Balón de basquetbol', name: 'Balón de Basquetbol', available: 25000, reserved: 0, solicited: 0, piezas: 1, avatar: 'empty-implemento.svg' },
+  { description: 'Balón de voleibol', name: 'Balón de Voleibol', available: 10000, reserved: 0, solicited: 0, piezas: 1, avatar: 'empty-implemento.svg' }
 ])
 # Notify through console.
 puts 'Implementos Creados: ' + Implemento.count.to_s
 puts '-------------------'
 Article.create([
   {
-      title: '¡Genere su solicitud en línea!',
-      text: 'Para agilizar el proceso de solicitud de implementos deportivos ahora puede generarla en este sitio. Adelantando la validación de datos para sus beneficiarios.'
+      title: 'Solicitud de Implementación Deportiva:',
+      text: 'Esta es solicitada para apoyar la ejecución de actividades deportivas y recreativas no federadas para el Desarrollo Social de la Juventud y Niñez que tiene como objetivo recuperar y apoyar las potencialidades de los jóvenes combatiendo a través del Deporte la delincuencia en los distintos departamentos de la República de Guatemala.'
+  },
+  {
+      title: 'Descargar y Llenar',
+      text: 'Visite la sección de solicitud y comience a llenar en línea su formulario para adelantar los procesos de validación. Recuerde que debe descargar los formularios en los siguientes iconos y presentarlos impresos con su documentación respectiva en Ventanilla Única en el Palacio Nacional de la Cultura (6a calle y 6ta. Avenida, zona 1, primer nivel).'
+  },
+  {
+      title: 'Formularios',
+      text: 'Descargue los siguientes formularios.'
   },
   {
       title: 'Galería de Implementos',
-      text: 'Descargue los documentos requeridos para presentarlos en el departamento de implementos.'
-  },
-  {
-      title: 'Primer Paso',
-      text: 'Descargue los documentos requeridos para presentarlos en el departamento de implementos.'
-  },
-  {
-      title: 'Primer Paso',
-      text: 'Descargue los documentos requeridos para presentarlos en el departamento de implementos.'
-  },
-  {
-      title: 'Primer Paso',
-      text: 'Descargue los documentos requeridos para presentarlos en el departamento de implementos.'
+      text: 'Presentamos los siguientes implementos deportivos.'
   },
   {
       title: 'No. 1: Instrucciones',

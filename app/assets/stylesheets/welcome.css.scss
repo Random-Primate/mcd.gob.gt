@@ -25,13 +25,14 @@ $bgHighlight: #0092cd;
 
 .second-section {
   background-color: $bgHighlight;
-  height: 400px;
+  height: 100%;
   width: 100%;
   margin-top: -20px;
   border-top: 1px solid #357ebd;
   border-bottom: 1px solid #357ebd;
   color: #ffffff;
   font-weight: 300;
+  padding-bottom: 4em;
   h1 {
     margin-top: 5%;
     font-weight: 300;
@@ -44,28 +45,30 @@ $bgHighlight: #0092cd;
 }
 
 .third-section {
-  height: 400px;
+  height: 100%;
   width: 100%;
   margin-top: -20px;
   color: $bgHighlight;
+  padding-bottom: 4em;
   h1 {
     margin-top: 5%;
     font-weight: 300;
     text-shadow: 1px 2px 1px rgba(0,0,0,0.3);
   }
   p {
-    font-size: 2em;
+    font-size: 1.5em;
     text-shadow: 1px 2px 1px rgba(0,0,0,0.3);
   }
 }
 
 .fourth-section {
   background-color: $bgHighlight;
-  height: 400px;
+  height: 100%;
   width: 100%;
   margin-top: -20px;
   border-top: 1px solid #357ebd;
   border-bottom: 1px solid #357ebd;
+  padding-bottom: 3em;
   color: #ffffff;
   h1 {
     margin-top: 5%;
@@ -73,23 +76,70 @@ $bgHighlight: #0092cd;
     text-shadow: 1px 2px 1px rgba(0,0,0,0.3);
   }
   p {
-    font-size: 2em;
+    font-size: 1.5em;
     text-shadow: 1px 2px 1px rgba(0,0,0,0.3);
   }
 }
 
 .fith-section {
-  height: 400px;
+  height: 100%;
   width: 100%;
   margin-top: -20px;
   color: $bgHighlight;
+  padding-top: 2em;
   h1 {
     margin-top: 5%;
     font-weight: 300;
     text-shadow: 1px 2px 1px rgba(0,0,0,0.3);
   }
   p {
-    font-size: 2em;
+    font-size: 1.5em;
     text-shadow: 1px 2px 1px rgba(0,0,0,0.3);
   }
+}
+
+.image_gallery {
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+.imags {
+  margin-left: 2em !important;
+}
+
+.second-section, .third-section, .fourth-section, .fith-section {
+  p {
+    font-weight: 300;
+  }
+}
+
+#child-icon {
+  margin-top: 40px;
+  font-size: 200px;
+  margin-left: 60px;
+}
+.section-text {
+  text-align: justify;
+}
+#brief-icon {
+  margin-top: 70px;
+  font-size: 150px;
+}
+.txt-file {
+  text-align: center;
+  a {
+    color: white;
+    font-size: 14px;
+    i {
+      line-height: 1.2;
+      display: block;
+      font-size: 110px;
+    }
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
+.down-icons {
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
