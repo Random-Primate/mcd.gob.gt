@@ -5,11 +5,13 @@ Rails.application.routes.draw do
   resources :beneficiarios
 
   resources :solicituds, except: [:edit]
-  post '/solicituds/confirmar/:id',    to: 'solicituds#confirmar',   as: 'confirmar_solicitud'
-  post '/solicituds/reservar/:id',     to: 'solicituds#reservar',    as: 'reservar_solicitud'
-  post '/solicituds/liberar/:id',      to: 'solicituds#liberar',     as: 'liberar_solicitud'
-  post '/solicituds/entregar/:id',     to: 'solicituds#entregar',    as: 'entregar_solicitud'
-  get '/solicitud/solicitud/:id',      to: 'solicituds#descargar_sol', as: 'nueva_sol'
+  post '/solicituds/confirmar/:id',    to: 'solicituds#confirmar',      as: 'confirmar_solicitud'
+  post '/solicituds/reservar/:id',     to: 'solicituds#reservar',       as: 'reservar_solicitud'
+  post '/solicituds/liberar/:id',      to: 'solicituds#liberar',        as: 'liberar_solicitud'
+  post '/solicituds/entregar/:id',     to: 'solicituds#entregar',       as: 'entregar_solicitud'
+  post '/solicituds/rechazar/:id',     to: 'solicituds#rechazar',       as: 'rechazar_solicitud'
+  post '/solicituds/activar/:id',      to: 'solicituds#activar',        as: 'activar_solicitud'
+  get '/solicitud/solicitud/:id',      to: 'solicituds#descargar_sol',  as: 'nueva_sol'
 
   get 'welcome/thankyou'
 

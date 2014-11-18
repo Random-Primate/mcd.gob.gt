@@ -5,7 +5,12 @@ class SolicitudsController < ApplicationController
   respond_to :html, :json, :xlsx
 
   def index
-    @solicituds = Solicitud.search(params[:search]).paginate(:page => params[:page], :per_page => 20).order(created_at: :desc)
+    if params[:search]
+      min = params[:search].downcase
+    else
+      min = params[:search]
+    end
+    @solicituds = Solicitud.search(min).paginate(:page => params[:page], :per_page => 20).order(created_at: :desc)
     respond_with(@solicituds)
   end
 
@@ -65,6 +70,18 @@ class SolicitudsController < ApplicationController
   def confirmar
     @solicitud = Solicitud.find(params[:id])
     @solicitud.confirmar!
+    render 'show'
+  end
+
+  def rechazar
+    @solicitud = Solicitud.find(params[:id])
+    @solicitud.rechazar!
+    render 'show'
+  end
+
+  def activar
+    @solicitud = Solicitud.find(params[:id])
+    @solicitud.activar!
     render 'show'
   end
 

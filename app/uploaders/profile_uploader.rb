@@ -24,7 +24,7 @@ class ProfileUploader < CarrierWave::Uploader::Base
   def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-      'empty-implemento.svg'
+      'http://placehold.it/300x300'
   #  "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   end
 

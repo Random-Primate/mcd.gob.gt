@@ -4,11 +4,12 @@
 $bgHighlight: #0092cd;
 
 .first-section {
-  height: 500px;
+  height: 100%;
   width: 100%;
   margin-top: -20px;
   color: $bgHighlight;
   text-align: center;
+  padding-bottom: 4em;
   h1 {
     font-size: 7em;
     margin-top: 5%;
@@ -103,7 +104,7 @@ $bgHighlight: #0092cd;
   margin-bottom: 1em;
 }
 .imags {
-  margin-left: 2em !important;
+  margin-left: 8% !important;
 }
 
 .second-section, .third-section, .fourth-section, .fith-section {
@@ -142,4 +143,45 @@ $bgHighlight: #0092cd;
 .down-icons {
   margin-top: 2em;
   margin-bottom: 2em;
+}
+
+.navbar-collapse {
+  background-color: #004c97;
+}
+
+@media (max-width: 992px) {
+  #child-icon {
+    display: none;
+  }
+  #brief-icon {
+    display: none;
+  }
+  .title-imp {
+    h1 {
+      font-size: 5em;
+    }
+    p {
+      font-size: 2em;
+    }
+  }
+}
+
+@media (max-width: 766px) {
+  .txt-file {
+    margin-top: 0.5em;
+  }
+}
+
+@media (max-width: 590px) {
+  .title-imp {
+    h1 {
+      font-size: 3em;
+    }
+    p {
+      font-size: 1em;
+    }
+  }
+  .imags {
+    margin-left: 2% !important;
+  }
 }

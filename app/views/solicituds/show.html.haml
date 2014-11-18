@@ -16,26 +16,32 @@
           %span{style: 'font-weight: 300;'}
             = @solicitud.no_gestion
 
-  -if @solicitud.pendiente?
-    .panel.panel-default
-      .panel-body
-        = simple_form_for @solicitud do |f|
-          = f.input :no_gestion, label: false, placeholder: 'Número de Gestión'
-          = f.button :submit, value: 'Confirmar', class: 'btn btn-primary pull-right confirmar_btn'
-  -elsif @solicitud.confirmado?
-    .panel.panel-default
-      .panel-body
-        = link_to 'Reservar', reservar_solicitud_path(@solicitud),  class: 'btn btn-primary', method: :post
-  -elsif @solicitud.reservado?
-    .panel.panel-default
-      .panel-body
-        .container
-          = simple_form_for @solicitud, html: { class: 'form-devise'} do |f|
-            = f.input :representante, label: 'Quien Recibe:', placeholder: 'Representante', class: 'rep-form'
-            = f.input :fecha_entrega, label: 'Fecha de Entrega', class: 'fech-form'
-            = f.button :submit, value: 'Entregar', class: 'btn btn-primary confirmar_btn2'
-            = link_to 'Liberar', liberar_solicitud_path(@solicitud),  class: 'btn btn-primary confirmar_btn2', method: :post
-  .row{style: 'margin-bottom: 4em;'}
+    - if current_user.has_role?(:implementacion) || current_user.has_role?(:admin)
+      -if @solicitud.pendiente?
+        .panel.panel-default
+          .panel-body
+            = simple_form_for @solicitud do |f|
+              = f.input :no_gestion, label: false, placeholder: 'Número de Gestión'
+              = f.button :submit, value: 'Confirmar', class: 'btn btn-primary pull-right confirmar_btn'
+      -elsif @solicitud.confirmado?
+        .panel.panel-default
+          .panel-body
+            = link_to 'Reservar', reservar_solicitud_path(@solicitud),  class: 'btn btn-primary', method: :post
+            = link_to 'Rechazar', rechazar_solicitud_path(@solicitud),  class: 'btn btn-danger pull-right', method: :post
+      -elsif @solicitud.rechazado?
+        .panel.panel-default
+          .panel-body
+            = link_to 'Activar', activar_solicitud_path(@solicitud),  class: 'btn btn-primary', method: :post
+      -elsif @solicitud.reservado?
+        .panel.panel-default
+          .panel-body
+            .container
+              = simple_form_for @solicitud, html: { class: 'form-devise'} do |f|
+                = f.input :representante, label: 'Quien Recibe:', placeholder: 'Representante', class: 'rep-form'
+                = f.input :fecha_entrega, label: 'Fecha de Entrega', class: 'fech-form'
+                = f.button :submit, value: 'Entregar', class: 'btn btn-primary confirmar_btn2'
+                = link_to 'Liberar', liberar_solicitud_path(@solicitud),  class: 'btn btn-primary confirmar_btn2', method: :post
+      .row{style: 'margin-bottom: 4em;'}
 
     .col-md-4
       %h3 Solicitante:
@@ -85,7 +91,7 @@
         .well
           %h3
             = 'No hay comunidades que mostrar.'
-  .row
+  .row{style: 'margin-top: 2em;'}
     .panel-group#accordion
       .panel.panel-default
         .panel-heading

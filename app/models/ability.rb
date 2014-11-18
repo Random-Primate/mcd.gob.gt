@@ -40,7 +40,7 @@ class Ability
       can :read, Implemento
       can :read, Beneficiario
     elsif user.has_role? :implementacion
-      can :read, Solicitud
+      can :manage, Solicitud
       can :read, Implemento
       can :read, Beneficiario
       can :read, Article
@@ -51,6 +51,8 @@ class Ability
       cannot [:create, :edit], User, roles: { id: 3 } # Can't view or edit other implementacion roles
       cannot [:crud], User, roles: { id: 1 }   # Can't
     elsif user.has_role? :ventanilla
+      # confir solicitud
+      can :confirmar
       can [:read, :update, :create], Solicitud
     elsif user
       can :create, Solicitud

@@ -45,11 +45,12 @@ class Solicitud < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('correlativo LIKE ?', "%#{search}%")
+      where('lower(correlativo) || lower(sol_f_name) || lower(sol_fl_name) LIKE ?', "%#{search}%")
     else
       all
     end
   end
+
 
   def self.depto_search
     place = @solicitud.departamento.name
@@ -81,7 +82,11 @@ class Solicitud < ActiveRecord::Base
     end
 
     event :rechazar do
-      transitions :from => :confirmado, :to => :rechazado  # Terminar en controlador y vista
+      transitions :from => :confirmado, :to => :rechazado
+    end
+
+    event :activar do
+      transitions :from => :rechazado, :to => :confirmado
     end
 
   end

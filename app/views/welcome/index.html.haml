@@ -1,4 +1,4 @@
-.first-section
+.first-section.title-imp
   .container
     %h1
       = 'Implementación Deportiva'
@@ -31,15 +31,15 @@
       = @article_3.text
     %br
     .row.down-icons
-      .col-md-4.txt-file
+      .col-sm-4.col-md-4.txt-file
         %a{ href: 'fid2014a.pdf', target: 'blank' }
           %i.fa.fa-file-text.txt-file
           = 'ID-2014-A'
-      .col-md-4.txt-file
+      .col-sm-4.col-md-4.txt-file
         %a{ href: 'solicitud.pdf', target: 'blank' }
           %i.fa.fa-file-text.txt-file
           = 'Formato de Solicitud'
-      .col-md-4.txt-file
+      .col-sm-4.col-md-4.txt-file
         %a{ href: 'fid2014m.pdf', target: 'blank' }
           %i.fa.fa-file-text.txt-file
           = 'ID-2014-M'
@@ -54,6 +54,6 @@
     %br
     .imags
       - @implementos.each do |i|
-        = image_tag i.avatar, class: 'image_gallery'
+        = image_tag i.avatar.url(:thumb), width: '242', class: 'image_gallery'
     %br
     %br
