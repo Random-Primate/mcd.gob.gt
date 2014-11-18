@@ -21,8 +21,8 @@ class SolicitudsController < ApplicationController
   def new
     @solicitud    =   Solicitud.new
     @implementos  =   Implemento.all.where('piezas > ?', 1)
+    @article_5    =   Article.find(5)
     @article_6    =   Article.find(6)
-    @article_7    =   Article.find(7)
     respond_with(@solicitud)
   end
 

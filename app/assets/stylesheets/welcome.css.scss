@@ -145,9 +145,6 @@ $bgHighlight: #0092cd;
   margin-bottom: 2em;
 }
 
-.navbar-collapse {
-  background-color: #004c97;
-}
 
 @media (max-width: 992px) {
   #child-icon {
@@ -170,6 +167,10 @@ $bgHighlight: #0092cd;
   .txt-file {
     margin-top: 0.5em;
   }
+  .navbar-collapse {
+    background-color: #004c97;
+    border-bottom: 10px solid $bgHighlight !important;
+  }
 }
 
 @media (max-width: 590px) {
@@ -185,3 +186,4 @@ $bgHighlight: #0092cd;
     margin-left: 2% !important;
   }
 }
+
