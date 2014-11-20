@@ -45,7 +45,7 @@ class Solicitud < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('lower(correlativo) || lower(sol_f_name) || lower(sol_fl_name) LIKE ?', "%#{search}%")
+      where('lower(correlativo) || lower(sol_f_name) || lower(sol_fl_name) || lower(representante) LIKE ?', "%#{search}%")
     else
       all
     end

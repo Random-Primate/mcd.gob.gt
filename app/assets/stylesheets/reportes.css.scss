@@ -1,3 +1,38 @@
 // Place all the styles related to the reportes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.grph-mod {
+  margin-left: 3% !important;
+}
+
+#canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+#canvas2 {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.bull {
+  //background-color: red;
+}
+.gr-col1 {
+  //background-color: yellow;
+}
+.gr-col2 {
+  //background-color: blue;
+}
+
+/*
+.panel.panel-default
+    .panel-body
+      = form_tag reportes_transparencia_path, html: { class: 'navbar-form' }, method: 'get' do
+        .input-group
+          = text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Buscar'
+          .input-group-btn
+            = submit_tag 'Buscar', :name => nil, class: 'btn btn-default'
+
+            {height: '450', width: '600'}
+*/

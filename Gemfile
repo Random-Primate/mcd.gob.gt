@@ -67,6 +67,9 @@ gem 'jquery-turbolinks'
 gem 'axlsx_rails'
 # Documentation
 gem 'inch', require: false
+# Graphing
+gem 'chart-js-rails'
+
 # XML Parsing
 #gem 'nokogiri', '~> 1.6.1'
 

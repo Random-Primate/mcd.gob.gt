@@ -5,13 +5,20 @@
       %h1.col-md-6
         = 'Reporte de Solicitudes'
       = link_to 'Descargar', 'transparencia.xlsx', class: 'btn btn-primary pull-right', style: 'margin-top: 2em; margin-right: 2em;'
-  .panel.panel-default
-    .panel-body
-      = form_tag solicituds_path, html: { class: 'navbar-form' }, method: 'get' do
-        .input-group
-          = text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Buscar'
-          .input-group-btn
-            = submit_tag 'Buscar', :name => nil, class: 'btn btn-default'
+
+  .row.grph-mod
+    .container
+      .col-md-5
+        .gr-col1
+          %canvas#canvas{height: '450', width: '600'}
+            = "Sorry, your browser doesn't support canvas"
+      .col-md-5.col-md-offset-1
+        .gr-col2
+          %canvas#canvas2{height: '450', width: '600'}
+            = "Sorry, your browser doesn't support canvas"
+  %hr
+
+
 
   = will_paginate @solicituds, class: 'paginate-bot'
 
