@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/gazay/gon
+  revision: 4893eafe930352493598ec3d235f8b527231740d
+  branch: master
+  specs:
+    gon (5.2.3)
+      actionpack (>= 2.3.0)
+      json
+      multi_json
+      request_store (>= 1.0.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -101,11 +112,6 @@ GEM
       sass (~> 3.2)
     gaffe (1.0.2)
       rails (>= 3.2.0)
-    gon (5.2.3)
-      actionpack (>= 2.3.0)
-      json
-      multi_json
-      request_store (>= 1.0.5)
     gretel (3.0.8)
       rails (>= 3.2.0)
     haml (4.0.5)
@@ -320,7 +326,7 @@ DEPENDENCIES
   faker
   font-awesome-sass
   gaffe
-  gon
+  gon!
   gretel
   haml-rails
   has_scope

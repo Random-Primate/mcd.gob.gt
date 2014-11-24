@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
+  Chart.defaults.global.responsive = true;
   data = {
     labels : ["January","February","March","April","May","June","July"],
     datasets : [
@@ -65,11 +66,15 @@ jQuery ->
 
   chartOneDiv = $("#canvas")
   chartTwoDiv = $("#canvas2")
+  datos = $("#datos").data('implementos')
+
+  $("#present").text(datos)
+
   chartThreeDiv = $("#canvas_pie_show")
 
   if chartOneDiv.length
     chartOne = new Chart($("#canvas").get(0).getContext("2d")).Line(data)
     chartTwo = new Chart($("#canvas2").get(0).getContext("2d")).Bar(dataBars)
   else if chartThreeDiv.length
-    chartThree = new Chart($("#canvas_pie_show").get(0).getContext("2d")).Pie(dataPie, {legendTemplate: pieLegend})
+    chartThree = new Chart($("#canvas_pie_show").get(0).getContext("2d")).Pie(datos)#, {legendTemplate: pieLegend})
     document.getElementById("legend").innerHTML = chartThree.generateLegend()
