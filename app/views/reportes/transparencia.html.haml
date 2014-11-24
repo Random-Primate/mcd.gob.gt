@@ -6,18 +6,13 @@
         = 'Reporte de Solicitudes'
       = link_to 'Descargar', 'transparencia.xlsx', class: 'btn btn-primary pull-right', style: 'margin-top: 2em; margin-right: 2em;'
 
-  .row.grph-mod
+  .row
     .container
-      .col-md-5
-        .gr-col1
-          %canvas#canvas{height: '450', width: '600'}
-            = 'Su navegador no es compatible, por favor descargue una nueva versión.'
-      .col-md-5.col-md-offset-1
-        .gr-col2
-          = content_tag 'div', id: 'datos-deps', data: { dep_labels: @labelsDeps, departamentos: @departamentos } do
-            %h3.graph_titulo Departamentos
-          %canvas#canvas2{height: '450', width: '600'}
-            = 'Su navegador no es compatible, por favor descargue una nueva versión.'
+      .col-md-8.col-md-offset-2
+        = content_tag 'div', id: 'datos_deps', data: { departamentos: @dep_solis } do
+          %h3.graph_titulo Solicitudes Entregadas por Departamento
+        %canvas#canvas2{height: '450', width: '600'}
+          = 'Su navegador no es compatible, por favor descargue una nueva versión.'
   %hr
 
   .panel.panel-default

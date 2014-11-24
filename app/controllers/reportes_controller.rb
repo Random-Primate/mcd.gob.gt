@@ -14,24 +14,29 @@ class ReportesController < ApplicationController
     else
       min = params[:search]
     end
-    @solicituds = Solicitud.search(min).paginate(:page => params[:page], :per_page => 20).order(created_at: :desc)
+    @solicituds = Solicitud.search_delivered(min).paginate(:page => params[:page], :per_page => 20).order(created_at: :desc).where('state = ?', 'entregado')
 
     # Datasets
 
-    @labelsDeps = Departamento.order(:id).map { |d| d.name }
-    @departamentos = Departamento.order(:id)
-    @dep_solis = []
-    @departamentos.each do |ds|
-      @dep_solis <<
-          {
-              label: 'Solicitudes',
-              fillColor: 'rgba(220,220,220,0.5)',
-              strokeColor: 'rgba(220,220,220,0.8)',
-              highlightFill: 'rgba(220,220,220,0.75)',
-              highlightStroke: 'rgba(220,220,220,1)',
-              data: [65, 59, 80, 81, 56, 55, 40]
-          }
+    @deps = Departamento.order(:id)
+    labels_deps = @deps.map { |d| d.name }
+    dt_values = []
+    @deps.each do |ds|
+      dt_values << ds.solicituds.where('state = ?', 'entregado').count
     end
+    @dep_solis = {
+        labels: labels_deps,
+        datasets: [
+            {
+                label: 'Solicitudes',
+                fillColor: 'rgba(151,187,205,0.5)',
+                strokeColor: 'rgba(151,187,205,1)',
+                pointColor: 'rgba(151,187,205,1)',
+                pointStrokeColor: '#fff',
+                data: dt_values
+            }
+        ]
+    }
   end
 
   def transparencia_show

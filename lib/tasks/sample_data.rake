@@ -117,7 +117,7 @@ namespace :db do
         arr
       end
 
-      10.times do |time|
+      100.times do |time|
         puts 'Solicitud No.' + (time + 1).to_s
         comunidades = iter_coms(5)
         sol_f_name = Faker::Name.first_name
@@ -174,8 +174,25 @@ namespace :db do
         end
       end
 
+      def deliver
+        Solicitud.all.each do |s|
+          y = rand(0..1)
+          if y == 1
+            s.confirmar!
+            s.no_gestion = rand(10000...100000)
+            s.reservar!
+            s.representante = Faker::Name.first_name + ' ' + Faker::Name.last_name
+            s.fecha_entrega = Faker::Date.between(360.days.ago, 5.days.ago)
+            s.entregar!
+          end
+        end
+      end
+
       # Implementos
       soliciteds_array
+
+      # Deliver Solicituds
+      deliver
 
     end
 

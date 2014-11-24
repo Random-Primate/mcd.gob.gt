@@ -51,6 +51,14 @@ class Solicitud < ActiveRecord::Base
     end
   end
 
+  def self.search_delivered(search)
+    if search
+      where('lower(correlativo) || lower(sol_f_name) || lower(sol_fl_name) || lower(representante) LIKE ? && state = entregado', "%#{search}%")
+    else
+      all
+    end
+  end
+
 
   def self.depto_search
     place = @solicitud.departamento.name
