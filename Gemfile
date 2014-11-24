@@ -71,8 +71,6 @@ gem 'inch', require: false
 gem 'chart-js-rails'
 # XML Parsing
 #gem 'nokogiri', '~> 1.6.1'
-# JS ERB variable exchange from https://github.com/gazay/gon
-gem 'gon', :git => 'https://github.com/gazay/gon', :branch => 'master'
 
 
 group :doc do
