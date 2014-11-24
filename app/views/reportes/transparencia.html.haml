@@ -11,14 +11,22 @@
       .col-md-5
         .gr-col1
           %canvas#canvas{height: '450', width: '600'}
-            = "Sorry, your browser doesn't support canvas"
+            = 'Su navegador no es compatible, por favor descargue una nueva versión.'
       .col-md-5.col-md-offset-1
         .gr-col2
+          = content_tag 'div', id: 'datos-deps', data: { dep_labels: @labelsDeps, departamentos: @departamentos } do
+            %h3.graph_titulo Departamentos
           %canvas#canvas2{height: '450', width: '600'}
-            = "Sorry, your browser doesn't support canvas"
+            = 'Su navegador no es compatible, por favor descargue una nueva versión.'
   %hr
 
-
+  .panel.panel-default
+    .panel-body
+      = form_tag reportes_transparencia_path, html: { class: 'navbar-form' }, method: 'get' do
+        .input-group
+          = text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Buscar'
+          .input-group-btn
+            = submit_tag 'Buscar', :name => nil, class: 'btn btn-default'
 
   = will_paginate @solicituds, class: 'paginate-bot'
 

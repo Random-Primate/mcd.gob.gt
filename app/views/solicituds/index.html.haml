@@ -12,26 +12,31 @@
           .input-group-btn
             = submit_tag 'Buscar', :name => nil, class: 'btn btn-default'
   .row
-    .col-md-3
+    .col-md-2.col-md-offset-1
       %h4{style: 'text-align: center;'}
         = 'Pendientes: '
         %span{style: 'margin-left: 1em; font-weight: 300;'}
         = @solicituds.where('state = ?', 'pendiente').count
-    .col-md-3
+    .col-md-2
       %h4{style: 'text-align: center;'}
         = 'Confirmadas: '
         %span{style: 'margin-left: 1em; font-weight: 300;'}
         = @solicituds.where('state = ?', 'confirmado').count
-    .col-md-3
+    .col-md-2
       %h4{style: 'text-align: center;'}
         = 'Reservadas: '
         %span{style: 'margin-left: 1em; font-weight: 300;'}
         = @solicituds.where('state = ?', 'reservado').count
-    .col-md-3
+    .col-md-2
       %h4{style: 'text-align: center;'}
         = 'Entregadas: '
         %span{style: 'margin-left: 1em; font-weight: 300;'}
         = @solicituds.where('state = ?', 'entregado').count
+    .col-md-2
+      %h4{style: 'text-align: center;'}
+        = 'Rechazadas: '
+        %span{style: 'margin-left: 1em; font-weight: 300;'}
+        = @solicituds.where('state = ?', 'rechazado').count
 
   = will_paginate @solicituds, class: 'paginate-bot'
 

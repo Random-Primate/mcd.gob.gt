@@ -14,35 +14,40 @@ class ReportesController < ApplicationController
     else
       min = params[:search]
     end
-    gon.implementos = 'HOla'
     @solicituds = Solicitud.search(min).paginate(:page => params[:page], :per_page => 20).order(created_at: :desc)
+
+    # Datasets
+
+    @labelsDeps = Departamento.order(:id).map { |d| d.name }
+    @departamentos = Departamento.order(:id)
+    @dep_solis = []
+    @departamentos.each do |ds|
+      @dep_solis <<
+          {
+              label: 'Solicitudes',
+              fillColor: 'rgba(220,220,220,0.5)',
+              strokeColor: 'rgba(220,220,220,0.8)',
+              highlightFill: 'rgba(220,220,220,0.75)',
+              highlightStroke: 'rgba(220,220,220,1)',
+              data: [65, 59, 80, 81, 56, 55, 40]
+          }
+    end
   end
 
   def transparencia_show
     @solicitud = Solicitud.find(params[:id])
     @implementos = @solicitud.implementos
-    @implemento_name = @implementos.first.name
-
-
-    @implementos.each do |i|
-
-      # fix to do chart << new imp from show list with its color and amount solicited here
-
-      @chart = [
+    @soliciteds = @solicitud.soliciteds.order(:amount)
+    @chart = []
+    @soliciteds.each do |s|
+      @chart <<
           {
-              value: 80,
-              #color: "#F7464A",
-              label: 'Hola'
-          },
-          {
-              value: 80,
-              #color: "#46BFBD",
-              label:'Adios'
+              value: s.amount,
+              color: s.implemento.color,
+              highlight: '#d3d3d3',
+              label: s.implemento.name
           }
-      ]
     end
-
-
     respond_with(@solicitud)
   end
 

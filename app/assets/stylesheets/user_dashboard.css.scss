@@ -21,6 +21,10 @@ $bgHighlight: #0092cd;
   }
 }
 
+.first_row_dash {
+  margin-bottom: 20em;
+}
+
 .dash-icon {
   color: $bgHighlight;
   text-shadow: 2px 1px 0px #fff, 4px 3px 0px rgba(0,0,0,0.15);
@@ -30,4 +34,14 @@ $bgHighlight: #0092cd;
 }
 #dash_row{
   margin: 0;
+}
+
+@media (max-width: 1000px) {
+  .dash_sidebar {
+    display:none;
+  }
+  .dash-cont {
+    margin-top: 3em;
+    margin-bottom: 2em;
+  }
 }

@@ -1,6 +1,6 @@
 .row#dash_row
   .dash_sidebar.col-md-2
-    = image_tag @user.avatar_url(:thumb), width: '200', class: 'avatar'
+    = image_tag @user.avatar_url(:thumb), width: '200', class: 'avatar img-responsive'
     %h1.name
       = full_name(current_user)
     %h4.email
@@ -11,23 +11,31 @@
       .well
         %h1
           = 'Administrador'
+      %br
+      %br
       = render 'admin_dash'
     - elsif current_user.has_role? :supervisor
       .well
         %h1
           = 'Supervisor'
+      %br
+      %br
       = render 'supervisor_dash'
     - elsif current_user.has_role? :implementacion
       .well
         %h1
           = 'Implementacion'
+      %br
+      %br
       = render 'implementacion_dash'
     - elsif current_user.has_role? :ventanilla
       .well
         %h1
           = 'Ventanilla'
+      %br
+      %br
       = render 'ventanilla_dash'
     - else
       .well
         %h1
-          = 'Too Bad'
+          = 'Solicite permisos adicionales al administrador.'

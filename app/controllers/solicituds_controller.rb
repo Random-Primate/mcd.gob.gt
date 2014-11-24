@@ -31,7 +31,6 @@ class SolicitudsController < ApplicationController
 
   def create
     @article_6    =   Article.find(6)
-    @article_7    =   Article.find(7)
     @solicitud = Solicitud.new(solicitud_params)
     @implementos = Implemento.where('piezas > ?', 1)
     if @solicitud.save

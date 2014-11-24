@@ -9,17 +9,14 @@
 
   .row.grph-mod
     .container
-      .col-md-3.col-md-offset-1
+      .col-md-4.col-md-offset-1
         #legend
       .col-md-5
         .gr-col1
           = content_tag 'div', id: 'datos', data: {implementos: @chart} do
-            Loading products...
-
-
+            %h3.graph_titulo{align: 'left'} Implementos
           %canvas#canvas_pie_show{height: '450', width: '600'}
 
-  #present
   %hr
 
   .row

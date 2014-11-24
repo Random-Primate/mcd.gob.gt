@@ -21,30 +21,11 @@
 }
 
 #legend {
-  border: 1px solid #dddddd;
-  border-radius: 5px;
-  margin-top: 50%;
-  padding: 0.5em;
+  margin-top: 30%;
+  height: 320px;
+  overflow: scroll;
 }
 
-.bull {
-  //background-color: red;
+.graph_titulo {
+  margin-bottom: 3em;
 }
-.gr-col1 {
-  //background-color: yellow;
-}
-.gr-col2 {
-  //background-color: blue;
-}
-
-/*
-.panel.panel-default
-    .panel-body
-      = form_tag reportes_transparencia_path, html: { class: 'navbar-form' }, method: 'get' do
-        .input-group
-          = text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Buscar'
-          .input-group-btn
-            = submit_tag 'Buscar', :name => nil, class: 'btn btn-default'
-
-            {height: '450', width: '600'}
-*/
