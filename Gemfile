@@ -69,9 +69,10 @@ gem 'axlsx_rails'
 gem 'inch', require: false
 # Graphing
 gem 'chart-js-rails'
-
 # XML Parsing
 #gem 'nokogiri', '~> 1.6.1'
+# JS ERB variable exchange
+gem 'gon'
 
 
 group :doc do

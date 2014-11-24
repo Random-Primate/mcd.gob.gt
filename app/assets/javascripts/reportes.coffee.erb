@@ -42,7 +42,34 @@ jQuery ->
       }
     ]
   }
+  dataPie = [
+    {
+      value: 300,
+      color:"#F7464A",
+      highlight: "#FF5A5E",
+      label: "Red"
+    },
+    {
+      value: 50,
+      color: "#46BFBD",
+      highlight: "#5AD3D1",
+      label: "Green"
+    },
+    {
+      value: 100,
+      color: "#FDB45C",
+      highlight: "#FFC870",
+      label: "Yellow"
+    }
+  ]
 
-  chartOne = new Chart($("#canvas").get(0).getContext("2d")).Line(data)
+  chartOneDiv = $("#canvas")
+  chartTwoDiv = $("#canvas2")
+  chartThreeDiv = $("#canvas_pie_show")
 
-  chartTwo = new Chart($("#canvas2").get(0).getContext("2d")).Bar(dataBars)
+  if chartOneDiv.length
+    chartOne = new Chart($("#canvas").get(0).getContext("2d")).Line(data)
+    chartTwo = new Chart($("#canvas2").get(0).getContext("2d")).Bar(dataBars)
+  else if chartThreeDiv.length
+    chartThree = new Chart($("#canvas_pie_show").get(0).getContext("2d")).Pie(dataPie, {legendTemplate: pieLegend})
+    document.getElementById("legend").innerHTML = chartThree.generateLegend()

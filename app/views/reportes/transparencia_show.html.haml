@@ -7,6 +7,16 @@
         %span{style: 'font-weight: 300;'}
           = @solicitud.representante
 
+  .row.grph-mod
+    .container
+      .col-md-3.col-md-offset-1
+        #legend
+      .col-md-5
+        .gr-col1
+          %canvas#canvas_pie_show{height: '450', width: '600'}
+
+  %hr
+
   .row
     .panel-group#accordion
       .panel.panel-default

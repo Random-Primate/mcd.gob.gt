@@ -2,6 +2,12 @@ class ReportesController < ApplicationController
   respond_to :html, :xlsx
 
   def transparencia
+    # Create an array
+    sarr = Array.new
+    Solicitud.all.each do |s|
+      sarr = sarr.push(s.sol_s_name)
+    end
+    @s = sarr
     # Searching algo
     if params[:search]
       min = params[:search].downcase
@@ -13,6 +19,7 @@ class ReportesController < ApplicationController
 
   def transparencia_show
     @solicitud = Solicitud.find(params[:id])
+    @implementos = @solicitud.implementos
     respond_with(@solicitud)
   end
 
