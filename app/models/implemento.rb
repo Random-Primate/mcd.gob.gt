@@ -12,6 +12,7 @@
 #  reserved    :integer
 #  solicited   :integer
 #  avatar      :string(255)
+#  color       :string(255)
 #
 
 class Implemento < ActiveRecord::Base

@@ -39,4 +39,10 @@ module ApplicationHelper
     u = sol.municipio.name + ', ' + sol.departamento.name + '.'
   end
 
+  def colors
+    #col = [
+
+    #]
+  end
+
 end
