@@ -1,0 +1,32 @@
+.implemento-rw
+  - ctri = 0
+  #iaccordion.panel-group{"aria-multiselectable" => "true", :role => "tablist"}
+    - @implementos.each do |i|
+      - if i.total_delivered > 0
+        .panel.panel-default
+          %a{"aria-controls" => "collapse#{ctri}", "aria-expanded" => "true", "data-parent" => "#iaccordion", "data-toggle" => "collapse", :href => "#icollapse#{ctri}", class: 'panel-title'}
+            #iheadingOne.panel-heading{:role => "tab"}
+              %h4
+                = i.name
+              %span.badge{style: 'float:right; margin-top: -25px; background-color: #428bca;'}
+                = i.total_delivered
+          %div{"aria-labelledby" => "iheadingOne", :role => "tabpanel", class: "panel-collapse collapse", id: "icollapse#{ctri}"}
+            .panel-body
+
+              %table.table.table-hover.table-striped
+                %tr
+                  %th UBICACIÓN
+                  %th REPRESENTANTE
+                  %th FECHA DE ENTREGA
+                  %th PERFIL
+
+                - i.solicituds.where('state = ?', 'entregado').each do |solicitud|
+                  - if solicitud.entregado?
+                    %tr
+                      %td= ubicacion(solicitud)
+                      %td= solicitud.representante
+                      %td= human_date(solicitud.fecha_entrega)
+                      %td= link_to 'Ver', reporte_perfil_transparencia_path(solicitud)
+
+              %br
+      - ctri += 1

@@ -1,0 +1,47 @@
+.rep_departamentos
+  #accordion.panel-group{"aria-multiselectable" => "true", :role => "tablist"}
+    - ctr = 0
+    - ctrm = 0
+    -@deps.each do |depart|
+      - if depart.solicituds.where('state = ?', 'entregado').count > 0
+        .panel.panel-default
+          %a{"aria-controls" => "collapse#{ctr}", "aria-expanded" => "true", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse#{ctr}", class: 'panel-title'}
+            #headingOne.panel-heading{:role => "tab"}
+              %h4
+                = depart.name
+              %span.badge{style: 'float:right; margin-top: -25px; background-color: #428bca;'}
+                = depart.solicituds.where('state = ?', 'entregado').count
+          %div{"aria-labelledby" => "headingOne", :role => "tabpanel", class: "panel-collapse collapse", id: "collapse#{ctr}"}
+            .panel-body
+              .rep_munis
+                #accordion-munis.panel-group{"aria-multiselectable" => "true", :role => "tablist"}
+                  - depart.municipios.each do |m|
+                    - if m.solicituds.where('state = ?', 'entregado').count > 0
+                      .panel.panel-default
+                        %a{"aria-controls" => "collapsem#{ctrm}", "aria-expanded" => "true", "data-parent" => "#accordion-munis", "data-toggle" => "collapse", :href => "#collapsem#{ctrm}"}
+                          %div{:role => "tab", class: 'panel-heading', id: "heading#{ctrm}", style: 'background-color: #f3f3f3; '}
+                            %h4.panel-title
+                              = m.name
+                              %span.badge{style: 'float:right; background-color: #FF915C;'}
+                                = m.solicituds.where('state = ?', 'entregado').count
+                        %div{"aria-labelledby" => "heading#{ctrm}", :role => "tabpanel", class: "panel-collapse collapse", id: "collapsem#{ctrm}"}
+                          .panel-body
+                            %table.table.table-hover.table-striped#ctr_row
+                              %tr
+                                %th UBICACIÓN
+                                %th REPRESENTANTE
+                                %th FECHA DE ENTREGA
+                                %th PERFIL
+
+                              - m.solicituds.each do |solicitud|
+                                - if solicitud.entregado?
+                                  %tr
+                                    %td= ubicacion(solicitud)
+                                    %td= solicitud.representante
+                                    %td= human_date(solicitud.fecha_entrega)
+                                    %td= link_to 'Ver', reporte_perfil_transparencia_path(solicitud)
+
+                            %br
+
+                      - ctrm += 1
+      - ctr += 1

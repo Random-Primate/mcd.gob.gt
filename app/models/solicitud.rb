@@ -53,7 +53,15 @@ class Solicitud < ActiveRecord::Base
 
   def self.search_delivered(search)
     if search
-      where('lower(correlativo) || lower(sol_f_name) || lower(sol_fl_name) || lower(representante) LIKE ? && state = entregado', "%#{search}%")
+      where('lower(correlativo) || lower(sol_f_name) || lower(sol_fl_name) || lower(representante) LIKE ? AND state = ?', "%#{search}%", 'entregado')
+    else
+      all
+    end
+  end
+
+  def self.find_by_date(d_start, d_end)
+    if d_start
+      where( "fecha_entrega >= ? AND fecha_entrega <= ?", d_start, d_end)
     else
       all
     end

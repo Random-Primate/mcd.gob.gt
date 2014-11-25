@@ -1,0 +1,32 @@
+.fecha-rw
+  .panel.panel-default
+    .panel-body
+      = form_tag reportes_transparencia_path, html: { class: 'navbar-form' }, method: 'get' do
+        .row
+          .col-md-5
+            = label :start_date, 'Fehca Inicial: '
+            = select_date Date.today, prefix: :start_date
+          .col-md-5
+            = label :start_date, 'Fehca Final: '
+            = select_date Date.today, prefix: :end_date
+          .col-md-2
+            = hidden_field_tag 'form_type', 'dates'
+            = submit_tag 'Buscar', :name => nil, class: 'btn btn-default'
+%hr
+
+%table.table.table-hover.table-striped
+  %tr
+    %th UBICACIÓN
+    %th REPRESENTANTE
+    %th FECHA DE ENTREGA
+    %th PERFIL
+
+  - @delivered_date.where('state = ?', 'entregado').each do |solicitud|
+    - if solicitud.entregado?
+      %tr
+        %td= ubicacion(solicitud)
+        %td= solicitud.representante
+        %td= human_date(solicitud.fecha_entrega)
+        %td= link_to 'Ver', reporte_perfil_transparencia_path(solicitud)
+
+%br

@@ -15,31 +15,24 @@
           = 'Su navegador no es compatible, por favor descargue una nueva versión.'
   %hr
 
-  .panel.panel-default
-    .panel-body
-      = form_tag reportes_transparencia_path, html: { class: 'navbar-form' }, method: 'get' do
-        .input-group
-          = text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Buscar'
-          .input-group-btn
-            = submit_tag 'Buscar', :name => nil, class: 'btn btn-default'
+  .bs-example.bs-example-tabs{:role => "tabpanel"}
+    %ul#myTab.nav.nav-tabs{:role => "tablist"}
+      %li.active{:role => "presentation"}
+        %a#home-tab{"aria-controls" => "Home", "aria-expanded" => "false", "data-toggle" => "tab", :href => "#home", :role => "tab"} Lista
+      %li{:role => "presentation"}
+        %a#profile-tab{"aria-controls" => "Profile", "aria-expanded" => "false", "data-toggle" => "tab", :href => "#profile", :role => "tab"} Departamento
+      %li{:role => "presentation"}
+        %a#profile-tab{"aria-controls" => "Implemento", "aria-expanded" => "false", "data-toggle" => "tab", :href => "#implemento", :role => "tab"} Implemento
+      %li{:role => "presentation"}
+        %a#profile-tab{"aria-controls" => "Fecha", "aria-expanded" => "false", "data-toggle" => "tab", :href => "#fecha", :role => "tab", name: 'fecha'} Fecha
+    #myTabContent.tab-content
+      #home.tab-pane.fade.active.in{"aria-labelledby" => "home-tab", :role => "tabpanel"}
+        = render 'lista'
+      #profile.tab-pane.fade{"aria-labelledby" => "profile-tab", :role => "tabpanel"}
+        = render 'departamento'
+      #implemento.tab-pane.fade{"aria-labelledby" => "implemento-tab", :role => "tabpanel"}
+        = render 'implemento'
+      #fecha.tab-pane.fade{"aria-labelledby" => "fecha-tab", :role => "tabpanel"}
+        = render 'fecha'
 
-  = will_paginate @solicituds, class: 'paginate-bot'
 
-  %table.table.table-hover.table-striped#ctr_row
-    %tr
-      %th UBICACIÓN
-      %th REPRESENTANTE
-      %th FECHA DE ENTREGA
-      %th PERFIL
-
-    - @solicituds.each do |solicitud|
-      - if solicitud.entregado?
-        %tr
-          %td= ubicacion(solicitud)
-          %td= solicitud.representante
-          %td= human_date(solicitud.fecha_entrega)
-          %td= link_to 'Ver', reporte_perfil_transparencia_path(solicitud)
-
-  %br
-
-  = will_paginate @solicituds, class: 'paginate-bot'

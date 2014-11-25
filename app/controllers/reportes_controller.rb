@@ -17,7 +17,6 @@ class ReportesController < ApplicationController
     @solicituds = Solicitud.search_delivered(min).paginate(:page => params[:page], :per_page => 20).order(created_at: :desc).where('state = ?', 'entregado')
 
     # Datasets
-
     @deps = Departamento.order(:id)
     labels_deps = @deps.map { |d| d.name }
     dt_values = []
@@ -37,6 +36,17 @@ class ReportesController < ApplicationController
             }
         ]
     }
+
+    # Implemento Search
+    @implementos = Implemento.order(:name)
+
+    # Date Search
+
+    if params[:start_date]
+      strt_date = Date.new((params[:start_date][:year]).to_i, (params[:start_date][:month]).to_i, (params[:start_date][:day]).to_i)
+      ed_date = Date.new((params[:end_date][:year]).to_i, (params[:end_date][:month]).to_i, (params[:end_date][:day]).to_i)
+    end
+    @delivered_date = Solicitud.find_by_date(strt_date, ed_date).order(created_at: :desc).where('state = ?', 'entregado')
   end
 
   def transparencia_show
