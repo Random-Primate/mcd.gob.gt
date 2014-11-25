@@ -73,6 +73,11 @@ crumb :transparencia_show do |show|
   parent :transparencia
 end
 
+crumb :dash_dep do
+  link 'Departamentos', dash_deps_path
+  parent :dashboard
+end
+
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)
 #   parent :project, project

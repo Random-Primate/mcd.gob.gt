@@ -1,0 +1,15 @@
+.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-info
+      .panel-heading
+        %h3.panel-title
+          = 'Departamentos'
+      .panel-body
+        .col-md-11
+          = content_tag 'div', id: 'datos_deps_vent', data: { departamentos: @deps_solis } do
+            %p.graph_desc
+              = 'Solicitudes por Departamento.'
+            %p
+              = 'Total de solicitudes: ' + @solicitudes.count.to_s
+          %canvas#cvsdepsvent{height: '450', width: '600'}
+            = 'Su navegador no es compatible, por favor descargue una nueva versión.'

@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
   # User Dashboards
   get 'user_dashboard/show'
+  get 'user_dashboard/departamentos', as: 'dash_deps'
 
   # Pages
   resources :pages

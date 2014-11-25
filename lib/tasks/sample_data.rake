@@ -190,6 +190,14 @@ namespace :db do
           elsif y == 3 # Reservar
             s.confirmar!
             s.no_gestion = rand(10000...100000)
+            s.soliciteds.each do |sol|
+              av = sol.implemento.available
+              if(av - sol.amount) >= 0
+                sol.reserved =  sol.amount
+                sol.implemento.available = av - sol.reserved
+                sol.implemento.save
+              end
+            end
             s.reservar!
           elsif y == 4 # Rechazar
             s.confirmar!

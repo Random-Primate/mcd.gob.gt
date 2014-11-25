@@ -22,9 +22,10 @@
       %th APELLIDO
       %th SEGUNDO APELLIDO
       %th EDAD
-      %th
-      %th
-      %th
+      - if current_user.has_role?(:implementacion) || current_user.has_role?(:admin)
+        %th
+        %th
+        %th
 
     - @beneficiarios.each do |beneficiario|
       %tr
@@ -34,9 +35,10 @@
         %td= beneficiario.first_last_name
         %td= beneficiario.second_last_name
         %td= beneficiario.age(beneficiario.birth_date)
-        %td= link_to 'Show', beneficiario
-        %td= link_to 'Edit', edit_beneficiario_path(beneficiario)
-        %td= link_to 'Destroy', beneficiario, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        - if current_user.has_role?(:implementacion) || current_user.has_role?(:admin)
+          %td= link_to 'Ver', beneficiario
+          %td= link_to 'Editar', edit_beneficiario_path(beneficiario)
+          %td= link_to 'Eliminar', beneficiario, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
   = will_paginate @beneficiarios, class: 'paginate-bot'
 

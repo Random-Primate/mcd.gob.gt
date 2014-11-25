@@ -1,0 +1,38 @@
+.row
+  .col-md-4
+    .panel.panel-info
+      .panel-heading
+        %h3.panel-title
+          = 'Solicitudes por Estado'
+      .panel-body
+        .col-md-11
+          = content_tag 'div', id: 'datos_sols', data: { solis: @dataState } do
+            %p.hidden
+              = 'Solicitudes por estados.'
+          %canvas#cvssolicitudes{height: '450', width: '600'}
+            = 'Su navegador no es compatible, por favor descargue una nueva versión.'
+    .panel.panel-info
+      .panel-heading
+        %h3.panel-title
+          = 'Implementos Disponibles'
+      .panel-body
+        .col-md-11
+          = content_tag 'div', id: 'datos_imps', data: { disponibilidad: @dataDisp } do
+            %p.hidden
+              = 'Implementos Disponibles.'
+          %canvas#cvsimps{height: '450', width: '600'}
+            = 'Su navegador no es compatible, por favor descargue una nueva versión.'
+  .col-md-8
+    .panel.panel-info
+      .panel-heading
+        %h3.panel-title
+          = 'Departamentos'
+      .panel-body
+        .col-md-11
+          = content_tag 'div', id: 'datos_deps', data: { departamentos: @deps_solis } do
+            %p.graph_desc
+              = 'Solicitudes por Departamento.'
+            %p
+              = 'Total de solicitudes: ' + @solicitudes.count.to_s
+          %canvas#cvsdeps{height: '450', width: '600'}
+            = 'Su navegador no es compatible, por favor descargue una nueva versión.'

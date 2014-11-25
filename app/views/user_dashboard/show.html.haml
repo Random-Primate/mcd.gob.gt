@@ -7,37 +7,8 @@
       = current_user.email
 
   .col-md-8.col-md-offset-1
-    .row
-      .col-md-4
-        .panel.panel-info
-          .panel-heading
-            %h3.panel-title
-              = 'Solicitudes'
-          .panel-body
-            %canvas#cvssolicitudes{height: '450', width: '600'}
-              = 'Su navegador no es compatible, por favor descargue una nueva versión.'
-        .panel.panel-info
-          .panel-heading
-            %h3.panel-title
-              = 'Implementos Disponibles'
-          .panel-body
-            %canvas#cvssolicitudes2{height: '450', width: '600'}
-              = 'Su navegador no es compatible, por favor descargue una nueva versión.'
-      .col-md-8
-        .panel.panel-info
-          .panel-heading
-            %h3.panel-title
-              = 'Departamentos'
-          .panel-body
-            .col-md-11
-              = content_tag 'div', id: 'datos_deps', data: { departamentos: @deps_solis } do
-                %p.graph_desc
-                  = 'Solicitudes por Departamento.'
-                %p
-                  = 'Total de solicitudes: ' + @solicitudes.count.to_s
-              %canvas#cvsdeps{height: '450', width: '600'}
-                = 'Su navegador no es compatible, por favor descargue una nueva versión.'
-
+    %br
+    %br
     - if current_user.admin?
       .well
         %h1
@@ -46,26 +17,24 @@
       %br
       = render 'admin_dash'
     - elsif current_user.has_role? :supervisor
+      = render 'graphs'
+      %br
+      %br
       .well
-        %h1
-          = 'Supervisor'
-      %br
-      %br
-      = render 'supervisor_dash'
+        = render 'supervisor_dash'
     - elsif current_user.has_role? :implementacion
+      = render 'graphs'
+      %br
+      %br
       .well
-        %h1
-          = 'Implementacion'
-      %br
-      %br
-      = render 'implementacion_dash'
+        = render 'implementacion_dash'
+        %br
     - elsif current_user.has_role? :ventanilla
+      = render 'graph_ventanilla'
+      %br
+      %br
       .well
-        %h1
-          = 'Ventanilla'
-      %br
-      %br
-      = render 'ventanilla_dash'
+        = render 'ventanilla_dash'
     - else
       .well
         %h1

@@ -1,5 +1,8 @@
-.row{style: 'margin-top: 10%;'}
-  .col-sm-3.col-md-3.col-md-offset-1.dash-cont
+.row{style: 'margin-top: 2%; margin-bottom: 5%;'}
+  %h2{align: 'center'} Módulos
+  %br
+  %br
+  .col-sm-3.col-md-3.dash-cont
     %i.fa.fa-futbol-o.dash-icon.fa-4x
     %h3
       = link_to 'Implementos', implementos_path
@@ -8,7 +11,13 @@
     %i.fa.fa-suitcase.dash-icon.fa-4x
     %h3
       = link_to 'Solicitudes', solicituds_path
+
   .col-sm-3.col-md-3.dash-cont
     %i.fa.fa-child.dash-icon.fa-4x
     %h3
       = link_to 'Beneficiarios', beneficiarios_path
+
+  .col-sm-3.col-md-3.dash-cont
+    %i.fa.fa-suitcase.dash-icon.fa-4x
+    %h3
+      = link_to 'Departamentos', dash_deps_path

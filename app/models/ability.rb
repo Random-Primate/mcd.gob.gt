@@ -53,6 +53,7 @@ class Ability
     elsif user.has_role? :ventanilla
       # confir solicitud
       can :confirmar
+      can :read, Beneficiario
       can [:read, :update, :create], Solicitud
     elsif user
       can :create, Solicitud
