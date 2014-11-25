@@ -4,10 +4,10 @@
       = form_tag reportes_transparencia_path, html: { class: 'navbar-form' }, method: 'get' do
         .row
           .col-md-5
-            = label :start_date, 'Fehca Inicial: '
+            = label :start_date, 'Fecha Inicial: '
             = select_date Date.today, prefix: :start_date
           .col-md-5
-            = label :start_date, 'Fehca Final: '
+            = label :start_date, 'Fecha Final: '
             = select_date Date.today, prefix: :end_date
           .col-md-2
             = hidden_field_tag 'form_type', 'dates'

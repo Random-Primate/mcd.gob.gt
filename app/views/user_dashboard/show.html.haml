@@ -7,6 +7,37 @@
       = current_user.email
 
   .col-md-8.col-md-offset-1
+    .row
+      .col-md-4
+        .panel.panel-info
+          .panel-heading
+            %h3.panel-title
+              = 'Solicitudes'
+          .panel-body
+            %canvas#cvssolicitudes{height: '450', width: '600'}
+              = 'Su navegador no es compatible, por favor descargue una nueva versión.'
+        .panel.panel-info
+          .panel-heading
+            %h3.panel-title
+              = 'Implementos Disponibles'
+          .panel-body
+            %canvas#cvssolicitudes2{height: '450', width: '600'}
+              = 'Su navegador no es compatible, por favor descargue una nueva versión.'
+      .col-md-8
+        .panel.panel-info
+          .panel-heading
+            %h3.panel-title
+              = 'Departamentos'
+          .panel-body
+            .col-md-11
+              = content_tag 'div', id: 'datos_deps', data: { departamentos: @deps_solis } do
+                %p.graph_desc
+                  = 'Solicitudes por Departamento.'
+                %p
+                  = 'Total de solicitudes: ' + @solicitudes.count.to_s
+              %canvas#cvsdeps{height: '450', width: '600'}
+                = 'Su navegador no es compatible, por favor descargue una nueva versión.'
+
     - if current_user.admin?
       .well
         %h1

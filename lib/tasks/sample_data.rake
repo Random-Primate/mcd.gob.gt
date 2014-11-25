@@ -176,14 +176,26 @@ namespace :db do
 
       def deliver
         Solicitud.all.each do |s|
-          y = rand(0..1)
-          if y == 1
+          y = rand(1..5)
+          if y == 1 # Entregar
             s.confirmar!
             s.no_gestion = rand(10000...100000)
             s.reservar!
             s.representante = Faker::Name.first_name + ' ' + Faker::Name.last_name
             s.fecha_entrega = Faker::Date.between(360.days.ago, 5.days.ago)
             s.entregar!
+          elsif y == 2 # Confirmar
+            s.confirmar!
+            s.no_gestion = rand(10000...100000)
+          elsif y == 3 # Reservar
+            s.confirmar!
+            s.no_gestion = rand(10000...100000)
+            s.reservar!
+          elsif y == 4 # Rechazar
+            s.confirmar!
+            s.no_gestion = rand(10000...100000)
+            s.rechazar!
+          # Else Pendiente
           end
         end
       end
