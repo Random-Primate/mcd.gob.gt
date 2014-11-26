@@ -36,7 +36,7 @@ class SolicitudsController < ApplicationController
     if @solicitud.save
       @solicitud.correlativo = set_correlativo(@solicitud)
       NewSolicitud.nueva_solicitud(@solicitud).deliver
-      @solicitud.save                             # IS this necessary?
+      @solicitud.save
       redirect_to controller: 'welcome', action: 'thankyou', id: @solicitud.id
     else
       render action: 'new'
